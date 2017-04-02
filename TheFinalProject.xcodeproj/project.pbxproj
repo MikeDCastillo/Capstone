@@ -12,9 +12,16 @@
 		7372414B1E4EBFD6006F6E49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737241491E4EBFD6006F6E49 /* Main.storyboard */; };
 		7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7372414C1E4EBFD6006F6E49 /* Assets.xcassets */; };
 		737241501E4EBFD6006F6E49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7372414E1E4EBFD6006F6E49 /* LaunchScreen.storyboard */; };
+		73BE1B541E8D5B0E0088CC03 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B501E8D5B0D0088CC03 /* Bolts.framework */; };
+		73BE1B551E8D5B0E0088CC03 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */; };
+		73BE1B561E8D5B0E0088CC03 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */; };
+		73BE1B571E8D5B0E0088CC03 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */; };
+		E1E79C49931F9C410D7F4825 /* Pods_TheFinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheFinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DE1F38CB73630BB438D71A4 /* Pods-TheFinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		737241421E4EBFD6006F6E49 /* TheFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737241451E4EBFD6006F6E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737241471E4EBFD6006F6E49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,11 @@
 		7372414C1E4EBFD6006F6E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7372414F1E4EBFD6006F6E49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		737241511E4EBFD6006F6E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73BE1B501E8D5B0D0088CC03 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "FacebookSDKs-iOS-4.20.2/Bolts.framework"; sourceTree = "<group>"; };
+		73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		DCF3435613629AF1B22F63E7 /* Pods-TheFinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E79C49931F9C410D7F4825 /* Pods_TheFinalProject.framework in Frameworks */,
+				73BE1B551E8D5B0E0088CC03 /* FBSDKCoreKit.framework in Frameworks */,
+				73BE1B571E8D5B0E0088CC03 /* FBSDKShareKit.framework in Frameworks */,
+				73BE1B561E8D5B0E0088CC03 /* FBSDKLoginKit.framework in Frameworks */,
+				73BE1B541E8D5B0E0088CC03 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +57,8 @@
 			children = (
 				737241441E4EBFD6006F6E49 /* TheFinalProject */,
 				737241431E4EBFD6006F6E49 /* Products */,
+				B4B9BF7B5A339C64C2E71A79 /* Pods */,
+				89CBE5B4DD597B1A638A17C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +81,26 @@
 				737241511E4EBFD6006F6E49 /* Info.plist */,
 			);
 			path = TheFinalProject;
+		89CBE5B4DD597B1A638A17C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73BE1B501E8D5B0D0088CC03 /* Bolts.framework */,
+				73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */,
+				73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */,
+				73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */,
+				736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */,
+				21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4B9BF7B5A339C64C2E71A79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4DE1F38CB73630BB438D71A4 /* Pods-TheFinalProject.debug.xcconfig */,
+				DCF3435613629AF1B22F63E7 /* Pods-TheFinalProject.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 737241541E4EBFD6006F6E49 /* Build configuration list for PBXNativeTarget "TheFinalProject" */;
 			buildPhases = (
+				4832AD7A0A1F0F97561D8550 /* [CP] Check Pods Manifest.lock */,
 				7372413E1E4EBFD6006F6E49 /* Sources */,
 				7372413F1E4EBFD6006F6E49 /* Frameworks */,
 				737241401E4EBFD6006F6E49 /* Resources */,
+				E216CDF926704F2A3400A338 /* [CP] Embed Pods Frameworks */,
+				4EEF4EDBA79DD2DFB29CD545 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,7 +138,13 @@
 				TargetAttributes = {
 					737241411E4EBFD6006F6E49 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4UKSSV9PZ8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -130,6 +178,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4832AD7A0A1F0F97561D8550 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4EEF4EDBA79DD2DFB29CD545 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E216CDF926704F2A3400A338 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7372413E1E4EBFD6006F6E49 /* Sources */ = {
@@ -258,8 +354,15 @@
 		};
 		737241551E4EBFD6006F6E49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DE1F38CB73630BB438D71A4 /* Pods-TheFinalProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheFinalProject/TheFinalProject.entitlements;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs-iOS-4.20.2",
+				);
 				INFOPLIST_FILE = TheFinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikeC.TheFinalProject;
@@ -270,8 +373,15 @@
 		};
 		737241561E4EBFD6006F6E49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCF3435613629AF1B22F63E7 /* Pods-TheFinalProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheFinalProject/TheFinalProject.entitlements;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FacebookSDKs-iOS-4.20.2",
+				);
 				INFOPLIST_FILE = TheFinalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikeC.TheFinalProject;
@@ -299,6 +409,7 @@
 				737241561E4EBFD6006F6E49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
