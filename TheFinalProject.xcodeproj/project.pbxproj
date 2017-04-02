@@ -7,11 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733ED1C21E8DFB5A006DBCCD /* FBLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */; };
+		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
+		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
 		737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737241451E4EBFD6006F6E49 /* AppDelegate.swift */; };
-		737241481E4EBFD6006F6E49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737241471E4EBFD6006F6E49 /* ViewController.swift */; };
 		7372414B1E4EBFD6006F6E49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737241491E4EBFD6006F6E49 /* Main.storyboard */; };
 		7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7372414C1E4EBFD6006F6E49 /* Assets.xcassets */; };
 		737241501E4EBFD6006F6E49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7372414E1E4EBFD6006F6E49 /* LaunchScreen.storyboard */; };
+		7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E0461E90A9B500EEB6FE /* Controller.swift */; };
+		73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */; };
+		73A6C7261E862B3300751051 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7251E862B3300751051 /* DateHelper.swift */; };
+		73B5A1B81E6CBA5400ED8EDB /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1B71E6CBA5400ED8EDB /* Meme.swift */; };
+		73B5A1BA1E6CBA7700ED8EDB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1B91E6CBA7700ED8EDB /* User.swift */; };
+		73B5A1BC1E6CBAD300ED8EDB /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1BB1E6CBAD300ED8EDB /* Submission.swift */; };
+		73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1BD1E6CBB0B00ED8EDB /* Vote.swift */; };
+		73BE1B261E8A28F90088CC03 /* MemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE1B251E8A28F90088CC03 /* MemeController.swift */; };
+		73BE1B281E8A292D0088CC03 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE1B271E8A292D0088CC03 /* UserController.swift */; };
+		73BE1B2A1E8A29330088CC03 /* SubmissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE1B291E8A29330088CC03 /* SubmissionController.swift */; };
+		73BE1B2C1E8A293B0088CC03 /* VoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE1B2B1E8A293B0088CC03 /* VoteController.swift */; };
 		73BE1B541E8D5B0E0088CC03 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B501E8D5B0D0088CC03 /* Bolts.framework */; };
 		73BE1B551E8D5B0E0088CC03 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */; };
 		73BE1B561E8D5B0E0088CC03 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */; };
@@ -22,13 +35,27 @@
 /* Begin PBXFileReference section */
 		21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheFinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1F38CB73630BB438D71A4 /* Pods-TheFinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.debug.xcconfig"; sourceTree = "<group>"; };
+		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
+		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
+		736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
 		737241421E4EBFD6006F6E49 /* TheFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737241451E4EBFD6006F6E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		737241471E4EBFD6006F6E49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7372414A1E4EBFD6006F6E49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7372414C1E4EBFD6006F6E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7372414F1E4EBFD6006F6E49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		737241511E4EBFD6006F6E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7396E0461E90A9B500EEB6FE /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FirebaseController+Meme.swift"; sourceTree = "<group>"; };
+		73A6C7251E862B3300751051 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		73B5A1B71E6CBA5400ED8EDB /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		73B5A1B91E6CBA7700ED8EDB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		73B5A1BB1E6CBAD300ED8EDB /* Submission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
+		73B5A1BD1E6CBB0B00ED8EDB /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		73BE1B251E8A28F90088CC03 /* MemeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeController.swift; sourceTree = "<group>"; };
+		73BE1B271E8A292D0088CC03 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		73BE1B291E8A29330088CC03 /* SubmissionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionController.swift; sourceTree = "<group>"; };
+		73BE1B2B1E8A293B0088CC03 /* VoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteController.swift; sourceTree = "<group>"; };
 		73BE1B501E8D5B0D0088CC03 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "FacebookSDKs-iOS-4.20.2/Bolts.framework"; sourceTree = "<group>"; };
 		73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
@@ -73,14 +100,61 @@
 		737241441E4EBFD6006F6E49 /* TheFinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */,
 				737241451E4EBFD6006F6E49 /* AppDelegate.swift */,
-				737241471E4EBFD6006F6E49 /* ViewController.swift */,
-				737241491E4EBFD6006F6E49 /* Main.storyboard */,
-				7372414C1E4EBFD6006F6E49 /* Assets.xcassets */,
-				7372414E1E4EBFD6006F6E49 /* LaunchScreen.storyboard */,
-				737241511E4EBFD6006F6E49 /* Info.plist */,
+				733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */,
+				73B5A1B31E6CB9DF00ED8EDB /* Model */,
+				73B5A1B61E6CB9FF00ED8EDB /* View */,
+				73B5A1B51E6CB9F600ED8EDB /* Controllers */,
+				73B5A1B41E6CB9F000ED8EDB /* Resources */,
 			);
 			path = TheFinalProject;
+			sourceTree = "<group>";
+		};
+		73B5A1B31E6CB9DF00ED8EDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				73B5A1B91E6CBA7700ED8EDB /* User.swift */,
+				73B5A1B71E6CBA5400ED8EDB /* Meme.swift */,
+				73B5A1BD1E6CBB0B00ED8EDB /* Vote.swift */,
+				73B5A1BB1E6CBAD300ED8EDB /* Submission.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		73B5A1B41E6CB9F000ED8EDB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73A6C7251E862B3300751051 /* DateHelper.swift */,
+				737241511E4EBFD6006F6E49 /* Info.plist */,
+				7372414C1E4EBFD6006F6E49 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		73B5A1B51E6CB9F600ED8EDB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				73BE1B271E8A292D0088CC03 /* UserController.swift */,
+				73BE1B251E8A28F90088CC03 /* MemeController.swift */,
+				73BE1B291E8A29330088CC03 /* SubmissionController.swift */,
+				73BE1B2B1E8A293B0088CC03 /* VoteController.swift */,
+				736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */,
+				73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */,
+				7396E0461E90A9B500EEB6FE /* Controller.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		73B5A1B61E6CB9FF00ED8EDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				737241491E4EBFD6006F6E49 /* Main.storyboard */,
+				7372414E1E4EBFD6006F6E49 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		89CBE5B4DD597B1A638A17C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */,
 				737241501E4EBFD6006F6E49 /* LaunchScreen.storyboard in Resources */,
 				7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */,
 				7372414B1E4EBFD6006F6E49 /* Main.storyboard in Resources */,
@@ -232,8 +307,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				737241481E4EBFD6006F6E49 /* ViewController.swift in Sources */,
+				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
+				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
+				73BE1B281E8A292D0088CC03 /* UserController.swift in Sources */,
+				73BE1B2A1E8A29330088CC03 /* SubmissionController.swift in Sources */,
+				73B5A1BC1E6CBAD300ED8EDB /* Submission.swift in Sources */,
 				737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */,
+				73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */,
+				73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */,
+				733ED1C21E8DFB5A006DBCCD /* FBLogin.swift in Sources */,
+				73B5A1B81E6CBA5400ED8EDB /* Meme.swift in Sources */,
+				73BE1B2C1E8A293B0088CC03 /* VoteController.swift in Sources */,
+				73BE1B261E8A28F90088CC03 /* MemeController.swift in Sources */,
+				73B5A1BA1E6CBA7700ED8EDB /* User.swift in Sources */,
+				7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
