@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+protocol Controller { }
+
+extension Controller {
+    
+    var firebaseController: FirebaseController {
+        return FirebaseController()
+    }
+    
+}

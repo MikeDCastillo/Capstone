@@ -1,0 +1,68 @@
+//
+//  UserController.swift
+//
+//
+//  Created by Michael Castillo on 3/27/17.
+//
+//
+
+import UIKit
+import FirebaseDatabase
+
+class UserController: Controller {
+    
+    static let shared = UserController()
+    
+    var currentUser: User?
+    
+}
+
+// MARK: - CRUD Functions
+
+
+extension UserController {
+    
+    func createUser(username: String, avatarURLString: String?, completion: ((Error?) -> Void)?) {
+        let newUserRef = firebaseController.usersRef.childByAutoId()
+        let user = User(id: newUserRef.key, creationDate: Date(), avatarURLString: avatarURLString, username: username)
+        
+        firebaseController.save(at: newUserRef, json: user.json()) { error in
+            completion?(error)
+            
+            if let error = error {
+                print(error.localizedDescription, "\(#line)")
+            } else {
+                self.currentUser = user
+            }
+        }
+    }
+    
+    func updateUser(_ user: User) {
+        let ref =  firebaseController.usersRef.child(user.id)
+        firebaseController.save(at: ref, json: user.json()) { error in
+            guard error == nil else { print("error saving user: \(error.debugDescription)"); return }
+            self.currentUser = user
+        }
+    }
+    
+    func getUser(withId id: String, completion: @escaping ((User?) -> Void)) {
+        let ref = firebaseController.usersRef.child(id)
+        ref.observeSingleEvent(of: .value, with: { snap in
+            if let snapJSON = snap.value as? JSONObject, let user = try? User(json: snapJSON) {
+                completion(user)
+            } else {
+                print("Error retrieving user with id: \(id)")
+            }
+        })
+    }
+    
+    func deleteUser(withId id: String) {
+        let ref = firebaseController.usersRef.child(id)
+        firebaseController.delete(at: ref) { error in
+            if let error = error {
+                print("Error deleting user with id: \(id) ERROR: \(error)")
+            }
+        }
+    }
+    
+}

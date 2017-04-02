@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct VoteController {
+    
+    static let shared = VoteController()
+    
+    func addUpVote() {}
+    
+    func addDownVote() {}
+    
+    func addWildCardVote() {}
+    
+}
