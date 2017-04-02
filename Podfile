@@ -11,5 +11,6 @@ pod 'Firebase/Database'
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
+pod 'Kingfisher'
 
 end
