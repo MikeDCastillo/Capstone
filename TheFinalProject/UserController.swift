@@ -47,13 +47,16 @@ extension UserController {
     
     func getUser(withId id: String, completion: @escaping ((User?) -> Void)) {
         let ref = firebaseController.usersRef.child(id)
-        ref.observeSingleEvent(of: .value, with: { snap in
-            if let snapJSON = snap.value as? JSONObject, let user = try? User(json: snapJSON) {
+        firebaseController.getData(at: ref) { result in
+            switch result {
+            case .success(let json):
+                let user = try? User(json: json)
                 completion(user)
-            } else {
-                print("Error retrieving user with id: \(id)")
+            case .failure(let error):
+                print("\(error)")
+                completion(nil)
             }
-        })
+        }
     }
     
     func deleteUser(withId id: String) {

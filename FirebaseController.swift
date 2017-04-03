@@ -10,12 +10,18 @@ import UIKit
 import FirebaseCore
 import FirebaseDatabase
 
+typealias JSONObject = [String: Any]
+
 enum Result<T> {
     case success(T)
     case failure(Error)
 }
 
-typealias JSONObject = [String: Any]
+protocol Identifiable: JSONExportable, JSONInitializable {
+    var id: String { get set }
+    var ref: FIRDatabaseReference { get }
+}
+
 
 protocol JSONExportable {
     func json() -> JSONObject
@@ -50,9 +56,22 @@ struct FirebaseController {
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if let snap = snapshot.value as? JSONObject, snapshot.exists() {
                 completion?(Result.success(snap))
+            } else {
+                completion?(Result.failure(JSONError.typeMismatch))
             }
         })
     }
+    
+    func getData(with query: FIRDatabaseQuery, completion: ((Result<JSONObject>) -> Void)?) {
+        query.observeSingleEvent(of: .value, with: { snapshot in
+            if let snap = snapshot.value as? JSONObject, snapshot.exists() {
+                completion?(Result.success(snap))
+            } else {
+                completion?(Result.failure(JSONError.typeMismatch))
+            }
+        })
+    }
+
     /*
  
      REFS

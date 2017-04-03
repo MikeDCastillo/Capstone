@@ -8,14 +8,20 @@
 
 import UIKit
 
-
 struct Meme {
     var id: String
     var datePosted: Date
-    var imageURLString: String
+    var imageURL: URL
     var entries: [String]
     var winnerID: String?
     
+    init(id: String, datePosted: Date = Date(), imageURL: URL, entries: [String] = [], winnerID: String? = nil ) {
+        self.id = id
+        self.datePosted = datePosted
+        self.imageURL = imageURL
+        self.entries = entries
+        self.winnerID = winnerID
+    }
 }
 
 extension Meme: JSONExportable {
@@ -24,8 +30,8 @@ extension Meme: JSONExportable {
         var jsonDictionary = [String: Any]()
         
         jsonDictionary["id"] = id
-        jsonDictionary["date"] = datePosted.fullDateString
-        jsonDictionary["imageURLString"] = imageURLString
+        jsonDictionary["date"] = datePosted.dayString
+        jsonDictionary["imageURL"] = imageURL.absoluteString
         jsonDictionary["entries"] = entries
         jsonDictionary["winnerID"] = winnerID
         
@@ -38,16 +44,17 @@ extension Meme: JSONInitializable {
 
     init(json: JSONObject) throws {
         guard let id = json["id"] as? String else { throw JSONError.keyMismatch("id") }
-        guard let datePostedString = json["dateposted"] as? String else { throw JSONError.keyMismatch("datePosted") }
+        guard let datePostedString = json["date"] as? String else { throw JSONError.keyMismatch("date") }
         guard let datePosted = Date(dateString: datePostedString) else { throw JSONError.typeMismatch }
-        guard let imageURLString = json["imageURLString"] as? String else { throw JSONError.keyMismatch("imageURLString") }
-        guard let entries = json["entries"] as? [String] else { throw JSONError.keyMismatch("entries") }
-        guard let winnerID = json["winnerID"] as? String else { throw JSONError.keyMismatch("winnerID") }
+        guard let imageURLString = json["imageURL"] as? String else { throw JSONError.keyMismatch("imageURLString") }
+        guard let imageURL = URL(string: imageURLString) else  { throw JSONError.typeMismatch }
+        let entries = json["entries"] as? [String]
+        let winnerID = json["winnerID"] as? String
         
         self.id = id
         self.datePosted = datePosted
-        self.imageURLString = imageURLString
-        self.entries = entries
+        self.imageURL = imageURL
+        self.entries = entries ?? []
         self.winnerID = winnerID
         
     }

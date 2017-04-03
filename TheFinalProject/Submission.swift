@@ -34,7 +34,7 @@ enum TextColor: String {
     
 }
 
-struct Submission: /* Hashable */ {
+struct Submission /* Hashable */ {
     // var memeId: String
     var id: String
     var userId: String

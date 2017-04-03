@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		732B3A2A1E91DDBC002B31A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A291E91DDBC002B31A9 /* ViewController.swift */; };
+		732B3A2C1E91EF93002B31A9 /* MemeAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A2B1E91EF93002B31A9 /* MemeAPIAccess.swift */; };
 		733ED1C21E8DFB5A006DBCCD /* FBLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */; };
 		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
@@ -35,8 +37,11 @@
 /* Begin PBXFileReference section */
 		21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheFinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1F38CB73630BB438D71A4 /* Pods-TheFinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.debug.xcconfig"; sourceTree = "<group>"; };
+		732B3A291E91DDBC002B31A9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		732B3A2B1E91EF93002B31A9 /* MemeAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeAPIAccess.swift; sourceTree = "<group>"; };
 		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
 		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
+		7346CF251E90B81F003AE04E /* GenericController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericController.swift; sourceTree = "<group>"; };
 		736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
 		737241421E4EBFD6006F6E49 /* TheFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +133,7 @@
 				73A6C7251E862B3300751051 /* DateHelper.swift */,
 				737241511E4EBFD6006F6E49 /* Info.plist */,
 				7372414C1E4EBFD6006F6E49 /* Assets.xcassets */,
+				732B3A2B1E91EF93002B31A9 /* MemeAPIAccess.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -135,13 +141,14 @@
 		73B5A1B51E6CB9F600ED8EDB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				73BE1B271E8A292D0088CC03 /* UserController.swift */,
-				73BE1B251E8A28F90088CC03 /* MemeController.swift */,
-				73BE1B291E8A29330088CC03 /* SubmissionController.swift */,
-				73BE1B2B1E8A293B0088CC03 /* VoteController.swift */,
+				7396E0461E90A9B500EEB6FE /* Controller.swift */,
 				736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */,
 				73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */,
-				7396E0461E90A9B500EEB6FE /* Controller.swift */,
+				7346CF251E90B81F003AE04E /* GenericController.swift */,
+				73BE1B251E8A28F90088CC03 /* MemeController.swift */,
+				73BE1B291E8A29330088CC03 /* SubmissionController.swift */,
+				73BE1B271E8A292D0088CC03 /* UserController.swift */,
+				73BE1B2B1E8A293B0088CC03 /* VoteController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -151,6 +158,7 @@
 			children = (
 				737241491E4EBFD6006F6E49 /* Main.storyboard */,
 				7372414E1E4EBFD6006F6E49 /* LaunchScreen.storyboard */,
+				732B3A291E91DDBC002B31A9 /* ViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				732B3A2A1E91DDBC002B31A9 /* ViewController.swift in Sources */,
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
 				73BE1B281E8A292D0088CC03 /* UserController.swift in Sources */,
@@ -320,6 +329,7 @@
 				73BE1B2C1E8A293B0088CC03 /* VoteController.swift in Sources */,
 				73BE1B261E8A28F90088CC03 /* MemeController.swift in Sources */,
 				73B5A1BA1E6CBA7700ED8EDB /* User.swift in Sources */,
+				732B3A2C1E91EF93002B31A9 /* MemeAPIAccess.swift in Sources */,
 				7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

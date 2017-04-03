@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8gP-3b-Jmr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8gP-3b-Jmr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,7 +83,7 @@
         <!--View Controller-->
         <scene sceneID="I3b-rx-kQb">
             <objects>
-                <viewController id="hi1-qI-SWU" sceneMemberID="viewController">
+                <viewController id="hi1-qI-SWU" customClass="ViewController" customModule="TheFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wzB-Uf-olr"/>
                         <viewControllerLayoutGuide type="bottom" id="XED-5a-6BR"/>
@@ -90,9 +91,23 @@
                     <view key="view" contentMode="scaleToFill" id="B98-DS-SUK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YLU-ke-WU4">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YLU-ke-WU4" firstAttribute="centerY" secondItem="B98-DS-SUK" secondAttribute="centerY" id="dr9-hg-MCt"/>
+                            <constraint firstItem="YLU-ke-WU4" firstAttribute="centerX" secondItem="B98-DS-SUK" secondAttribute="centerX" id="fLg-ed-lwN"/>
+                            <constraint firstItem="YLU-ke-WU4" firstAttribute="leading" secondItem="B98-DS-SUK" secondAttribute="leadingMargin" constant="51" id="rFi-93-Clb"/>
+                            <constraint firstItem="YLU-ke-WU4" firstAttribute="top" secondItem="wzB-Uf-olr" secondAttribute="bottom" constant="205" id="uyV-w9-2y7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q8B-cE-vZ5"/>
+                    <connections>
+                        <outlet property="imageView" destination="YLU-ke-WU4" id="AR5-B2-UOJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQt-5a-Qfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,6 +192,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lb4-8V-tef"/>
+        <segue reference="Qw6-pV-RHm"/>
     </inferredMetricsTieBreakers>
 </document>

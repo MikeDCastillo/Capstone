@@ -7,19 +7,63 @@
 //
 
 import UIKit
+import Firebase
 
-struct MemeController: Controller {
+class MemeController: Controller {
     
     static let shared = MemeController()
     
-    var memes = [Meme]()
-    
-    func getMeme(forDate date: Date = Date(), completion: (Meme?) -> Void)   {
-    
+    var meme: Meme? {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name("memeUpdated"), object: meme)
+        }
     }
     
-    func loadMeme() {}
+    func createMeme() {
+        MemeAPIAccess.getNewMemeURL { (url) in
+            if let url = url {
+                let ref = firebaseController.memesRef.childByAutoId()
+            let newMeme = Meme(id: ref.key, imageURL: url)
+                firebaseController.save(at: ref, json: newMeme.json(), completion: { (error) in
+                        if let error = error{
+                            print(error.localizedDescription)
+                        } else {
+                            self.subscribeToMeme(newMeme.id)
+                    }
+                })
+            }
+        }
+    }
     
-    func deleteMeme() {}
+    func subscribeToMeme(_ memeID: String) {
+        let ref = firebaseController.memesRef.child(memeID)
+        ref.observe(.value, with: { snap in
+            if let snapJSON = snap.value as? JSONObject, let meme = try? Meme(json: snapJSON) {
+                self.meme = meme
+            } else {
+                print("error subscribing to daily meme")
+            }
+        })
+    }
+    
+    func getAllMemes(forDate date: Date = Date(), completion: (Meme?) -> Void) {
+    }
+    
+    func getTodaysMeme() {
+        
+        let todayString = Date().dayString
+        let query = firebaseController.memesRef.queryOrdered(byChild: "date").queryEqual(toValue: todayString)
+        firebaseController.getData(with: query) { (result) in
+            if case let .success(json) = result, let memeID = json.keys.first {
+                self.subscribeToMeme(memeID)
+            } else {
+                self.createMeme()
+            }
+        }
+    }
+    
+}
+
+extension NSNotification.Name {
     
 }

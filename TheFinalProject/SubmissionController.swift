@@ -12,13 +12,8 @@ struct SubmissionController: Controller {
 
     static let shared = SubmissionController()
     
-    var submissions = Set<Submission>()
+    var submissions = [Submission]()
     
-    func submissions(forMeme meme: Meme) {
-        return submissions.filter { $0.memeId == meme.id }
-    }
-    
-    let submissionForMeme = SubmissionController.shared.submissions[memeId]
     func saveSubmission() {}
     
     func loadSubmission() {}

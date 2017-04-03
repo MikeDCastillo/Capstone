@@ -16,9 +16,9 @@ extension FirebaseController {
         return rootRef.child("users")
     }
     
-    /// rootRef/dailyMeme
-    var dailyMemesRef: FIRDatabaseReference {
-        return rootRef.child("dailyMemesRef")
+    /// rootRef/meme
+    var memesRef: FIRDatabaseReference {
+        return rootRef.child("meme")
     }
     
     /// rootRef/submissions
