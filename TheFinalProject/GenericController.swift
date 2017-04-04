@@ -13,7 +13,7 @@ class GenericController: Controller {
     
     func updateObject<T: Identifiable>(object: T) {
         firebaseController.save(at: object.ref, json: object.json()) { error in
-            <#code#>
+            
         }
     }
 

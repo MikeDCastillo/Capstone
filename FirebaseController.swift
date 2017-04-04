@@ -71,6 +71,16 @@ struct FirebaseController {
             }
         })
     }
+    
+    func subscribe(toRef ref: FIRDatabaseReference, completion: ((Result<JSONObject>) -> Void)?) {
+        ref.observe(.value, with: { snapshot in
+            if let snap = snapshot.value as? JSONObject {
+                completion?(Result.success(snap))
+            } else {
+                completion?(Result.failure(JSONError.typeMismatch))
+            }
+        })
+    }
 
     /*
  

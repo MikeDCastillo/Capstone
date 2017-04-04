@@ -11,9 +11,8 @@ import Kingfisher
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var imageView: UIImageView!
-    
+//    let collectionView = UICollectionView()
     let memeController = MemeController.shared
     
     var todaysMeme: Meme? {
@@ -23,6 +22,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         memeController.getTodaysMeme()
+        
+        //FIXME: -  uncomment these
+        
+//        let nibId = String(describing: SubmissionCollectionViewCell.self)
+//        let nib = UINib(nibName: nibId, bundle: nil)
+//        collectionView.register(nib, forCellWithReuseIdentifier: nibId)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -8,13 +8,23 @@
 
 import Foundation
 
-struct VoteController {
+class VoteController: Controller {
     
     static let shared = VoteController()
     
-    func addUpVote() {}
+
     
-    func addDownVote() {}
+    var vote: Vote? {
+        didSet{
+            NotificationCenter.default.post(name: NSNotification.Name("voteUpdated"), object: vote)
+        }
+    }
+    
+    func UpVote(like: Vote) {
+     
+    }
+    
+    func DownVote() {}
     
     func addWildCardVote() {}
     

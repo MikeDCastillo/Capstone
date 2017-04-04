@@ -15,7 +15,7 @@ class MemeController: Controller {
     
     var meme: Meme? {
         didSet {
-            NotificationCenter.default.post(name: NSNotification.Name("memeUpdated"), object: meme)
+            NotificationCenter.default.post(name: .todaysMemeUpdated, object: meme)
         }
     }
     
@@ -64,6 +64,3 @@ class MemeController: Controller {
     
 }
 
-extension NSNotification.Name {
-    
-}
