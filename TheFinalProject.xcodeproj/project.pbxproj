@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		732B3A2A1E91DDBC002B31A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A291E91DDBC002B31A9 /* ViewController.swift */; };
-		732B3A2C1E91EF93002B31A9 /* MemeAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A2B1E91EF93002B31A9 /* MemeAPIAccess.swift */; };
 		732B3A321E928940002B31A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A2E1E928940002B31A9 /* LaunchScreen.storyboard */; };
 		732B3A331E928940002B31A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A301E928940002B31A9 /* Main.storyboard */; };
 		732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */; };
@@ -18,6 +17,9 @@
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
 		737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737241451E4EBFD6006F6E49 /* AppDelegate.swift */; };
 		7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7372414C1E4EBFD6006F6E49 /* Assets.xcassets */; };
+		7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */; };
+		7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */; };
+		7384B4891EBAF136005F4E4B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4881EBAF136005F4E4B /* Generator.swift */; };
 		7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E0461E90A9B500EEB6FE /* Controller.swift */; };
 		73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */; };
 		73A6C7261E862B3300751051 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7251E862B3300751051 /* DateHelper.swift */; };
@@ -26,6 +28,7 @@
 		73B5A1BC1E6CBAD300ED8EDB /* Submission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1BB1E6CBAD300ED8EDB /* Submission.swift */; };
 		73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1BD1E6CBB0B00ED8EDB /* Vote.swift */; };
 		73BDFCD81E9365C70019CB57 /* NSNotification+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFCD71E9365C70019CB57 /* NSNotification+Meme.swift */; };
+		73BDFCDC1E9458400019CB57 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFCDB1E9458400019CB57 /* NetworkController.swift */; };
 		73BE1B261E8A28F90088CC03 /* MemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE1B251E8A28F90088CC03 /* MemeController.swift */; };
 		73BE1B281E8A292D0088CC03 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE1B271E8A292D0088CC03 /* UserController.swift */; };
 		73BE1B2A1E8A29330088CC03 /* SubmissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE1B291E8A29330088CC03 /* SubmissionController.swift */; };
@@ -41,20 +44,21 @@
 		21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheFinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1F38CB73630BB438D71A4 /* Pods-TheFinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		732B3A291E91DDBC002B31A9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		732B3A2B1E91EF93002B31A9 /* MemeAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeAPIAccess.swift; sourceTree = "<group>"; };
 		732B3A2F1E928940002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		732B3A311E928940002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		732B3A351E928A08002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SubmissionCollectionViewCell.xib; sourceTree = "<group>"; };
 		732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionCollectionViewCell.swift; sourceTree = "<group>"; };
 		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
 		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
-		7346CF251E90B81F003AE04E /* GenericController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericController.swift; sourceTree = "<group>"; };
 		736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
 		737241421E4EBFD6006F6E49 /* TheFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737241451E4EBFD6006F6E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7372414C1E4EBFD6006F6E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737241511E4EBFD6006F6E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
+		7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkController+Meme.swift"; sourceTree = "<group>"; };
+		7384B4881EBAF136005F4E4B /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		7396E0461E90A9B500EEB6FE /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FirebaseController+Meme.swift"; sourceTree = "<group>"; };
 		73A6C7251E862B3300751051 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 		73B5A1BB1E6CBAD300ED8EDB /* Submission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Submission.swift; sourceTree = "<group>"; };
 		73B5A1BD1E6CBB0B00ED8EDB /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		73BDFCD71E9365C70019CB57 /* NSNotification+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+Meme.swift"; sourceTree = "<group>"; };
+		73BDFCDB1E9458400019CB57 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		73BE1B251E8A28F90088CC03 /* MemeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeController.swift; sourceTree = "<group>"; };
 		73BE1B271E8A292D0088CC03 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		73BE1B291E8A29330088CC03 /* SubmissionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionController.swift; sourceTree = "<group>"; };
@@ -136,10 +141,11 @@
 		73B5A1B31E6CB9DF00ED8EDB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73B5A1B91E6CBA7700ED8EDB /* User.swift */,
+				7384B4881EBAF136005F4E4B /* Generator.swift */,
 				73B5A1B71E6CBA5400ED8EDB /* Meme.swift */,
-				73B5A1BD1E6CBB0B00ED8EDB /* Vote.swift */,
 				73B5A1BB1E6CBAD300ED8EDB /* Submission.swift */,
+				73B5A1B91E6CBA7700ED8EDB /* User.swift */,
+				73B5A1BD1E6CBB0B00ED8EDB /* Vote.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -151,7 +157,6 @@
 				73A6C7251E862B3300751051 /* DateHelper.swift */,
 				737241511E4EBFD6006F6E49 /* Info.plist */,
 				7372414C1E4EBFD6006F6E49 /* Assets.xcassets */,
-				732B3A2B1E91EF93002B31A9 /* MemeAPIAccess.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -161,8 +166,10 @@
 			children = (
 				7396E0461E90A9B500EEB6FE /* Controller.swift */,
 				736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */,
+				7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */,
 				73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */,
-				7346CF251E90B81F003AE04E /* GenericController.swift */,
+				73BDFCDB1E9458400019CB57 /* NetworkController.swift */,
+				7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */,
 				73BE1B251E8A28F90088CC03 /* MemeController.swift */,
 				73BE1B291E8A29330088CC03 /* SubmissionController.swift */,
 				73BE1B271E8A292D0088CC03 /* UserController.swift */,
@@ -335,21 +342,24 @@
 			files = (
 				732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */,
 				732B3A2A1E91DDBC002B31A9 /* ViewController.swift in Sources */,
+				7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */,
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
 				73BE1B281E8A292D0088CC03 /* UserController.swift in Sources */,
 				73BE1B2A1E8A29330088CC03 /* SubmissionController.swift in Sources */,
+				7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */,
 				73B5A1BC1E6CBAD300ED8EDB /* Submission.swift in Sources */,
 				737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */,
 				73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */,
+				73BDFCDC1E9458400019CB57 /* NetworkController.swift in Sources */,
 				73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */,
 				733ED1C21E8DFB5A006DBCCD /* FBLogin.swift in Sources */,
 				73BDFCD81E9365C70019CB57 /* NSNotification+Meme.swift in Sources */,
 				73B5A1B81E6CBA5400ED8EDB /* Meme.swift in Sources */,
 				73BE1B2C1E8A293B0088CC03 /* VoteController.swift in Sources */,
 				73BE1B261E8A28F90088CC03 /* MemeController.swift in Sources */,
+				7384B4891EBAF136005F4E4B /* Generator.swift in Sources */,
 				73B5A1BA1E6CBA7700ED8EDB /* User.swift in Sources */,
-				732B3A2C1E91EF93002B31A9 /* MemeAPIAccess.swift in Sources */,
 				7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

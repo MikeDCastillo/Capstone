@@ -40,8 +40,13 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jX6-s6-vFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="CLz-N0-1cd">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-178.40000000000001" y="681.40929535232385"/>
+            <point key="canvasLocation" x="214" y="988"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JgM-VV-smz">
@@ -65,6 +70,7 @@
         <!--Facebook Login Modal View Controller-->
         <scene sceneID="KMf-5d-Ke8">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="46M-Za-txH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="CVx-wg-ESB" customClass="FacebookLoginModalViewController" customModule="TheFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3v2-I7-r5T"/>
@@ -76,7 +82,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="46M-Za-txH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1524" y="-450"/>
         </scene>
@@ -192,6 +197,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Qw6-pV-RHm"/>
+        <segue reference="Lb4-8V-tef"/>
     </inferredMetricsTieBreakers>
 </document>

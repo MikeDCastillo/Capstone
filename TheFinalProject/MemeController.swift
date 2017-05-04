@@ -12,26 +12,11 @@ import Firebase
 class MemeController: Controller {
     
     static let shared = MemeController()
+    let networkController = NetworkController()
     
     var meme: Meme? {
         didSet {
             NotificationCenter.default.post(name: .todaysMemeUpdated, object: meme)
-        }
-    }
-    
-    func createMeme() {
-        MemeAPIAccess.getNewMemeURL { (url) in
-            if let url = url {
-                let ref = firebaseController.memesRef.childByAutoId()
-            let newMeme = Meme(id: ref.key, imageURL: url)
-                firebaseController.save(at: ref, json: newMeme.json(), completion: { (error) in
-                        if let error = error{
-                            print(error.localizedDescription)
-                        } else {
-                            self.subscribeToMeme(newMeme.id)
-                    }
-                })
-            }
         }
     }
     
@@ -50,17 +35,31 @@ class MemeController: Controller {
     }
     
     func getTodaysMeme() {
-        
         let todayString = Date().dayString
         let query = firebaseController.memesRef.queryOrdered(byChild: "date").queryEqual(toValue: todayString)
         firebaseController.getData(with: query) { (result) in
             if case let .success(json) = result, let memeID = json.keys.first {
                 self.subscribeToMeme(memeID)
             } else {
-                self.createMeme()
+                self.generateMemeFromAPI()
+            }
+        }
+    }
+    
+    func generateMemeFromAPI() {
+        guard let generatorsURL = networkController.generatorsURL else { return }
+        
+        networkController.performRequest(for: generatorsURL, urlParameters: nil) { (json, error) in
+            if let json = json, error == nil {
+                guard let generatorObjects = json["results"] as? [JSONObject] else {self.meme = nil; return }
+                    
+            } else {
+                self.meme = nil
+                print("no Meme")
             }
         }
     }
     
 }
+
 

@@ -19,8 +19,9 @@ class SubmissionController: Controller {
     }
     
     
-    func createFakeSubmission(withMemeId id: Meme) {
-    
+    func createFakeSubmission(withMemeId id: String) {
+        let memeId = firebaseController.submissionsRef(memeId: id).description()
+        
     }
     
     func saveSubmission(_ submission: Submission) {
