@@ -32,14 +32,14 @@ protocol JSONInitializable {
 }
 
 enum JSONError: Error {
-    case keyMismatch(String) 
+    case keyMismatch(String)
     case typeMismatch
 }
 
 struct FirebaseController {
     
     let rootRef = FIRDatabase.database().reference()
- 
+    
     func save(at ref: FIRDatabaseReference, json: JSONObject, completion: ((Error?) -> Void)?) {
         ref.updateChildValues(json) { error, ref in
             completion?(error)
@@ -81,9 +81,9 @@ struct FirebaseController {
             }
         })
     }
-
+    
     /*
- 
+     
      REFS
      child(String) - new reference one level deeper with that child name
      childByAutoId -> New reference with auto generated key
@@ -91,13 +91,13 @@ struct FirebaseController {
      CREATE/UPDATE
      setValue -> Saves and OVERRIDES data at the reference including all child values.
      updateChildValues -> UPDATES the data at the ref without overriding existing data or child values
-
+     
      DELETE
      removeValue -> Deletes everything
      
      SUBSCRIPTION
      observeValue(completion (FIRDataSnapshot))
-
      
- */
+     
+     */
 }

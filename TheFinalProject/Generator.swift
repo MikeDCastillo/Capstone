@@ -18,12 +18,17 @@ struct Generator: JSONInitializable, JSONExportable {
     }
     
     init(json: JSONObject) throws {
-        self.id = 1
-        self.imageURLString = ""
+        guard let id = json["generatorID"] as? Int else { throw JSONError.keyMismatch("generatorID") }
+        guard let imageURLString = json["imageUrl"] as? String else { throw JSONError.keyMismatch("imageUrl") }
+        self.id = id
+        self.imageURLString = imageURLString
     }
     
     func json() -> JSONObject {
-        return JSONObject()
+        var json = JSONObject()
+        json["id"] = id
+        json["imageUrl"] = imageURLString
+        return json
     }
     
 }

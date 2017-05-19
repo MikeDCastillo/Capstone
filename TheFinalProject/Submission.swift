@@ -84,5 +84,3 @@ extension Submission: JSONInitializable {
     
 }
 
-
-

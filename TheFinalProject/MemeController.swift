@@ -51,13 +51,30 @@ class MemeController: Controller {
         
         networkController.performRequest(for: generatorsURL, urlParameters: nil) { (json, error) in
             if let json = json, error == nil {
-                guard let generatorObjects = json["results"] as? [JSONObject] else {self.meme = nil; return }
-                    
+                guard let generatorObjects = json["result"] as? [JSONObject] else {self.meme = nil; return }
+                let generators = generatorObjects.flatMap { try? Generator(json: $0) }
+                let randomIndex = Int(arc4random_uniform(UInt32(generators.count - 1)))
+                let selectedGenerator = generators[randomIndex]
+                self.saveMeme(from: selectedGenerator)
             } else {
                 self.meme = nil
+                dump(error)
                 print("no Meme")
             }
         }
+    }
+    
+    func saveMeme(from generator: Generator) {
+        guard let generatorURL = generator.imageURL else { return }
+        let ref = firebaseController.memesRef.childByAutoId()
+        let newMeme = Meme(id: ref.key, imageURL: generatorURL)
+        firebaseController.save(at: ref, json: newMeme.json(), completion: { (error) in
+            if let error = error{
+                print(error.localizedDescription)
+            } else {
+                self.subscribeToMeme(newMeme.id)
+            }
+        })
     }
     
 }

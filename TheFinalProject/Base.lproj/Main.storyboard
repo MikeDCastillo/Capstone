@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8gP-3b-Jmr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8gP-3b-Jmr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="214" y="988"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="JgM-VV-smz">
             <objects>
-                <viewController id="476-oA-LXZ" sceneMemberID="viewController">
+                <viewController id="476-oA-LXZ" customClass="FeedViewController" customModule="TheFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5C4-hM-xaO"/>
                         <viewControllerLayoutGuide type="bottom" id="XRO-KL-CAx"/>
@@ -59,18 +60,53 @@
                     <view key="view" contentMode="scaleToFill" id="B6c-OS-8hS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2d-sh-Mqc">
+                                <rect key="frame" x="0.0" y="80" width="375" height="281.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="o2d-sh-Mqc" secondAttribute="width" multiplier="0.75" id="vic-0j-fCn"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p1A-cH-ZPn">
+                                    <size key="itemSize" width="298" height="181"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="476-oA-LXZ" id="WGn-Nh-cVK"/>
+                                    <outlet property="delegate" destination="476-oA-LXZ" id="0QV-mi-n72"/>
+                                </connections>
+                            </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDa-iP-sNC">
+                                <rect key="frame" x="0.0" y="80" width="375" height="231.5"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="leading" secondItem="B6c-OS-8hS" secondAttribute="leading" id="Gkq-qn-8uA"/>
+                            <constraint firstItem="NDa-iP-sNC" firstAttribute="trailing" secondItem="o2d-sh-Mqc" secondAttribute="trailing" id="Ute-ok-hjz"/>
+                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="top" secondItem="5C4-hM-xaO" secondAttribute="bottom" constant="16" id="VaF-3y-4az"/>
+                            <constraint firstItem="NDa-iP-sNC" firstAttribute="top" secondItem="o2d-sh-Mqc" secondAttribute="top" id="Xka-Yd-Dzo"/>
+                            <constraint firstItem="NDa-iP-sNC" firstAttribute="leading" secondItem="o2d-sh-Mqc" secondAttribute="leading" id="Zfz-OE-30B"/>
+                            <constraint firstAttribute="trailing" secondItem="o2d-sh-Mqc" secondAttribute="trailing" id="iq6-Yq-mzJ"/>
+                            <constraint firstItem="NDa-iP-sNC" firstAttribute="bottom" secondItem="o2d-sh-Mqc" secondAttribute="bottom" constant="-50" id="ix7-pR-Y1H"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ATd-c4-vR8"/>
+                    <connections>
+                        <outlet property="collectionView" destination="o2d-sh-Mqc" id="VS7-ck-vZw"/>
+                        <outlet property="imageView" destination="NDa-iP-sNC" id="tKT-hc-wlO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bzi-jl-elq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="27"/>
+            <point key="canvasLocation" x="1036" y="26.53673163418291"/>
         </scene>
         <!--Facebook Login Modal View Controller-->
         <scene sceneID="KMf-5d-Ke8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="46M-Za-txH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="CVx-wg-ESB" customClass="FacebookLoginModalViewController" customModule="TheFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3v2-I7-r5T"/>
@@ -82,6 +118,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="46M-Za-txH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1524" y="-450"/>
         </scene>
@@ -176,11 +213,11 @@
             </objects>
             <point key="canvasLocation" x="268" y="-613"/>
         </scene>
-        <!--Item 2-->
+        <!--Submissions-->
         <scene sceneID="PZz-wE-Wd1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hk9-E6-fHa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="3S0-Ko-EtX"/>
+                    <tabBarItem key="tabBarItem" title="Submissions" id="3S0-Ko-EtX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WBB-bV-Aq8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

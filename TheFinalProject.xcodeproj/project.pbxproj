@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		732B3A2A1E91DDBC002B31A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A291E91DDBC002B31A9 /* ViewController.swift */; };
+		732B3A2A1E91DDBC002B31A9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A291E91DDBC002B31A9 /* FeedViewController.swift */; };
 		732B3A321E928940002B31A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A2E1E928940002B31A9 /* LaunchScreen.storyboard */; };
 		732B3A331E928940002B31A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A301E928940002B31A9 /* Main.storyboard */; };
 		732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */; };
@@ -20,6 +20,7 @@
 		7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */; };
 		7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */; };
 		7384B4891EBAF136005F4E4B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4881EBAF136005F4E4B /* Generator.swift */; };
+		738D3ACB1ECEB691006EA799 /* AutoClassNameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */; };
 		7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E0461E90A9B500EEB6FE /* Controller.swift */; };
 		73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */; };
 		73A6C7261E862B3300751051 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7251E862B3300751051 /* DateHelper.swift */; };
@@ -43,7 +44,7 @@
 /* Begin PBXFileReference section */
 		21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheFinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1F38CB73630BB438D71A4 /* Pods-TheFinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.debug.xcconfig"; sourceTree = "<group>"; };
-		732B3A291E91DDBC002B31A9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		732B3A291E91DDBC002B31A9 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		732B3A2F1E928940002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		732B3A311E928940002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		732B3A351E928A08002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SubmissionCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
 		7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkController+Meme.swift"; sourceTree = "<group>"; };
 		7384B4881EBAF136005F4E4B /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoClassNameable.swift; sourceTree = "<group>"; };
 		7396E0461E90A9B500EEB6FE /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FirebaseController+Meme.swift"; sourceTree = "<group>"; };
 		73A6C7251E862B3300751051 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		73B5A1B41E6CB9F000ED8EDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */,
 				73BDFCD71E9365C70019CB57 /* NSNotification+Meme.swift */,
 				73A6C7251E862B3300751051 /* DateHelper.swift */,
 				737241511E4EBFD6006F6E49 /* Info.plist */,
@@ -181,7 +184,7 @@
 		73B5A1B61E6CB9FF00ED8EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				732B3A291E91DDBC002B31A9 /* ViewController.swift */,
+				732B3A291E91DDBC002B31A9 /* FeedViewController.swift */,
 				732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */,
 			);
 			name = View;
@@ -341,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */,
-				732B3A2A1E91DDBC002B31A9 /* ViewController.swift in Sources */,
+				732B3A2A1E91DDBC002B31A9 /* FeedViewController.swift in Sources */,
 				7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */,
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
@@ -359,6 +362,7 @@
 				73BE1B2C1E8A293B0088CC03 /* VoteController.swift in Sources */,
 				73BE1B261E8A28F90088CC03 /* MemeController.swift in Sources */,
 				7384B4891EBAF136005F4E4B /* Generator.swift in Sources */,
+				738D3ACB1ECEB691006EA799 /* AutoClassNameable.swift in Sources */,
 				73B5A1BA1E6CBA7700ED8EDB /* User.swift in Sources */,
 				7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */,
 			);

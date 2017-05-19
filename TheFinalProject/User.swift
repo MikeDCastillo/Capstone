@@ -9,13 +9,18 @@
 import UIKit
 
 struct User {
+    
     var id: String
     var creationDate: Date
     var avatarURLString: String?
     var username: String
+
+    var avatarURL: URL? {
+        guard let urlString = avatarURLString else { return nil }
+        return URL(string: urlString)
+    }
+    
 }
-
-
 
 extension User: JSONExportable {
     

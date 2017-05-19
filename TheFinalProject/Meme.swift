@@ -25,7 +25,7 @@ struct Meme {
 }
 
 extension Meme: JSONExportable {
-
+    
     func json() -> JSONObject {
         var jsonDictionary = [String: Any]()
         
@@ -41,7 +41,7 @@ extension Meme: JSONExportable {
 }
 
 extension Meme: JSONInitializable {
-
+    
     init(json: JSONObject) throws {
         guard let id = json["id"] as? String else { throw JSONError.keyMismatch("id") }
         guard let datePostedString = json["date"] as? String else { throw JSONError.keyMismatch("date") }

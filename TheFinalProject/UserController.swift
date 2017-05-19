@@ -15,6 +15,8 @@ class UserController: Controller {
     
     var currentUser: User?
     
+    var users = [User]()
+    
 }
 
 // MARK: - CRUD Functions

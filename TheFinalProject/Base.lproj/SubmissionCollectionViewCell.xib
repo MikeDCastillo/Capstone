@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -78,13 +78,20 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="qjL-zP-Zbg" firstAttribute="centerX" secondItem="oEk-d7-imG" secondAttribute="centerX" id="FS8-Sg-0dd"/>
                 <constraint firstItem="qjL-zP-Zbg" firstAttribute="leading" secondItem="oEk-d7-imG" secondAttribute="leading" constant="16" id="KwL-UU-zGB"/>
                 <constraint firstAttribute="bottom" secondItem="qjL-zP-Zbg" secondAttribute="bottom" constant="16" id="dQt-nK-eq3"/>
                 <constraint firstAttribute="trailing" secondItem="qjL-zP-Zbg" secondAttribute="trailing" constant="16" id="m46-Fw-Q1m"/>
                 <constraint firstItem="qjL-zP-Zbg" firstAttribute="top" secondItem="oEk-d7-imG" secondAttribute="top" constant="16" id="pKJ-pH-fHh"/>
             </constraints>
             <size key="customSize" width="633" height="408"/>
+            <connections>
+                <outlet property="avatarImageView" destination="7ec-9R-alm" id="yNP-nP-qJs"/>
+                <outlet property="bottomLabel" destination="Vi2-hg-EJq" id="bxU-6i-Knp"/>
+                <outlet property="dateImageView" destination="1MA-W4-FKy" id="M7n-Th-5iJ"/>
+                <outlet property="dateLabel" destination="cKj-eR-bky" id="7wE-ry-84V"/>
+                <outlet property="topLabel" destination="INV-T6-Ggp" id="G0f-US-gHc"/>
+                <outlet property="userNameLabel" destination="j0G-JQ-ZWw" id="P6h-h7-2wK"/>
+            </connections>
             <point key="canvasLocation" x="-96.5" y="-117.5"/>
         </collectionViewCell>
     </objects>
