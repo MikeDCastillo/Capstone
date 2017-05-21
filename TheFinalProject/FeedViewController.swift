@@ -13,21 +13,23 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var voteButton: UIButton!
     
     let memeController = MemeController.shared
     let layout = UICollectionViewFlowLayout()
+
+    
     var submissions: [Submission] {
         return SubmissionController.shared.submissions
     }
-    
     var todaysMeme: Meme? {
         return MemeController.shared.meme
     }
-    
     var users: [User] {
         return UserController.shared.users
     }
     
+    // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         memeController.getTodaysMeme()
@@ -39,11 +41,27 @@ class FeedViewController: UIViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         collectionView.collectionViewLayout = layout
+        setupVoteButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.init(rawValue: "memeUpdated"), object: nil)
+    }
+    
+    // MARK: - Actions
+
+    @IBAction func voteButtonPressed(_ sender: Any) {
+        UIView.animate(withDuration: 1.0) {
+            let angle = CGFloat(180 * Double.pi / 180)
+            self.voteButton.transform = CGAffineTransform(rotationAngle: angle)
+            let alert = UIAlertController(title: "You Voted", message: "Come back later", preferredStyle: .actionSheet)
+            let dismiss = UIAlertAction(title: "bye", style: .cancel)
+            alert.addAction(dismiss)
+            self.present(alert, animated: true, completion: nil)
+            self.voteButton.alpha = 0
+            //call vote function here
+        }
     }
     
     func memeUpdated(_ notification: NSNotification) {
@@ -72,10 +90,25 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 }
 
+
+// MARK: - setup collectionView
+
+
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+    }
+    
+}
+
+
+// MARK: - Setup Button
+
+extension FeedViewController {
+
+    func setupVoteButton() {
+        voteButton.layer.cornerRadius = 6
     }
     
 }

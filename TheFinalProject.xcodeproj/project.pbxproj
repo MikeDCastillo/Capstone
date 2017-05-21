@@ -12,7 +12,6 @@
 		732B3A331E928940002B31A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A301E928940002B31A9 /* Main.storyboard */; };
 		732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */; };
 		732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */; };
-		733ED1C21E8DFB5A006DBCCD /* FBLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */; };
 		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
 		737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737241451E4EBFD6006F6E49 /* AppDelegate.swift */; };
@@ -356,7 +355,6 @@
 				73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */,
 				73BDFCDC1E9458400019CB57 /* NetworkController.swift in Sources */,
 				73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */,
-				733ED1C21E8DFB5A006DBCCD /* FBLogin.swift in Sources */,
 				73BDFCD81E9365C70019CB57 /* NSNotification+Meme.swift in Sources */,
 				73B5A1B81E6CBA5400ED8EDB /* Meme.swift in Sources */,
 				73BE1B2C1E8A293B0088CC03 /* VoteController.swift in Sources */,

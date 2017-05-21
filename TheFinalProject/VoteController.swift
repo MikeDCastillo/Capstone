@@ -18,8 +18,11 @@ class VoteController: Controller {
         }
     }
     
-    func UpVote(like: Vote) {
-     
+    func UpVote(lol: Vote) {
+        //FIXME: - finsih this function
+        let lol = Vote.VoteType.lol
+        
+//        firebaseController.save(at: <#T##FIRDatabaseReference#>, json: <#T##JSONObject#>, completion: <#T##((Error?) -> Void)?##((Error?) -> Void)?##(Error?) -> Void#>)
     }
     
     func DownVote() {}
