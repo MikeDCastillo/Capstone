@@ -49,10 +49,10 @@
             </objects>
             <point key="canvasLocation" x="214" y="988"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Memetastic-->
         <scene sceneID="JgM-VV-smz">
             <objects>
-                <viewController id="476-oA-LXZ" customClass="FeedViewController" customModule="TheFinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Memetastic" id="476-oA-LXZ" customClass="FeedViewController" customModule="TheFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5C4-hM-xaO"/>
                         <viewControllerLayoutGuide type="bottom" id="XRO-KL-CAx"/>
@@ -82,6 +82,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDa-iP-sNC">
                                 <rect key="frame" x="0.0" y="80" width="375" height="231.5"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj9-El-aQi">
+                                <rect key="frame" x="112" y="433" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Vote"/>
+                                <connections>
+                                    <action selector="voteButtonPressed:" destination="476-oA-LXZ" eventType="touchUpInside" id="prn-MV-uP2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -94,10 +102,12 @@
                             <constraint firstItem="NDa-iP-sNC" firstAttribute="bottom" secondItem="o2d-sh-Mqc" secondAttribute="bottom" constant="-50" id="ix7-pR-Y1H"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ATd-c4-vR8"/>
+                    <navigationItem key="navigationItem" title="Memetastic" id="ATd-c4-vR8"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="o2d-sh-Mqc" id="VS7-ck-vZw"/>
                         <outlet property="imageView" destination="NDa-iP-sNC" id="tKT-hc-wlO"/>
+                        <outlet property="voteButton" destination="Xj9-El-aQi" id="SeV-DU-V3O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bzi-jl-elq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,9 +157,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q8B-cE-vZ5"/>
-                    <connections>
-                        <outlet property="imageView" destination="YLU-ke-WU4" id="AR5-B2-UOJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQt-5a-Qfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,10 +172,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="oSz-qO-n0N" kind="relationship" relationship="viewControllers" id="1Nk-Zq-m55"/>
-                        <segue destination="hk9-E6-fHa" kind="relationship" relationship="viewControllers" id="aUJ-hq-7P6"/>
-                        <segue destination="7Af-Pp-qMA" kind="relationship" relationship="viewControllers" id="VUV-NV-ieo"/>
                         <segue destination="CVx-wg-ESB" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Qw6-pV-RHm"/>
+                        <segue destination="hk9-E6-fHa" kind="relationship" relationship="viewControllers" id="aUJ-hq-7P6"/>
+                        <segue destination="oSz-qO-n0N" kind="relationship" relationship="viewControllers" id="1Nk-Zq-m55"/>
+                        <segue destination="7Af-Pp-qMA" kind="relationship" relationship="viewControllers" id="VUV-NV-ieo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-e6-yMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -234,6 +241,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lb4-8V-tef"/>
+        <segue reference="Qw6-pV-RHm"/>
     </inferredMetricsTieBreakers>
 </document>
