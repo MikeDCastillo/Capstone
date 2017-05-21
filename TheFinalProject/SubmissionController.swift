@@ -1,6 +1,6 @@
 //
 //  SubmissionController.swift
-//  
+//
 //
 //  Created by Michael Castillo on 3/27/17.
 //
@@ -8,8 +8,16 @@
 
 import UIKit
 
-class SubmissionController: Controller {
+//func saveObject<T: JSONIdentifiable>(_ object: T) {
+//    FirebaseController().save(at: object.ref, json: object.json()) { error in
+//        if let error = error {
+//            print(error)
+//        }
+//    }
+//}
 
+class SubmissionController: Controller {
+    
     static let shared = SubmissionController()
     
     var submissions = [Submission](){
@@ -18,30 +26,41 @@ class SubmissionController: Controller {
         }
     }
     
-    
     func createFakeSubmission(withMemeId id: String) {
-        let memeId = firebaseController.submissionsRef(memeId: id).description()
-        
+        let ref = firebaseController.submissionsRef(memeId: id)
+        firebaseController.save(at: ref, json: ["fake": true], completion: nil)
     }
     
-    func saveSubmission(_ submission: Submission) {
-        
+    func saveSubmission(_ submission: Submission, memeId: String) {
+        var ref = firebaseController.submissionsRef(memeId: memeId)
+        var updatedSubmission = submission
+        if submission.id.isEmpty {
+            ref = ref.childByAutoId()
+            updatedSubmission.id = ref.key
+        } else {
+            ref = ref.child(submission.id)
+        }
+        firebaseController.save(at: ref, json: updatedSubmission.json()) { error in
+            if let error = error {
+                print(error)
+            }
+        }
     }
     
     func subscribeToSubmissions(forMemeId id: String) {
-    let ref = firebaseController.submissionsRef(memeId: id)
+        let ref = firebaseController.submissionsRef(memeId: id)
         firebaseController.subscribe(toRef: ref) { (result) in
             switch result {
-                case .success(let json):
-                    var tempSubmissionsArray = [Submission]()
-                    json.keys.forEach({ (key) in
-                        guard let submissionDictionary = json[key] as? JSONObject else { return }
-                        guard let newSubmission = try? Submission(json: submissionDictionary) else { return }
-                        tempSubmissionsArray.append(newSubmission)
-                    })
+            case .success(let json):
+                var tempSubmissionsArray = [Submission]()
+                json.keys.forEach({ (key) in
+                    guard let submissionDictionary = json[key] as? JSONObject else { return }
+                    guard let newSubmission = try? Submission(json: submissionDictionary) else { return }
+                    tempSubmissionsArray.append(newSubmission)
+                })
                 self.submissions = tempSubmissionsArray
-                case .failure(let error):
-                    print(error)
+            case .failure(let error):
+                print(error)
             }
         }
     }

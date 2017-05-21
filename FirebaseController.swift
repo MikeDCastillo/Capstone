@@ -17,6 +17,8 @@ enum Result<T> {
     case failure(Error)
 }
 
+typealias JSONIdentifiable = Identifiable & JSONExportable & JSONInitializable
+
 protocol Identifiable: JSONExportable, JSONInitializable {
     var id: String { get set }
     var ref: FIRDatabaseReference { get }

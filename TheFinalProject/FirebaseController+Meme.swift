@@ -21,7 +21,7 @@ extension FirebaseController {
         return rootRef.child("meme")
     }
     
-    /// rootRef/submissions
+    /// rootRef/submissions/(memeId)
     func submissionsRef(memeId: String) -> FIRDatabaseReference {
         return rootRef.child("submissions").child(memeId)
     }

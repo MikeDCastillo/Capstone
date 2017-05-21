@@ -37,6 +37,7 @@
 		73BE1B551E8D5B0E0088CC03 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */; };
 		73BE1B561E8D5B0E0088CC03 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */; };
 		73BE1B571E8D5B0E0088CC03 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */; };
+		73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3AB981ED153060073456C /* NewSubmissionViewController.swift */; };
 		E1E79C49931F9C410D7F4825 /* Pods_TheFinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		73F3AB981ED153060073456C /* NewSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubmissionViewController.swift; sourceTree = "<group>"; };
 		DCF3435613629AF1B22F63E7 /* Pods-TheFinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 		73B5A1B61E6CB9FF00ED8EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73F3AB981ED153060073456C /* NewSubmissionViewController.swift */,
 				732B3A291E91DDBC002B31A9 /* FeedViewController.swift */,
 				732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */,
 			);
@@ -351,6 +354,7 @@
 				73BE1B2A1E8A29330088CC03 /* SubmissionController.swift in Sources */,
 				7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */,
 				73B5A1BC1E6CBAD300ED8EDB /* Submission.swift in Sources */,
+				73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */,
 				737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */,
 				73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */,
 				73BDFCDC1E9458400019CB57 /* NetworkController.swift in Sources */,

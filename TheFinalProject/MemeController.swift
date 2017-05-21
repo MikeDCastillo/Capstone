@@ -22,13 +22,18 @@ class MemeController: Controller {
     
     func subscribeToMeme(_ memeID: String) {
         let ref = firebaseController.memesRef.child(memeID)
-        ref.observe(.value, with: { snap in
-            if let snapJSON = snap.value as? JSONObject, let meme = try? Meme(json: snapJSON) {
-                self.meme = meme
-            } else {
-                print("error subscribing to daily meme")
+        firebaseController.subscribe(toRef: ref) { result in
+            switch result {
+            case let .success(json):
+                if let meme = try? Meme(json: json) {
+                    self.meme = meme
+                } else {
+                    print("error subscribing to daily meme")
+                }
+            case let .failure(error):
+                print(error)
             }
-        })
+        }
     }
     
     func getAllMemes(forDate date: Date = Date(), completion: (Meme?) -> Void) {
@@ -40,6 +45,7 @@ class MemeController: Controller {
         firebaseController.getData(with: query) { (result) in
             if case let .success(json) = result, let memeID = json.keys.first {
                 self.subscribeToMeme(memeID)
+                SubmissionController.shared.subscribeToSubmissions(forMemeId: memeID)
             } else {
                 self.generateMemeFromAPI()
             }
@@ -73,6 +79,7 @@ class MemeController: Controller {
                 print(error.localizedDescription)
             } else {
                 self.subscribeToMeme(newMeme.id)
+                SubmissionController.shared.createFakeSubmission(withMemeId: newMeme.id)
             }
         })
     }

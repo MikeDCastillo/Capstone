@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum TextColor: String {
     
@@ -34,15 +35,20 @@ enum TextColor: String {
     
 }
 
-struct Submission /* Hashable */ {
-    // var memeId: String
+struct Submission: Identifiable  {
+    
     var id: String
     var userId: String
     var topText: String?
     var bottomText: String?
-    var textColor: TextColor
+    var textColor: TextColor // FIXME: ? Maybe use HEX strings instead for reusability
     var creationDate: Date
     var voteIds: [String]
+    
+    var ref: FIRDatabaseReference {
+        let meme = MemeController.shared.meme!
+        return FirebaseController().submissionsRef(memeId: meme.id).child(id)
+    }
 }
 
 extension Submission: JSONExportable {
@@ -53,12 +59,13 @@ extension Submission: JSONExportable {
         jsonDictionary["userId"] = userId
         jsonDictionary["topText"] = topText
         jsonDictionary["bottomText"] = bottomText
-        jsonDictionary["textColor"] = textColor
-        jsonDictionary["date"] = creationDate
+        jsonDictionary["textColor"] = textColor.rawValue
+        jsonDictionary["date"] = creationDate.fullDateString
         jsonDictionary["voteIds"] = voteIds
         
         return jsonDictionary
     }
+    
 }
 
 extension Submission: JSONInitializable {
@@ -68,15 +75,15 @@ extension Submission: JSONInitializable {
         guard let userId = json["userId"] as? String else { throw JSONError.keyMismatch("userId") }
         guard let textColorString = json["textColor"] as? String,
               let textColor2 = TextColor(rawValue: textColorString) else { throw JSONError.keyMismatch("textColor") }
-        guard let creationDateString = json["creationDate"] as? String else { throw JSONError.typeMismatch }
+        guard let creationDateString = json["date"] as? String else { throw JSONError.typeMismatch }
         guard let creationDate = Date(dateString: creationDateString) else { throw JSONError.typeMismatch }
-        guard let voteIds = json["voteIds"] as? String else { throw JSONError.keyMismatch("voteIds") }
+        let voteIds = json["voteIds"] as? [String]
         
         self.id = id
         self.userId = userId
         self.textColor = textColor2
         self.creationDate = creationDate
-        self.voteIds = [voteIds]
+        self.voteIds = voteIds ?? []
         self.topText = json["topText"] as? String
         self.bottomText = json["bottomText"] as? String
         

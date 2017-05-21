@@ -34,7 +34,9 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         memeController.getTodaysMeme()
         
-        SubmissionController.shared.submissions = [] // FIXME: Add fake data for testing
+        let fakeUser = User(id: "mj", creationDate: Date(), avatarURLString: nil, username: "michael")
+        UserController.shared.currentUser = fakeUser
+        
         let nibId = String(describing: SubmissionCollectionViewCell.self)
         let nib = UINib(nibName: nibId, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: nibId)
