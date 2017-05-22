@@ -18,13 +18,13 @@ class SubmissionCollectionViewCell: UICollectionViewCell, AutoClassNameable {
     @IBOutlet weak var dateImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    func update(with submission: Submission, user: User) {
+    func update(with submission: Submission, user: User?) {
         topLabel.text = submission.topText
         bottomLabel.text = submission.bottomText
         topLabel.textColor = submission.textColor.color
         bottomLabel.textColor = submission.textColor.color
-        avatarImageView.kf.setImage(with: user.avatarURL)
-        userNameLabel.text = user.username
+        avatarImageView.kf.setImage(with: user?.avatarURL)
+        userNameLabel.text = user?.username
         dateImageView.image = nil //FIXME: - give me label
         dateLabel.text = submission.creationDate.dayString //FIXME: - pretty date string
     }

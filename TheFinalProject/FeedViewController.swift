@@ -48,7 +48,8 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.init(rawValue: "memeUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.todaysMemeUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(submissionsUpdated(_:)), name: NSNotification.Name.submissionUpdated, object: nil)
     }
     
     // MARK: - Actions
@@ -69,6 +70,10 @@ class FeedViewController: UIViewController {
     func memeUpdated(_ notification: NSNotification) {
         guard let todaysMeme = todaysMeme else { return }
         imageView.kf.setImage(with: todaysMeme.imageURL)
+    }
+    
+    func submissionsUpdated(_ notification: NSNotification) {
+        collectionView.reloadData()
     }
     
 }
@@ -94,7 +99,6 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 
 // MARK: - setup collectionView
-
 
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     
