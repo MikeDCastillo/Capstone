@@ -8,21 +8,16 @@
 
 import UIKit
 
-//func saveObject<T: JSONIdentifiable>(_ object: T) {
-//    FirebaseController().save(at: object.ref, json: object.json()) { error in
-//        if let error = error {
-//            print(error)
-//        }
-//    }
-//}
-
 class SubmissionController: Controller {
     
     static let shared = SubmissionController()
     
+    fileprivate let userController = UserController.shared
+    
     var submissions = [Submission](){
         didSet {
             NotificationCenter.default.post(name: .submissionUpdated, object: nil)
+            fetchUsers(from: submissions)
         }
     }
     
@@ -61,6 +56,18 @@ class SubmissionController: Controller {
                 self.submissions = tempSubmissionsArray
             case .failure(let error):
                 print(error)
+            }
+        }
+    }
+    
+    private func fetchUsers(from submissions: [Submission]) {
+        submissions.forEach { submission in
+            let user = userController.users.first(where: { $0.id == submission.userId })
+            
+            if let _ = user {
+                return
+            } else {
+                userController.getUser(withId: submission.userId, completion: nil)
             }
         }
     }

@@ -22,6 +22,18 @@ struct User {
     
 }
 
+extension User: Hashable {
+    
+    var hashValue: Int {
+        return id.hashValue
+    }
+    
+}
+
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.id == rhs.id
+}
+
 extension User: JSONExportable {
     
     func json() -> JSONObject {
@@ -42,7 +54,6 @@ extension User: JSONInitializable {
         guard let creationDateString = json["creationDate"] as? String else { throw JSONError.keyMismatch("creationDate") }
         guard let creationDate = Date(dateString: creationDateString) else { throw JSONError.typeMismatch }
         guard let username = json["username"] as? String else { throw JSONError.keyMismatch("username") }
-        
         
         self.id = id
         self.avatarURLString = json["avatarURLString"] as? String

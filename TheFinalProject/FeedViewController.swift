@@ -26,7 +26,7 @@ class FeedViewController: UIViewController {
         return MemeController.shared.meme
     }
     var users: [User] {
-        return UserController.shared.users
+        return Array(UserController.shared.users)
     }
     
     // MARK: - Life Cycles
@@ -85,7 +85,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubmissionCollectionViewCell.className, for: indexPath) as! SubmissionCollectionViewCell
         let submission = submissions[indexPath.row]
-        guard let user = users.first(where: { $0.id == submission.userId }) else { return cell }
+        let user = users.first(where: { $0.id == submission.userId })
         cell.update(with: submission, user: user)
         return cell
     }

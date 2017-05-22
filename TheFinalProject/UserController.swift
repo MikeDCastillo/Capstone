@@ -15,7 +15,7 @@ class UserController: Controller {
     
     var currentUser: User?
     
-    var users = [User]()
+    var users = Set<User>()
     
 }
 
@@ -47,16 +47,21 @@ extension UserController {
         }
     }
     
-    func getUser(withId id: String, completion: @escaping ((User?) -> Void)) {
+    func getUser(withId id: String, completion: ((User?) -> Void)?) {
         let ref = firebaseController.usersRef.child(id)
         firebaseController.getData(at: ref) { result in
             switch result {
             case .success(let json):
                 let user = try? User(json: json)
-                completion(user)
+                
+                if let user = user {
+                    self.users.remove(user)
+                    self.users.insert(user)
+                }
+                completion?(user)
             case .failure(let error):
                 print("\(error)")
-                completion(nil)
+                completion?(nil)
             }
         }
     }
