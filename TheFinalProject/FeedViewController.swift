@@ -42,6 +42,7 @@ class FeedViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: nibId)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
         setupVoteButton()
     }
