@@ -104,7 +104,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.width - 32, height: collectionView.bounds.height)
     }
     
 }
@@ -115,7 +115,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
 extension FeedViewController {
 
     func setupVoteButton() {
-        voteButton.layer.cornerRadius = 6
+        voteButton.layer.cornerRadius = 10
     }
     
 }
