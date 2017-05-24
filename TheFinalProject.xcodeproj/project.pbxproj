@@ -22,6 +22,8 @@
 		738D3ACB1ECEB691006EA799 /* AutoClassNameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */; };
 		7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E0461E90A9B500EEB6FE /* Controller.swift */; };
 		739D87E61ED51FF50094C835 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739D87E51ED51FF50094C835 /* ProfileViewController.swift */; };
+		739D87E81ED54DF50094C835 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739D87E71ED54DF50094C835 /* CloudKitManager.swift */; };
+		739D87EA1ED54E170094C835 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739D87E91ED54E170094C835 /* CloudKit.framework */; };
 		73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */; };
 		73A6C7261E862B3300751051 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A6C7251E862B3300751051 /* DateHelper.swift */; };
 		73B5A1B81E6CBA5400ED8EDB /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B5A1B71E6CBA5400ED8EDB /* Meme.swift */; };
@@ -39,7 +41,6 @@
 		73BE1B561E8D5B0E0088CC03 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */; };
 		73BE1B571E8D5B0E0088CC03 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */; };
 		73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3AB981ED153060073456C /* NewSubmissionViewController.swift */; };
-		73F4CA471ED3A73C000A38CC /* UITextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F4CA461ED3A73C000A38CC /* UITextFieldHelper.swift */; };
 		E1E79C49931F9C410D7F4825 /* Pods_TheFinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F5AD229A59C4FDE677EE7B /* Pods_TheFinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,8 @@
 		738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoClassNameable.swift; sourceTree = "<group>"; };
 		7396E0461E90A9B500EEB6FE /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		739D87E51ED51FF50094C835 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		739D87E71ED54DF50094C835 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		739D87E91ED54E170094C835 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		73A6C7231E8615AD00751051 /* FirebaseController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FirebaseController+Meme.swift"; sourceTree = "<group>"; };
 		73A6C7251E862B3300751051 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		73B5A1B71E6CBA5400ED8EDB /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
@@ -82,7 +85,6 @@
 		73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		73F3AB981ED153060073456C /* NewSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubmissionViewController.swift; sourceTree = "<group>"; };
-		73F4CA461ED3A73C000A38CC /* UITextFieldHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldHelper.swift; sourceTree = "<group>"; };
 		DCF3435613629AF1B22F63E7 /* Pods-TheFinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				E1E79C49931F9C410D7F4825 /* Pods_TheFinalProject.framework in Frameworks */,
 				73BE1B551E8D5B0E0088CC03 /* FBSDKCoreKit.framework in Frameworks */,
 				73BE1B571E8D5B0E0088CC03 /* FBSDKShareKit.framework in Frameworks */,
+				739D87EA1ED54E170094C835 /* CloudKit.framework in Frameworks */,
 				73BE1B561E8D5B0E0088CC03 /* FBSDKLoginKit.framework in Frameworks */,
 				73BE1B541E8D5B0E0088CC03 /* Bolts.framework in Frameworks */,
 			);
@@ -161,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */,
-				73F4CA461ED3A73C000A38CC /* UITextFieldHelper.swift */,
 				73BDFCD71E9365C70019CB57 /* NSNotification+Meme.swift */,
 				73A6C7251E862B3300751051 /* DateHelper.swift */,
 				737241511E4EBFD6006F6E49 /* Info.plist */,
@@ -182,6 +184,7 @@
 				73BE1B251E8A28F90088CC03 /* MemeController.swift */,
 				73BE1B291E8A29330088CC03 /* SubmissionController.swift */,
 				73BE1B271E8A292D0088CC03 /* UserController.swift */,
+				739D87E71ED54DF50094C835 /* CloudKitManager.swift */,
 				73BE1B2B1E8A293B0088CC03 /* VoteController.swift */,
 			);
 			name = Controllers;
@@ -201,6 +204,7 @@
 		89CBE5B4DD597B1A638A17C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				739D87E91ED54E170094C835 /* CloudKit.framework */,
 				73BE1B501E8D5B0D0088CC03 /* Bolts.framework */,
 				73BE1B511E8D5B0E0088CC03 /* FBSDKCoreKit.framework */,
 				73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */,
@@ -259,6 +263,12 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -353,6 +363,7 @@
 			files = (
 				732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */,
 				732B3A2A1E91DDBC002B31A9 /* FeedViewController.swift in Sources */,
+				739D87E81ED54DF50094C835 /* CloudKitManager.swift in Sources */,
 				7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */,
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
@@ -363,7 +374,6 @@
 				73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */,
 				737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */,
 				73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */,
-				73F4CA471ED3A73C000A38CC /* UITextFieldHelper.swift in Sources */,
 				73BDFCDC1E9458400019CB57 /* NetworkController.swift in Sources */,
 				73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */,
 				73BDFCD81E9365C70019CB57 /* NSNotification+Meme.swift in Sources */,

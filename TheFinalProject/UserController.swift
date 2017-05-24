@@ -14,7 +14,6 @@ class UserController: Controller {
     static let shared = UserController()
     
     var currentUser: User?
-    
     var users = Set<User>()
     
 }
@@ -23,6 +22,20 @@ class UserController: Controller {
 
 
 extension UserController {
+    
+    func searchUser(with ckID: String, completion: @escaping (User?) -> Void)  {
+        let ref = firebaseController.usersRef.child(ckID)
+        firebaseController.getData(at: ref) { (result) in
+            switch result {
+            case .success(let json):
+                let user = try? User(json: json)
+                completion(user)
+            case .failure(let error):
+                print("\(error)")
+                completion(nil)
+            }
+        }
+    }
     
     func createUser(username: String, avatarURLString: String?, completion: ((Error?) -> Void)?) {
         let newUserRef = firebaseController.usersRef.childByAutoId()
