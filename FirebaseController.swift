@@ -21,7 +21,7 @@ typealias JSONIdentifiable = Identifiable & JSONExportable & JSONInitializable
 
 protocol Identifiable: JSONExportable, JSONInitializable {
     var id: String { get set }
-    var ref: FIRDatabaseReference { get }
+    var ref: DatabaseReference { get }
 }
 
 
@@ -40,21 +40,21 @@ enum JSONError: Error {
 
 struct FirebaseController {
     
-    let rootRef = FIRDatabase.database().reference()
+    let rootRef = Database.database().reference()
     
-    func save(at ref: FIRDatabaseReference, json: JSONObject, completion: ((Error?) -> Void)?) {
+    func save(at ref: DatabaseReference, json: JSONObject, completion: ((Error?) -> Void)?) {
         ref.updateChildValues(json) { error, ref in
             completion?(error)
         }
     }
     
-    func delete(at ref: FIRDatabaseReference, completion: ((Error?) -> Void)?) {
+    func delete(at ref: DatabaseReference, completion: ((Error?) -> Void)?) {
         ref.removeValue { error, ref in
             completion?(error)
         }
     }
     
-    func getData(at ref: FIRDatabaseReference, completion: ((Result<JSONObject>) -> Void)?) {
+    func getData(at ref: DatabaseReference, completion: ((Result<JSONObject>) -> Void)?) {
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if let snap = snapshot.value as? JSONObject, snapshot.exists() {
                 completion?(Result.success(snap))
@@ -64,7 +64,7 @@ struct FirebaseController {
         })
     }
     
-    func getData(with query: FIRDatabaseQuery, completion: ((Result<JSONObject>) -> Void)?) {
+    func getData(with query: DatabaseQuery, completion: ((Result<JSONObject>) -> Void)?) {
         query.observeSingleEvent(of: .value, with: { snapshot in
             if let snap = snapshot.value as? JSONObject, snapshot.exists() {
                 completion?(Result.success(snap))
@@ -74,7 +74,7 @@ struct FirebaseController {
         })
     }
     
-    func subscribe(toRef ref: FIRDatabaseReference, completion: ((Result<JSONObject>) -> Void)?) {
+    func subscribe(toRef ref: DatabaseReference, completion: ((Result<JSONObject>) -> Void)?) {
         ref.observe(.value, with: { snapshot in
             if let snap = snapshot.value as? JSONObject {
                 completion?(Result.success(snap))

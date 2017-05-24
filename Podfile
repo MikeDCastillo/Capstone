@@ -6,6 +6,7 @@ target 'TheFinalProject' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/AdMob'
 
   # Pods for TheFinalProject
 pod 'FBSDKCoreKit'
