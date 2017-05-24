@@ -45,7 +45,7 @@ struct Submission: Identifiable  {
     var creationDate: Date
     var voteIds: [String]
     
-    var ref: FIRDatabaseReference {
+    var ref: DatabaseReference {
         let meme = MemeController.shared.meme!
         return FirebaseController().submissionsRef(memeId: meme.id).child(id)
     }

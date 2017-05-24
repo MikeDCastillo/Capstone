@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import GoogleMobileAds
 
 class NewSubmissionViewController: UIViewController {
     
@@ -20,7 +21,7 @@ class NewSubmissionViewController: UIViewController {
     @IBOutlet weak var bottomCounterLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var saveButton: UIButton!
-    
+    @IBOutlet weak var bannerView: GADBannerView!
     
     fileprivate var topText = "" {
         didSet {
@@ -29,6 +30,10 @@ class NewSubmissionViewController: UIViewController {
             topCounterLabel.text = "\(charCount)"
             topCounterLabel.textColor = charCount >= characterLimit ? .red : .black
             
+            if charCount >= characterLimit {
+                shakeTopText()
+            }
+            // sets bottomText before didSet On botom text is called
             if bottomText.isEmpty {
                 bottomText = ""
             }
@@ -41,8 +46,14 @@ class NewSubmissionViewController: UIViewController {
             let charCount = bottomText.characters.count
             bottomCounterLabel.text = "\(charCount)"
             bottomCounterLabel.textColor = charCount == characterLimit ? .red : .black
+            
+            if charCount >= characterLimit {
+                shakeBottomText()
+            }
+            
         }
     }
+ 
     
     fileprivate let characterLimit = 40
     fileprivate let submissionController = SubmissionController.shared
@@ -54,9 +65,24 @@ class NewSubmissionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupSaveButton()
         updateSaveButton()
         guard let meme = meme else { return }
         imageView.kf.setImage(with: meme.imageURL)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        //TODO: - create provisioning profile for when going live on App Store
+        //this is for simulator as of now
+        bannerView.adUnitID = "ca-app-pub-3828876899715465/5171904637"
+        //this is the viewController that the banner will be displayed on
+        bannerView.rootViewController = self
+        bannerView.load(request)
+        
     }
     
     @IBAction func xButtonPressed(_ sender: Any) {
@@ -95,10 +121,11 @@ extension NewSubmissionViewController {
         guard let topText = topTextField.text, let bottomText = bottomTextField.text else { saveButton.isEnabled = false; return }
         let hasText = !topText.isEmpty || !bottomText.isEmpty
         saveButton.isEnabled = hasText
-        saveButton.backgroundColor = hasText ? .green : UIColor.blue.withAlphaComponent(0.3)
+        saveButton.backgroundColor = hasText ? .clear : #colorLiteral(red: 0.3607843137, green: 0.6470588235, blue: 1, alpha: 1)
     }
     
 }
+
 
 // MARK: - TxtFieldDelegate
 
@@ -118,6 +145,37 @@ extension NewSubmissionViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+    
+}
+
+
+// MARK: - Animations & setup
+
+extension NewSubmissionViewController {
+    
+    func shakeTopText(count : Float? = nil, for duration : TimeInterval? = nil, withTranslation translation : Float? = nil) {
+        let animation : CABasicAnimation = CABasicAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.repeatCount = count ?? 2
+        animation.duration = (duration ?? 0.5)/TimeInterval(animation.repeatCount)
+        animation.autoreverses = true
+        animation.byValue = translation ?? -5
+        topCounterLabel.layer.add(animation, forKey: "shake")
+    }
+    
+    func shakeBottomText(count : Float? = nil, for duration : TimeInterval? = nil, withTranslation translation : Float? = nil) {
+        let animation : CABasicAnimation = CABasicAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.repeatCount = count ?? 2
+        animation.duration = (duration ?? 0.5)/TimeInterval(animation.repeatCount)
+        animation.autoreverses = true
+        animation.byValue = translation ?? -5
+        bottomCounterLabel.layer.add(animation, forKey: "shake")
+    }
+    
+    func setupSaveButton() {
+        saveButton.layer.cornerRadius = 10
     }
     
 }

@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        FIRApp.configure()
+        FirebaseApp.configure()
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-3828876899715465~9741705036")
         
         return true
     }

@@ -12,22 +12,22 @@ import FirebaseDatabase
 extension FirebaseController {
     
     /// rootRef/users
-    var usersRef: FIRDatabaseReference {
+    var usersRef: DatabaseReference {
         return rootRef.child("users")
     }
     
     /// rootRef/meme
-    var memesRef: FIRDatabaseReference {
+    var memesRef: DatabaseReference {
         return rootRef.child("meme")
     }
     
     /// rootRef/submissions/(memeId)
-    func submissionsRef(memeId: String) -> FIRDatabaseReference {
+    func submissionsRef(memeId: String) -> DatabaseReference {
         return rootRef.child("submissions").child(memeId)
     }
     
     /// rootRef/votes
-    func votesRef(submissionId: String) -> FIRDatabaseReference {
+    func votesRef(submissionId: String) -> DatabaseReference {
         return rootRef.child("votes").child(submissionId)
     }
     

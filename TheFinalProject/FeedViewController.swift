@@ -8,12 +8,14 @@
 
 import UIKit
 import Kingfisher
+import GoogleMobileAds
 
 class FeedViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var voteButton: UIButton!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     let memeController = MemeController.shared
     let layout = UICollectionViewFlowLayout()
@@ -34,7 +36,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         memeController.getTodaysMeme()
         
-        let fakeUser = User(id: "mj", creationDate: Date(), avatarURLString: nil, username: "michael")
+        let fakeUser = User(id: "yourMom", creationDate: Date(), avatarURLString: nil, username: "michael")
         UserController.shared.currentUser = fakeUser
         
         let nibId = String(describing: SubmissionCollectionViewCell.self)
@@ -51,6 +53,16 @@ class FeedViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.todaysMemeUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(submissionsUpdated(_:)), name: NSNotification.Name.submissionUpdated, object: nil)
+        
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        //TODO: - create provisioning profile for when going live on App Store
+        //this is for simulator as of now
+        bannerView.adUnitID = "ca-app-pub-3828876899715465/5171904637"
+        //this is the viewController that the banner will be displayed on
+        bannerView.rootViewController = self
+        bannerView.load(request)
+        
     }
     
     // MARK: - Actions
