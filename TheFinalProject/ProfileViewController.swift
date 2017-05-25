@@ -27,5 +27,4 @@ class ProfileViewController: UIViewController {
         bannerView.load(request)
     }
 
-
 }

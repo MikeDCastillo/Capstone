@@ -22,6 +22,7 @@ class NewSubmissionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet var colorPicker: ColorPicker!
     
     fileprivate var topText = "" {
         didSet {
@@ -39,7 +40,6 @@ class NewSubmissionViewController: UIViewController {
             }
         }
     }
-    
     fileprivate var bottomText = "" {
         didSet {
             bottomLabel.text = bottomText
@@ -53,8 +53,7 @@ class NewSubmissionViewController: UIViewController {
             
         }
     }
- 
-    
+    fileprivate var currentColor = UIColor.white
     fileprivate let characterLimit = 40
     fileprivate let submissionController = SubmissionController.shared
     fileprivate var meme: Meme? {
@@ -65,6 +64,7 @@ class NewSubmissionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        colorPicker.delegate = self
         setupSaveButton()
         updateSaveButton()
         guard let meme = meme else { return }
@@ -93,7 +93,7 @@ class NewSubmissionViewController: UIViewController {
         guard let meme = meme, let user = UserController.shared.currentUser else { return }
         let actualTopText: String? = topText.isEmpty ? nil : topText
         let actualBottomText: String? = bottomText.isEmpty ? nil : bottomText
-        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: .white, creationDate: Date(), voteIds: [])
+        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: currentColor, creationDate: Date(), voteIds: [])
         submissionController.saveSubmission(newSubmission, memeId: meme.id)
     }
     
@@ -149,6 +149,18 @@ extension NewSubmissionViewController: UITextFieldDelegate {
     
 }
 
+
+// MARK: - colorPicker Delegate
+
+extension NewSubmissionViewController: ColorDelegate {
+
+    func pickedColor(color: UIColor) {
+        currentColor = color
+        topLabel.textColor = color
+        bottomLabel.textColor = color
+    }
+    
+}
 
 // MARK: - Animations & setup
 
