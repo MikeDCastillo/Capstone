@@ -17,27 +17,26 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var voteButton: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
     
-    let memeController = MemeController.shared
-    let layout = UICollectionViewFlowLayout()
+    fileprivate let userController = UserController.shared
+    fileprivate let memeController = MemeController.shared
+    fileprivate let layout = UICollectionViewFlowLayout()
 
     
-    var submissions: [Submission] {
+    fileprivate var submissions: [Submission] {
         return SubmissionController.shared.submissions
     }
-    var todaysMeme: Meme? {
+    fileprivate var todaysMeme: Meme? {
         return MemeController.shared.meme
     }
-    var users: [User] {
+    fileprivate var users: [User] {
         return Array(UserController.shared.users)
     }
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadCurrentUser()
         memeController.getTodaysMeme()
-        
-        let fakeUser = User(id: "yourMom", creationDate: Date(), avatarURLString: nil, username: "michael")
-        UserController.shared.currentUser = fakeUser
         
         let nibId = String(describing: SubmissionCollectionViewCell.self)
         let nib = UINib(nibName: nibId, bundle: nil)
@@ -92,6 +91,47 @@ class FeedViewController: UIViewController {
 }
 
 
+
+// MARK: - Fileprivate
+
+extension FeedViewController {
+    
+    fileprivate func loadCurrentUser() {
+        userController.loadCurrentUser { user, iCloudId in
+            if let _ = user {
+                print("User was found")
+                return // User was loaded successfully and all is right in the world
+            } else if let iCloudId = iCloudId {
+                print("User was not found but we got an ICloudID: \(iCloudId)")
+                self.createUser(with: iCloudId)
+                // Show onboarding experience
+            } else {
+                print("ICLOUD FAIL!!!!!!")
+                // Show iCloudError alert
+            }
+        }
+    }
+    
+    fileprivate func createUser(with iCloudId: String) {
+        print("Creating USER NOW")
+        self.userController.createUser(iCloudId: iCloudId, username: "", completion: { error in
+            if let error = error {
+                print(error)
+                print("UH OH")
+            } else {
+                print("Welcome. You are the newest user")
+                dump(self.userController.currentUser)
+            }
+        })
+    }
+    
+    func setupVoteButton() {
+        voteButton.layer.cornerRadius = 10
+    }
+    
+}
+
+
 // MARK: - Data Source Methods
 
 extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -117,17 +157,6 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 32, height: collectionView.bounds.height)
-    }
-    
-}
-
-
-// MARK: - Setup Button
-
-extension FeedViewController {
-
-    func setupVoteButton() {
-        voteButton.layer.cornerRadius = 10
     }
     
 }

@@ -292,17 +292,22 @@
                                         <rect key="frame" x="16" y="383.5" width="343" height="55.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Gh-Ne-2uj">
-                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="itemSize" width="338" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
+                                        <view key="backgroundView" contentMode="scaleToFill" fixedFrame="YES" id="xJo-CP-cYx" userLabel="colorPicker" customClass="ColorPicker" customModule="TheFinalProject" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fxc-8g-gPY">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="2.5" y="0.0" width="338" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </view>
                                             </collectionViewCell>
@@ -369,6 +374,7 @@
                         <outlet property="bottomLabel" destination="4t5-VF-bjF" id="SBF-cb-Kem"/>
                         <outlet property="bottomTextField" destination="sfH-5G-i2z" id="fFZ-c5-2Z6"/>
                         <outlet property="collectionView" destination="CKb-TV-Cia" id="gLT-Tb-EFM"/>
+                        <outlet property="colorPicker" destination="xJo-CP-cYx" id="n8q-Xh-bnp"/>
                         <outlet property="imageView" destination="YLU-ke-WU4" id="crk-9z-N4Z"/>
                         <outlet property="saveButton" destination="h6Y-ef-Eer" id="G7g-cK-5vH"/>
                         <outlet property="topCounterLabel" destination="22q-M4-YX8" id="7M0-Wb-SdZ"/>
@@ -389,7 +395,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="fd4-qt-H5A">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-e6-yMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="8gP-3b-Jmr" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="l86-sq-7Ld">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -402,6 +407,7 @@
                         <segue destination="7Af-Pp-qMA" kind="relationship" relationship="viewControllers" id="VUV-NV-ieo"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-e6-yMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-559" y="-50"/>
         </scene>

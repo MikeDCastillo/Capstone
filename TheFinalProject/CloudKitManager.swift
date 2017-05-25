@@ -9,3 +9,12 @@
 import Foundation
 import CloudKit
 
+class CloudKitManager {
+
+    static func getUseriCloudId(completion: @escaping (String?) -> Void) {
+        CKContainer.default().fetchUserRecordID { (recordId, error) in
+            completion(recordId?.recordName)
+        }
+    }
+    
+}

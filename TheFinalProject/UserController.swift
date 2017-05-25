@@ -23,22 +23,30 @@ class UserController: Controller {
 
 extension UserController {
     
-    func searchUser(with ckID: String, completion: @escaping (User?) -> Void)  {
-        let ref = firebaseController.usersRef.child(ckID)
-        firebaseController.getData(at: ref) { (result) in
-            switch result {
-            case .success(let json):
-                let user = try? User(json: json)
-                completion(user)
-            case .failure(let error):
-                print("\(error)")
-                completion(nil)
+    func loadCurrentUser(completion: @escaping (User?, String?) -> Void)  {
+        CloudKitManager.getUseriCloudId { iCloudId in
+            guard let iCloudId = iCloudId else { completion(nil, nil); return }
+            
+            let ref = self.firebaseController.usersRef.child(iCloudId)
+            self.firebaseController.getData(at: ref) { (result) in
+                switch result {
+                case .success(let json):
+                    let user = try? User(json: json)
+                    completion(user, iCloudId)
+                    
+                    if let currentUser = user {
+                        self.currentUser = currentUser
+                    }
+                case .failure(let error):
+                    print("\(error)")
+                    completion(nil, iCloudId)
+                }
             }
         }
     }
     
-    func createUser(username: String, avatarURLString: String?, completion: ((Error?) -> Void)?) {
-        let newUserRef = firebaseController.usersRef.childByAutoId()
+    func createUser(iCloudId: String, username: String, avatarURLString: String? = nil, completion: ((Error?) -> Void)?) {
+        let newUserRef = firebaseController.usersRef.child(iCloudId)
         let user = User(id: newUserRef.key, creationDate: Date(), avatarURLString: avatarURLString, username: username)
         
         firebaseController.save(at: newUserRef, json: user.json()) { error in
