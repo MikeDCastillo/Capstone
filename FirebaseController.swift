@@ -35,7 +35,7 @@ protocol JSONInitializable {
 
 enum JSONError: Error {
     case keyMismatch(String)
-    case typeMismatch
+    case typeMismatch(String)
 }
 
 struct FirebaseController {
@@ -59,7 +59,7 @@ struct FirebaseController {
             if let snap = snapshot.value as? JSONObject, snapshot.exists() {
                 completion?(Result.success(snap))
             } else {
-                completion?(Result.failure(JSONError.typeMismatch))
+                completion?(Result.failure(JSONError.typeMismatch(ref.key) ))
             }
         })
     }
@@ -69,7 +69,7 @@ struct FirebaseController {
             if let snap = snapshot.value as? JSONObject, snapshot.exists() {
                 completion?(Result.success(snap))
             } else {
-                completion?(Result.failure(JSONError.typeMismatch))
+                completion?(Result.failure(JSONError.typeMismatch(snapshot.key) ))
             }
         })
     }
@@ -79,7 +79,7 @@ struct FirebaseController {
             if let snap = snapshot.value as? JSONObject {
                 completion?(Result.success(snap))
             } else {
-                completion?(Result.failure(JSONError.typeMismatch))
+                completion?(Result.failure(JSONError.typeMismatch(snapshot.key) ))
             }
         })
     }

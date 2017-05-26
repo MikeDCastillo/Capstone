@@ -52,7 +52,7 @@ extension User: JSONInitializable {
     init(json: JSONObject) throws {
         guard let id = json["id"] as? String else { throw JSONError.keyMismatch("id") }
         guard let creationDateString = json["creationDate"] as? String else { throw JSONError.keyMismatch("creationDate") }
-        guard let creationDate = Date(dateString: creationDateString) else { throw JSONError.typeMismatch }
+        guard let creationDate = Date(dateString: creationDateString) else { throw JSONError.typeMismatch("creationDate") }
         guard let username = json["username"] as? String else { throw JSONError.keyMismatch("username") }
         
         self.id = id

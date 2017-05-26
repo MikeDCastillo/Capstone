@@ -49,8 +49,8 @@ extension Submission: JSONInitializable {
         guard let userId = json["userId"] as? String else { throw JSONError.keyMismatch("userId") }
         guard let textColorString = json["textColor"] as? String,
             let textColor2 = try? UIColor(hex: textColorString) else { throw JSONError.keyMismatch("textColor") }
-        guard let creationDateString = json["date"] as? String else { throw JSONError.typeMismatch }
-        guard let creationDate = Date(dateString: creationDateString) else { throw JSONError.typeMismatch }
+        guard let creationDateString = json["date"] as? String else { throw JSONError.keyMismatch("date") }
+        guard let creationDate = Date(dateString: creationDateString) else { throw JSONError.typeMismatch("creationDate") }
         let voteIds = json["voteIds"] as? [String]
         
         self.id = id

@@ -14,9 +14,76 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var voteButton: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var voteButton: UIButton!
+    /////////////////////////////////////////////////////
     
+    @IBOutlet weak var voteToggleButton: UIButton!
+    @IBOutlet weak var lolButton: UIButton!
+    @IBOutlet weak var dislikeButton: UIButton!
+    @IBOutlet weak var wtfButton: UIButton!
+    
+    fileprivate let voteToggleString = "Vote Toggle"
+    fileprivate let voteTypeString = "Vote Type"
+    
+    fileprivate var lolButtonCenter: CGPoint!
+    fileprivate var dislikeButtonCenter: CGPoint!
+    fileprivate var wtfButtonCenter: CGPoint!
+    
+    @IBAction func VoteToggleButtonPressed(_ sender: UIButton) {
+        
+        if voteToggleButton.currentTitle == voteToggleString {
+            UIView.animate(withDuration: 0.4, animations: {
+                self.lolButton.alpha = 1
+                self.dislikeButton.alpha = 1
+                self.wtfButton.alpha = 1
+                // move out animation
+                self.lolButton.center = self.lolButtonCenter
+                self.dislikeButton.center = self.dislikeButtonCenter
+                self.wtfButton.center = self.wtfButtonCenter
+            })
+        } else {
+            self.lolButton.alpha = 0
+            self.dislikeButton.alpha = 0
+            self.wtfButton.alpha = 0
+            // move in
+            UIView.animate(withDuration: 0.4, animations: { 
+                self.voteToggleButton.center = self.lolButton.center
+                self.voteToggleButton.center = self.dislikeButton.center
+                self.voteToggleButton.center = self.wtfButton.center
+            })
+        }
+        
+        //setting button text
+     toggleVoteButtonText(on: sender, voteToggle: voteToggleString, voteType: voteTypeString)
+    }
+    
+    @IBAction func lolButtonTapped(_ sender: UIButton) {
+        // animate button here
+        toggleVoteButtonText(on: voteToggleButton, voteToggle: voteToggleString, voteType: voteTypeString)
+    }
+    
+    @IBAction func dislikeButtonTapped(_ sender: UIButton) {
+        // animate button here
+        toggleVoteButtonText(on: voteToggleButton, voteToggle: voteToggleString, voteType: voteTypeString)
+        
+    }
+    
+    @IBAction func wtfButtonTapped(_ sender: UIButton) {
+        // animate button here
+        toggleVoteButtonText(on: voteToggleButton, voteToggle: voteToggleString, voteType: voteTypeString)
+    }
+    
+    
+    func toggleVoteButtonText (on uiButton: UIButton, voteToggle: String, voteType: String) {
+        if uiButton.currentTitle == "Vote Toggle" {
+            uiButton.setTitle("Vote Type", for: .normal)
+        } else {
+            uiButton.setTitle("Vote Toggle", for: .normal)
+        }
+    }
+    
+    //////////////////////////////////////////////////////////////////////////
     fileprivate let userController = UserController.shared
     fileprivate let memeController = MemeController.shared
     fileprivate let layout = UICollectionViewFlowLayout()
@@ -46,6 +113,16 @@ class FeedViewController: UIViewController {
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
         setupVoteButton()
+        ///////////////////////////////////////////////////////////////
+        //setting the initail GGPoint of buttons under the vote button. then setting the CGPoints where they live when pulled back under the vote button
+        voteToggleButton.center = lolButton.center
+        voteToggleButton.center = dislikeButton.center
+        voteToggleButton.center = wtfButton.center
+        //flip these around???
+        lolButtonCenter = voteToggleButton.center
+        dislikeButtonCenter = voteToggleButton.center
+        wtfButtonCenter = voteToggleButton.center
+        /////////////////////////////////////////////////////////////////
     }
     
     override func viewWillAppear(_ animated: Bool) {

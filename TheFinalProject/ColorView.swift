@@ -41,7 +41,6 @@ class ColorPicker: UIView {
         }
     }
     
-    
     //Changes the selected color, updates the UI, and notifies the delegate.
     func selectedColor(color: UIColor){
         if (color != selectedColor)
@@ -82,4 +81,5 @@ class ColorPicker: UIView {
         self.delegate.pickedColor(color: selectedColor)
         self.setNeedsDisplay()
     }
+    
 }

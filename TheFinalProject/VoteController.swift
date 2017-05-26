@@ -12,21 +12,34 @@ class VoteController: Controller {
     
     static let shared = VoteController()
     
-    var vote: Vote? {
+    var votes = [Vote]() {
         didSet{
-            NotificationCenter.default.post(name: NSNotification.Name("voteUpdated"), object: vote)
+            NotificationCenter.default.post(name: NSNotification.Name.votesUpdated, object: votes)
         }
     }
     
-    func UpVote(lol: Vote) {
-        //FIXME: - finsih this function
-        let lol = Vote.VoteType.lol
-        
-//        firebaseController.save(at: <#T##FIRDatabaseReference#>, json: <#T##JSONObject#>, completion: <#T##((Error?) -> Void)?##((Error?) -> Void)?##(Error?) -> Void#>)
+    func subscribeToVotes(memeId: String) {
+        let ref = firebaseController.votesRef(memeId: memeId)
+        firebaseController.subscribe(toRef: ref) { (result) in
+            switch result {
+            case let .success(json):
+                var votes = [Vote]()
+                json.keys.forEach({ voteIdKey in
+                    guard let voteDictionary = json[voteIdKey] as? JSONObject,
+                        let vote = try? Vote(json: voteDictionary) else { return }
+                    votes.append(vote)
+                })
+                self.votes = votes
+                
+            case let .failure(error):
+                print(error)
+            }
+        }
     }
     
-    func DownVote() {}
-    
-    func addWildCardVote() {}
+    func createFakeVote(withMemeId id: String) {
+        let ref = firebaseController.votesRef(memeId: id)
+        firebaseController.save(at: ref, json: ["fake": true], completion: nil)
+    }
     
 }

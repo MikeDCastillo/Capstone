@@ -53,7 +53,7 @@ class SubmissionController: Controller {
                     guard let newSubmission = try? Submission(json: submissionDictionary) else { return }
                     tempSubmissionsArray.append(newSubmission)
                 })
-                self.submissions = tempSubmissionsArray
+                self.submissions = tempSubmissionsArray.sorted(by: { $0.creationDate > $1.creationDate })
             case .failure(let error):
                 print(error)
             }

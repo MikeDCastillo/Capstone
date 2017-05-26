@@ -45,9 +45,9 @@ extension Meme: JSONInitializable {
     init(json: JSONObject) throws {
         guard let id = json["id"] as? String else { throw JSONError.keyMismatch("id") }
         guard let datePostedString = json["date"] as? String else { throw JSONError.keyMismatch("date") }
-        guard let datePosted = Date(dateString: datePostedString) else { throw JSONError.typeMismatch }
+        guard let datePosted = Date(dateString: datePostedString) else { throw JSONError.typeMismatch("datePosted") }
         guard let imageURLString = json["imageURL"] as? String else { throw JSONError.keyMismatch("imageURLString") }
-        guard let imageURL = URL(string: imageURLString) else  { throw JSONError.typeMismatch }
+        guard let imageURL = URL(string: imageURLString) else  { throw JSONError.typeMismatch("imageURL") }
         let entries = json["entries"] as? [String]
         let winnerID = json["winnerID"] as? String
         
