@@ -27,6 +27,7 @@ class MemeController: Controller {
             case let .success(json):
                 if let meme = try? Meme(json: json) {
                     self.meme = meme
+                    
                 } else {
                     print("error subscribing to daily meme")
                 }
@@ -79,7 +80,11 @@ class MemeController: Controller {
                 print(error.localizedDescription)
             } else {
                 self.subscribeToMeme(newMeme.id)
-                SubmissionController.shared.createFakeSubmission(withMemeId: newMeme.id)
+                SubmissionController.shared.createFakeSubmission(withMemeId: newMeme.id, completion: { error in
+                    if error == nil {
+                        SubmissionController.shared.subscribeToSubmissions(forMemeId: newMeme.id)
+                    }
+                })
             }
         })
     }

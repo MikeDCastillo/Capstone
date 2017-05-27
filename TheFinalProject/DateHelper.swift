@@ -37,4 +37,30 @@ extension Date {
             self = date
         }
     }
+    
+    /// Time difference between now and the caller (minutes and hours)
+    var componentsBetweenDates: DateComponents {
+        return Calendar.current.dateComponents([.minute, .hour], from: self, to: Date())
+    }
+    
+    var timeSince: String {
+        let componentsBetweenDates = self.componentsBetweenDates
+        guard let minutes = componentsBetweenDates.minute,
+            let hours = componentsBetweenDates.hour else { return "--" }
+        switch (hours, minutes) {
+        case (2...24, _):
+            return "\(hours) hrs ago"
+        case (1,_):
+            return "1 hr ago"
+        case (_, 2...60):
+            return "\(minutes) min ago"
+        case (_, 1):
+            return "1 min ago"
+        case (0,0):
+            return "Just Now"
+        default:
+           return "--"
+        }
+    }
+    
 }

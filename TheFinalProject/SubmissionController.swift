@@ -21,9 +21,9 @@ class SubmissionController: Controller {
         }
     }
     
-    func createFakeSubmission(withMemeId id: String) {
+    func createFakeSubmission(withMemeId id: String, completion: ((Error?) -> Void)? = nil) {
         let ref = firebaseController.submissionsRef(memeId: id)
-        firebaseController.save(at: ref, json: ["fake": true], completion: nil)
+        firebaseController.save(at: ref, json: ["fake": true], completion: completion)
     }
     
     func saveSubmission(_ submission: Submission, memeId: String) {

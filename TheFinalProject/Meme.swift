@@ -9,19 +9,17 @@
 import UIKit
 
 struct Meme {
+    
     var id: String
     var datePosted: Date
     var imageURL: URL
-    var entries: [String]
-    var winnerID: String?
     
-    init(id: String, datePosted: Date = Date(), imageURL: URL, entries: [String] = [], winnerID: String? = nil ) {
+    init(id: String, datePosted: Date = Date(), imageURL: URL, entries: [String] = []) {
         self.id = id
         self.datePosted = datePosted
         self.imageURL = imageURL
-        self.entries = entries
-        self.winnerID = winnerID
     }
+    
 }
 
 extension Meme: JSONExportable {
@@ -32,8 +30,6 @@ extension Meme: JSONExportable {
         jsonDictionary["id"] = id
         jsonDictionary["date"] = datePosted.dayString
         jsonDictionary["imageURL"] = imageURL.absoluteString
-        jsonDictionary["entries"] = entries
-        jsonDictionary["winnerID"] = winnerID
         
         return jsonDictionary
     }
@@ -48,15 +44,10 @@ extension Meme: JSONInitializable {
         guard let datePosted = Date(dateString: datePostedString) else { throw JSONError.typeMismatch("datePosted") }
         guard let imageURLString = json["imageURL"] as? String else { throw JSONError.keyMismatch("imageURLString") }
         guard let imageURL = URL(string: imageURLString) else  { throw JSONError.typeMismatch("imageURL") }
-        let entries = json["entries"] as? [String]
-        let winnerID = json["winnerID"] as? String
         
         self.id = id
         self.datePosted = datePosted
         self.imageURL = imageURL
-        self.entries = entries ?? []
-        self.winnerID = winnerID
-        
     }
     
 }

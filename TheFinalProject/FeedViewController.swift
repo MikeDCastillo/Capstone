@@ -12,6 +12,33 @@ import GoogleMobileAds
 
 class FeedViewController: UIViewController {
     
+    enum SortType: String {
+        case likes
+        case recent
+        
+        var title: String {
+            switch self {
+            case .likes:
+                return "Most Likes"
+            case .recent:
+                return "Most Recent"
+            }
+        }
+        
+        var sort: ((Submission, Submission) -> Bool) {
+            switch self {
+            case .likes:
+                return { (first, second) -> Bool in
+                    let firstLikes = VoteController.shared.votes(for: first, with: VoteType.like)
+                    let secondLikes = VoteController.shared.votes(for: second, with: .like)
+                    return firstLikes.count > secondLikes.count
+                }
+            case .recent:
+                return { $0.creationDate >  $1.creationDate }
+            }
+        }
+    }
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bannerView: GADBannerView!
@@ -38,6 +65,7 @@ class FeedViewController: UIViewController {
         case 0:
             // sort array by most likes
             print("foo")
+            
         case 1:
             // sort array by most recent Data
             print("bar")
@@ -277,7 +305,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout, UIScrollViewDe
             let cellWidth = cell.bounds.size.width
             let cellCenter = Float(cell.frame.origin.x + cellWidth / 2)
             
-            // Now calculate closest cell
+            // now calculating closest cell
             let distance: Float = fabsf(visibleCenterPositionOfScrollView - cellCenter)
             if distance < closestDistance {
                 closestDistance = distance

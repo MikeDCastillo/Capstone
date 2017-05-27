@@ -28,7 +28,7 @@ class SubmissionCollectionViewCell: UICollectionViewCell, AutoClassNameable {
         bottomLabel.textColor = submission.textColor
         avatarImageView.kf.setImage(with: user?.avatarURL, placeholder: #imageLiteral(resourceName: "meMeme0"))
         userNameLabel.text = user?.username ?? "--"
-        dateLabel.text = submission.creationDate.dayString //FIXME: - pretty date string
+        dateLabel.text = submission.creationDate.timeSince
         //vote labels here
     }
     

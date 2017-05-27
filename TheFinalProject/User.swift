@@ -39,7 +39,7 @@ extension User: JSONExportable {
     func json() -> JSONObject {
         var jsonDictionary = [String: Any]()
         jsonDictionary["id"] = id
-        jsonDictionary["creationDate"] = creationDate.dayString
+        jsonDictionary["creationDate"] = creationDate.timeIntervalSinceReferenceDate
         jsonDictionary["avatarURLString"] = avatarURLString
         jsonDictionary["username"] = username
         
@@ -51,8 +51,8 @@ extension User: JSONInitializable {
     
     init(json: JSONObject) throws {
         guard let id = json["id"] as? String else { throw JSONError.keyMismatch("id") }
-        guard let creationDateString = json["creationDate"] as? String else { throw JSONError.keyMismatch("creationDate") }
-        guard let creationDate = Date(dateString: creationDateString) else { throw JSONError.typeMismatch("creationDate") }
+        guard let creationDateDouble = json["creationDate"] as? Double else { throw JSONError.keyMismatch("creationDate") }
+        let creationDate = Date(timeIntervalSinceReferenceDate: creationDateDouble)
         guard let username = json["username"] as? String else { throw JSONError.keyMismatch("username") }
         
         self.id = id

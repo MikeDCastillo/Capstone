@@ -43,3 +43,14 @@ class VoteController: Controller {
     }
     
 }
+
+
+// MARK: - helper func
+
+extension VoteController {
+
+    func votes(for submission: Submission, with type: VoteType? = nil) -> [Vote] {
+        return votes.filter( { $0.submissionId == submission.id } )
+        
+    }
+}
