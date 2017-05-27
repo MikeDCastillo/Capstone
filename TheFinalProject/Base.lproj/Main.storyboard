@@ -36,7 +36,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFf-yG-xYS" id="nj7-y2-GhA">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -157,6 +157,33 @@
                                     <action selector="VoteToggleButtonPressed:" destination="476-oA-LXZ" eventType="touchUpInside" id="IvU-6R-ZPk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTP-Pe-bO7">
+                                <rect key="frame" x="346" y="181" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="⇥"/>
+                                <connections>
+                                    <action selector="lastButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="HG1-nE-H6H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nea-n7-fAX">
+                                <rect key="frame" x="0.0" y="180" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="⇤"/>
+                                <connections>
+                                    <action selector="firstButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="oU0-Bp-Pyl"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="glq-Um-uJO">
+                                <rect key="frame" x="127" y="64" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Recent"/>
+                                    <segment title="Likes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlTapped:" destination="476-oA-LXZ" eventType="valueChanged" id="lCt-d0-59d"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -185,8 +212,11 @@
                         <outlet property="bannerView" destination="GMR-6a-3Io" id="hM0-QC-Qzv"/>
                         <outlet property="collectionView" destination="o2d-sh-Mqc" id="VS7-ck-vZw"/>
                         <outlet property="dislikeButton" destination="azg-ZM-QE8" id="XqY-YE-ciG"/>
+                        <outlet property="firstButton" destination="Nea-n7-fAX" id="Eae-WL-BOo"/>
                         <outlet property="imageView" destination="NDa-iP-sNC" id="tKT-hc-wlO"/>
+                        <outlet property="lastButton" destination="YTP-Pe-bO7" id="OW7-3f-mWs"/>
                         <outlet property="lolButton" destination="iJX-VH-vkq" id="bxV-6w-CqS"/>
+                        <outlet property="segmentedControl" destination="glq-Um-uJO" id="cGH-Fk-9gC"/>
                         <outlet property="voteButton" destination="Xj9-El-aQi" id="SeV-DU-V3O"/>
                         <outlet property="voteToggleButton" destination="usT-K3-8lB" id="OYn-bJ-1hH"/>
                         <outlet property="wtfButton" destination="5C9-aD-uSS" id="0Me-Iu-wHs"/>
@@ -346,7 +376,7 @@
                                                 <rect key="frame" x="2.5" y="0.0" width="338" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="339" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </view>
                                             </collectionViewCell>
