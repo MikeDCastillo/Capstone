@@ -29,7 +29,7 @@ class SubmissionCollectionViewCell: UICollectionViewCell, AutoClassNameable {
         avatarImageView.kf.setImage(with: user?.avatarURL, placeholder: #imageLiteral(resourceName: "meMeme0"))
         userNameLabel.text = user?.username ?? "--"
         dateLabel.text = submission.creationDate.timeSince
-        //vote labels here
+        //FIXME: - Vote Labels
     }
     
 }

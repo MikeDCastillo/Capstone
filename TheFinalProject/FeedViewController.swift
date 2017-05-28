@@ -64,10 +64,12 @@ class FeedViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             // sort array by most likes
+//            SortType.likes.sort(submission, submission)
             print("foo")
             
         case 1:
-            // sort array by most recent Data
+            // sort array by most recent Date
+//            SortType.recent.sort(<#T##Submission#>, <#T##Submission#>)
             print("bar")
         default:
                 break
