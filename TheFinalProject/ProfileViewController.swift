@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     var newPictureCaptrured: Bool?
+    var firebaseController = FirebaseController()
     
     // Life - Cycle
     
@@ -43,22 +44,18 @@ class ProfileViewController: UIViewController {
     @IBAction func editButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "", message: "Change Profile Picture?", preferredStyle: .actionSheet)
         let dismiss = UIAlertAction(title: "Dismiss", style: .cancel) { (alert) in
-            self.present(alertController, animated: true, completion: nil)
         }
         alertController.addAction(dismiss)
         let toPhotoLibrary = UIAlertAction(title: "Gallery 📷", style: .default) { (action) in
             self.setUpImagePicker()
-        
 //            self.imagePickerController(self.imagePicker, didFinishPickingMediaWithInfo: <#T##[String : Any]#>
         }
         alertController.addAction(toPhotoLibrary)
         self.present(alertController, animated: true, completion: nil)
-        
-        
     }
     
     func setupProfileImg() {
-        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width / 3
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width / 2
         avatarImageView.clipsToBounds = true
     }
     
@@ -66,7 +63,7 @@ class ProfileViewController: UIViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imagePicker.allowsEditing = false
-        //required by apple for ipads
+        // required by apple for ipads
         imagePicker.modalPresentationStyle = .popover
 //        self.imagePicker.popoverPresentationController?.barButtonItem = sender
         self.present(imagePicker, animated: true, completion: nil)
@@ -78,7 +75,7 @@ class ProfileViewController: UIViewController {
     }
     
     
-    // MARK: - TableViewController & Delegate conformance
+    // MARK: - TableViewController
     
     class ProfileTableViewController: UITableViewController {
     
@@ -119,20 +116,20 @@ class ProfileViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
             return cell
         }
-        
     }
     
 }
 
 
-// MARK: - Image Picker Delegate
+// MARK: - Image Picker Delegate & Firebase Delegate
 
-extension ProfileViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ProfileViewController:  UIImagePickerControllerDelegate, UINavigationControllerDelegate, Controller {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
         avatarImageView.contentMode = .scaleAspectFit
         avatarImageView.image = chosenImage
+        guard let currentUser = UserController.shared.currentUser else { print("No current user \(#line)"); return }
         dismiss(animated:true, completion: nil)
     }
     
