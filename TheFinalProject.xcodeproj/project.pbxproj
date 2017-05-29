@@ -43,6 +43,7 @@
 		73BE1B561E8D5B0E0088CC03 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */; };
 		73BE1B571E8D5B0E0088CC03 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */; };
 		73C2D4411EDA863B0037B75B /* CaseCountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D4401EDA863B0037B75B /* CaseCountable.swift */; };
+		73C2D4431EDABED40037B75B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D4421EDABED40037B75B /* CircleView.swift */; };
 		73F132FF1ED5ED6000B102F8 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F132FE1ED5ED6000B102F8 /* ColorView.swift */; };
 		73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3AB981ED153060073456C /* NewSubmissionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		73BE1B521E8D5B0E0088CC03 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		73C2D4401EDA863B0037B75B /* CaseCountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseCountable.swift; sourceTree = "<group>"; };
+		73C2D4421EDABED40037B75B /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		73F132FE1ED5ED6000B102F8 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		73F3AB981ED153060073456C /* NewSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubmissionViewController.swift; sourceTree = "<group>"; };
 		C1B88D50517F5CDB16933651 /* Pods-TheFinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		73B5A1B41E6CB9F000ED8EDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				73C2D4421EDABED40037B75B /* CircleView.swift */,
 				739D87E71ED54DF50094C835 /* CloudKitManager.swift */,
 				738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */,
 				73F132FE1ED5ED6000B102F8 /* ColorView.swift */,
@@ -378,6 +381,7 @@
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
 				73BE1B281E8A292D0088CC03 /* UserController.swift in Sources */,
+				73C2D4431EDABED40037B75B /* CircleView.swift in Sources */,
 				73BE1B2A1E8A29330088CC03 /* SubmissionController.swift in Sources */,
 				7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */,
 				73B5A1BC1E6CBAD300ED8EDB /* Submission.swift in Sources */,
