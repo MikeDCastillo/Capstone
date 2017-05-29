@@ -12,5 +12,6 @@ extension NSNotification.Name {
     static let todaysMemeUpdated = NSNotification.Name("memeUpdated")
     static let submissionUpdated = NSNotification.Name("submissionUpdated")
     static let votesUpdated = NSNotification.Name("votesUpdated")
+    static let userUpdated = NSNotification.Name("userUpdated")
 }
 

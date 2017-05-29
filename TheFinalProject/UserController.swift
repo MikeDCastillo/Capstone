@@ -13,9 +13,12 @@ class UserController: Controller {
     
     static let shared = UserController()
     
-    var currentUser: User?
+    var currentUser: User? {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name.userUpdated, object: nil)
+        }
+    }
     var users = Set<User>()
-    
 }
 
 // MARK: - CRUD Functions
@@ -92,6 +95,22 @@ extension UserController {
         firebaseController.delete(at: ref) { error in
             if let error = error {
                 print("Error deleting user with id: \(id) ERROR: \(error)")
+            }
+        }
+    }
+    
+    func saveAvatar(image: UIImage) {
+        guard let data = UIImageJPEGRepresentation(image, 0.6) else { print("\(#line)"); return }
+        guard let currrentUser = currentUser else { return }
+        let ref = firebaseController.avatarStorageRef(userId: currrentUser.id)
+        firebaseController.upload(data, ref: ref) { (result) in
+            switch result {
+            case let .success(avatarURL):
+                var updatedUser = currrentUser
+                updatedUser.avatarURLString = avatarURL.absoluteString
+                self.updateUser(updatedUser)
+            case let .failure(error):
+                print("\(error)")
             }
         }
     }
