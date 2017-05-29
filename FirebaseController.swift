@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import FirebaseCore
-import FirebaseDatabase
+import Firebase
+
 
 typealias JSONObject = [String: Any]
 
@@ -41,6 +41,7 @@ enum JSONError: Error {
 struct FirebaseController {
     
     let rootRef = Database.database().reference()
+    let storageRef = Storage.storage().reference()
     
     func save(at ref: DatabaseReference, json: JSONObject, completion: ((Error?) -> Void)?) {
         ref.updateChildValues(json) { error, ref in
@@ -83,6 +84,21 @@ struct FirebaseController {
             }
         })
     }
+    
+    // MARK: - Storage
+    
+    func upload(_ data: Data, contentType: String = StorageHelper.jpegContentType, ref: StorageReference, completion: @escaping (Result<URL>) -> Void) {
+        let metadata = StorageMetadata()
+        metadata.contentType = contentType
+        ref.putData(data, metadata: metadata) { (metadata, error) in
+            if let metadata = metadata, let downloadURL = metadata.downloadURL() {
+                completion(Result.success(downloadURL))
+            } else if let error = error {
+                completion(Result.failure(error))
+            }
+        }
+    }
+
     
     /*
      

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseDatabase
+import Firebase
 
 extension FirebaseController {
     
@@ -29,6 +29,10 @@ extension FirebaseController {
     /// rootRef/votes/memeId
     func votesRef(memeId: String) -> DatabaseReference {
         return rootRef.child("votes").child(memeId)
+    }
+    
+    func avatarStorageRef(userId: String) -> StorageReference {
+        return storageRef.child(Keys.avatars).child(userId)
     }
     
 }
