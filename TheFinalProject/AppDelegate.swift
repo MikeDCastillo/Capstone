@@ -15,12 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    override init() {
+        super.init()
+        FirebaseApp.configure()
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        FirebaseApp.configure()
         GADMobileAds.configure(withApplicationID: "ca-app-pub-3828876899715465~9741705036")
         
         return true
