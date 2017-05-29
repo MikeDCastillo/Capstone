@@ -13,7 +13,7 @@ struct User {
     var id: String
     var creationDate: Date
     var avatarURLString: String?
-    var username: String
+    var username: String?
 
     var avatarURL: URL? {
         guard let urlString = avatarURLString else { return nil }
@@ -38,10 +38,10 @@ extension User: JSONExportable {
     
     func json() -> JSONObject {
         var jsonDictionary = [String: Any]()
-        jsonDictionary["id"] = id
-        jsonDictionary["creationDate"] = creationDate.timeIntervalSinceReferenceDate
-        jsonDictionary["avatarURLString"] = avatarURLString
-        jsonDictionary["username"] = username
+        jsonDictionary[Keys.id] = id
+        jsonDictionary[Keys.creationDate] = creationDate.timeIntervalSinceReferenceDate
+        jsonDictionary[Keys.avatarURLString] = avatarURLString
+        jsonDictionary[Keys.username] = username
         
         return jsonDictionary
     }
@@ -50,13 +50,14 @@ extension User: JSONExportable {
 extension User: JSONInitializable {
     
     init(json: JSONObject) throws {
-        guard let id = json["id"] as? String else { throw JSONError.keyMismatch("id") }
-        guard let creationDateDouble = json["creationDate"] as? Double else { throw JSONError.keyMismatch("creationDate") }
+        guard let id = json[Keys.id] as? String else { throw JSONError.keyMismatch(Keys.id) }
+        guard let creationDateDouble = json[Keys.creationDate] as? Double else { throw JSONError.keyMismatch(Keys.creationDate) }
         let creationDate = Date(timeIntervalSinceReferenceDate: creationDateDouble)
-        guard let username = json["username"] as? String else { throw JSONError.keyMismatch("username") }
+        let avatarString = json[Keys.avatarURLString] as? String
+        let username = json[Keys.username] as? String
         
         self.id = id
-        self.avatarURLString = json["avatarURLString"] as? String
+        self.avatarURLString = avatarString
         self.creationDate = creationDate
         self.username = username
     }

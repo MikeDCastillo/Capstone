@@ -13,7 +13,11 @@ class CloudKitManager {
 
     static func getUseriCloudId(completion: @escaping (String?) -> Void) {
         CKContainer.default().fetchUserRecordID { (recordId, error) in
-            completion(recordId?.recordName)
+            if let recordName = recordId?.recordName {
+                completion(recordName)
+            } else {
+                completion(nil)
+            }
         }
     }
     

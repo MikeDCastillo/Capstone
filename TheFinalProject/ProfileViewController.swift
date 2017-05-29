@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController, Controller {
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     let imagePicker = UIImagePickerController()
@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController, Controller {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        updateAvatarImage()
+        userUpdated(nil)
         NotificationCenter.default.addObserver(self, selector: #selector(userUpdated(_:)), name: NSNotification.Name.userUpdated, object: nil)
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
@@ -44,6 +44,10 @@ class ProfileViewController: UIViewController, Controller {
         
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
         editButton.layer.cornerRadius = editButton.bounds.height / 2
+    }
+    
+    @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -74,8 +78,10 @@ class ProfileViewController: UIViewController, Controller {
         present(alertController, animated: true, completion: nil)
     }
  
-    func userUpdated(_ sender: NSNotification) {
-        updateAvatarImage()
+    func userUpdated(_ sender: NSNotification?) {
+        guard let currentUser = UserController.shared.currentUser else { return }
+        updateAvatarImage(url: currentUser.avatarURL)
+        userNameLabel.text = currentUser.username
     }
     
 }
@@ -83,10 +89,8 @@ class ProfileViewController: UIViewController, Controller {
 extension ProfileViewController {
     
     //FIXME: User placeholder
-    fileprivate func updateAvatarImage(placeholder: UIImage? = #imageLiteral(resourceName: "meMeme0")) {
-        guard let currentUser = UserController.shared.currentUser else { return }
-        avatarImageView.kf.setImage(with: currentUser.avatarURL, placeholder: placeholder)
-        print("SETTING URL: ->\(currentUser.avatarURL), placeholder: \(placeholder)")
+    fileprivate func updateAvatarImage(url: URL?, placeholder: UIImage? = #imageLiteral(resourceName: "meMeme0")) {
+        avatarImageView.kf.setImage(with: url, placeholder: placeholder)
     }
     
     fileprivate func deleteUserAvatar() {
@@ -156,7 +160,7 @@ extension ProfileViewController:  UIImagePickerControllerDelegate, UINavigationC
         dismiss(animated:true, completion: nil)
         guard let chosenImage = info[UIImagePickerControllerEditedImage] as? UIImage else { return }
         UserController.shared.saveAvatar(image: chosenImage)
-        updateAvatarImage(placeholder: chosenImage)
+        updateAvatarImage(url: nil, placeholder: chosenImage)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

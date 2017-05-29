@@ -28,7 +28,10 @@ extension UserController {
     
     func loadCurrentUser(completion: @escaping (User?, String?) -> Void)  {
         CloudKitManager.getUseriCloudId { iCloudId in
-            guard let iCloudId = iCloudId else { completion(nil, nil); return }
+            guard let iCloudId = iCloudId else {
+                completion(nil, nil)
+                return
+            }
             
             let ref = self.firebaseController.usersRef.child(iCloudId)
             self.firebaseController.getData(at: ref) { (result) in
@@ -48,7 +51,7 @@ extension UserController {
         }
     }
     
-    func createUser(iCloudId: String, username: String, avatarURLString: String? = nil, completion: ((Error?) -> Void)?) {
+    func createUser(iCloudId: String, username: String?, avatarURLString: String? = nil, completion: ((Error?) -> Void)?) {
         let newUserRef = firebaseController.usersRef.child(iCloudId)
         let user = User(id: newUserRef.key, creationDate: Date(), avatarURLString: avatarURLString, username: username)
         

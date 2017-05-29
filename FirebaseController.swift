@@ -87,7 +87,7 @@ struct FirebaseController {
     
     // MARK: - Storage
     
-    func upload(_ data: Data, contentType: String = StorageHelper.jpegContentType, ref: StorageReference, completion: @escaping (Result<URL>) -> Void) {
+    func upload(_ data: Data, contentType: String = Keys.jpegContentType, ref: StorageReference, completion: @escaping (Result<URL>) -> Void) {
         let metadata = StorageMetadata()
         metadata.contentType = contentType
         ref.putData(data, metadata: metadata) { (metadata, error) in

@@ -14,6 +14,7 @@
 		732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */; };
 		732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */; };
 		7332979D1EDBE18A00D9DD6D /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332979C1EDBE18A00D9DD6D /* Keys.swift */; };
+		7332979F1EDCB99400D9DD6D /* ICloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */; };
 		73364C281ED6A83E0057DE6C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73364C271ED6A83E0057DE6C /* UIColorExtension.swift */; };
 		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
@@ -57,6 +58,7 @@
 		732B3A351E928A08002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SubmissionCollectionViewCell.xib; sourceTree = "<group>"; };
 		732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7332979C1EDBE18A00D9DD6D /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICloudViewController.swift; sourceTree = "<group>"; };
 		73364C271ED6A83E0057DE6C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
 		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				73F3AB981ED153060073456C /* NewSubmissionViewController.swift */,
 				739D87E51ED51FF50094C835 /* ProfileViewController.swift */,
+				7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */,
 				732B3A291E91DDBC002B31A9 /* FeedViewController.swift */,
 				732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */,
 			);
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7332979F1EDCB99400D9DD6D /* ICloudViewController.swift in Sources */,
 				732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */,
 				732B3A2A1E91DDBC002B31A9 /* FeedViewController.swift in Sources */,
 				73C2D4411EDA863B0037B75B /* CaseCountable.swift in Sources */,

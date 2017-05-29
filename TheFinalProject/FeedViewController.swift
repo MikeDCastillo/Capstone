@@ -59,6 +59,7 @@ class FeedViewController: UIViewController {
     fileprivate let layout = UICollectionViewFlowLayout()
     fileprivate let voteToggleString = "Vote Toggle"
     fileprivate let voteTypeString = "Vote Type"
+    fileprivate let iCloudSegue = "iCloudSegue"
     
     @IBAction func segmentControlTapped(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
@@ -238,14 +239,14 @@ extension FeedViewController {
                 // Show onboarding experience
             } else {
                 print("ICLOUD FAIL!!!!!!")
-                // Show iCloudError alert
+                self.performSegue(withIdentifier: self.iCloudSegue, sender: self)
             }
         }
     }
     
     fileprivate func createUser(with iCloudId: String) {
         print("Creating USER NOW")
-        self.userController.createUser(iCloudId: iCloudId, username: "", completion: { error in
+        self.userController.createUser(iCloudId: iCloudId, username: nil, completion: { error in
             if let error = error {
                 print(error)
                 print("UH OH")
