@@ -12,6 +12,7 @@ class ICloudViewController: UIViewController {
 
     @IBOutlet weak var tryAgainButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     
     fileprivate let cornerRadius: CGFloat = 5.0
     
@@ -29,6 +30,7 @@ class ICloudViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadiCloud), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         tryAgainButton.layer.cornerRadius = cornerRadius
         settingsButton.layer.cornerRadius = cornerRadius
+        
     }
     
     @IBAction func settingsButtonTapped(_ sender: Any) {

@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController, Controller {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    
     let imagePicker = UIImagePickerController()
     var firebaseController = FirebaseController()
     
@@ -37,6 +38,7 @@ class ProfileViewController: UIViewController, Controller {
         //this is the viewController that the banner will be displayed on
         bannerView.rootViewController = self
         bannerView.load(request)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -113,40 +115,98 @@ extension ProfileViewController {
 }
 
 
+extension ProfileViewController {
+    
+    fileprivate func presentUsernameEditAlert() {
+        let alertController = UIAlertController(title: "Edit User Name", message: "Update?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            guard let textField = alertController.textFields?.first,
+                let usernameText = textField.text else { return }
+            self.saveUsername(usernameText.lowercased())
+        }
+        alertController.addTextField { textField in
+            textField.placeholder = "Username"
+            
+            guard let currentUser = UserController.shared.currentUser else { return }
+            textField.text = currentUser.username
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { _ in
+                guard let text = textField.text?.lowercased() else { saveAction.isEnabled = false; return }
+                saveAction.isEnabled = !text.isEmpty && currentUser.username != text
+            }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(saveAction)
+        saveAction.isEnabled = false
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    fileprivate func inviteFriends() {
+        
+    }
+    
+    fileprivate func giveFeedback() {
+        
+    }
+    
+    func saveUsername(_ username: String) {
+        guard var updatedUser = UserController.shared.currentUser else { return }
+        updatedUser.username = username
+        UserController.shared.updateUser(updatedUser)
+    }
+    
+}
+
+
 // MARK: - TableView
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
-    enum TableViewCells: Int, CaseCountable {
+    enum SettingsRow: Int, CaseCountable {
         
         case editUserName
         case inviteFriends
-        case versionBuild
-        case contactDeveloper
+        case support
         
-        var cellsToDisplay: UITableViewCell {
+        var title: String {
             switch self {
             case .editUserName:
-                return UITableViewCell()
+                return "Edit username"
             case .inviteFriends:
-                return UITableViewCell()
-            case .versionBuild:
-                return UITableViewCell()
-            case .contactDeveloper:
-                return UITableViewCell()
+                return "Invite Friends"
+            case .support:
+                return "Report Feedback"
             }
         }
+        
     }
     
     // MARK: - Data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TableViewCells.caseCount
+        return SettingsRow.caseCount
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let settingsRow = SettingsRow(rawValue: indexPath.row)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
+        cell.textLabel?.text = settingsRow.title
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let settingsRow = SettingsRow(rawValue: indexPath.row)!
+        switch settingsRow {
+        case .editUserName:
+            presentUsernameEditAlert()
+        case .inviteFriends:
+            inviteFriends()
+        case .support:
+            giveFeedback()
+        }
     }
     
 }

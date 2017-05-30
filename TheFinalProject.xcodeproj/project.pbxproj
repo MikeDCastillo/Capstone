@@ -15,6 +15,7 @@
 		732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */; };
 		7332979D1EDBE18A00D9DD6D /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332979C1EDBE18A00D9DD6D /* Keys.swift */; };
 		7332979F1EDCB99400D9DD6D /* ICloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */; };
+		733297A11EDD0B4B00D9DD6D /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733297A01EDD0B4B00D9DD6D /* SortType.swift */; };
 		73364C281ED6A83E0057DE6C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73364C271ED6A83E0057DE6C /* UIColorExtension.swift */; };
 		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
@@ -59,6 +60,7 @@
 		732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionCollectionViewCell.swift; sourceTree = "<group>"; };
 		7332979C1EDBE18A00D9DD6D /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICloudViewController.swift; sourceTree = "<group>"; };
+		733297A01EDD0B4B00D9DD6D /* SortType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		73364C271ED6A83E0057DE6C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
 		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		73B5A1B41E6CB9F000ED8EDB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				733297A01EDD0B4B00D9DD6D /* SortType.swift */,
 				73C2D4421EDABED40037B75B /* CircleView.swift */,
 				739D87E71ED54DF50094C835 /* CloudKitManager.swift */,
 				738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */,
@@ -396,6 +399,7 @@
 				737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */,
 				73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */,
 				73364C281ED6A83E0057DE6C /* UIColorExtension.swift in Sources */,
+				733297A11EDD0B4B00D9DD6D /* SortType.swift in Sources */,
 				73BDFCDC1E9458400019CB57 /* NetworkController.swift in Sources */,
 				73F132FF1ED5ED6000B102F8 /* ColorView.swift in Sources */,
 				73A6C7241E8615AD00751051 /* FirebaseController+Meme.swift in Sources */,

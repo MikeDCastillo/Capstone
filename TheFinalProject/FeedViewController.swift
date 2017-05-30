@@ -12,33 +12,6 @@ import GoogleMobileAds
 
 class FeedViewController: UIViewController {
     
-    enum SortType: String {
-        case likes
-        case recent
-        
-        var title: String {
-            switch self {
-            case .likes:
-                return "Most Likes"
-            case .recent:
-                return "Most Recent"
-            }
-        }
-        
-        var sort: ((Submission, Submission) -> Bool) {
-            switch self {
-            case .likes:
-                return { (first, second) -> Bool in
-                    let firstLikes = VoteController.shared.votes(for: first, with: VoteType.like)
-                    let secondLikes = VoteController.shared.votes(for: second, with: .like)
-                    return firstLikes.count > secondLikes.count
-                }
-            case .recent:
-                return { $0.creationDate >  $1.creationDate }
-            }
-        }
-    }
-    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bannerView: GADBannerView!
@@ -65,15 +38,15 @@ class FeedViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             // sort array by most likes
-//            SortType.likes.sort(submission, submission)
+            //            SortType.likes.sort(submission, submission)
             print("foo")
             
         case 1:
             // sort array by most recent Date
-//            SortType.recent.sort(<#T##Submission#>, <#T##Submission#>)
+            //            SortType.recent.sort(<#T##Submission#>, <#T##Submission#>)
             print("bar")
         default:
-                break
+            break
         }
     }
     
@@ -91,9 +64,8 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadCurrentUser()
-        memeController.getTodaysMeme()
         
+        memeController.getTodaysMeme()
         let nibId = String(describing: SubmissionCollectionViewCell.self)
         let nib = UINib(nibName: nibId, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: nibId)
@@ -104,8 +76,6 @@ class FeedViewController: UIViewController {
         setupVoteButton()
         setupUIButtons()
         
-        scrollViewDidEndDragging(collectionView, willDecelerate: true)
-        scrollViewDidEndDecelerating(collectionView)
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
     }
     
@@ -123,6 +93,12 @@ class FeedViewController: UIViewController {
         //this is the viewController that the banner will be displayed on
         bannerView.rootViewController = self
         bannerView.load(request)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        loadCurrentUser()
     }
     
     // MARK: - Actions
@@ -231,15 +207,14 @@ extension FeedViewController {
     fileprivate func loadCurrentUser() {
         userController.loadCurrentUser { user, iCloudId in
             if let _ = user {
-                print("User was found")
                 return // User was loaded successfully and all is right in the world
             } else if let iCloudId = iCloudId {
-                print("User was not found but we got an ICloudID: \(iCloudId)")
                 self.createUser(with: iCloudId)
-                // Show onboarding experience
+                //FIXME: - Show onboarding experience
             } else {
-                print("ICLOUD FAIL!!!!!!")
-                self.performSegue(withIdentifier: self.iCloudSegue, sender: self)
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                    self.performSegue(withIdentifier: self.iCloudSegue, sender: self)
+                })
             }
         }
     }

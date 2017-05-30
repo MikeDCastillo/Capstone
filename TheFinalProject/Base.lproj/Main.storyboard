@@ -70,19 +70,32 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Y0-yH-cyk">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Y0-yH-cyk">
                                         <rect key="frame" x="0.0" y="230" width="375" height="267"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="zFf-yG-xYS">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingsCell" textLabel="fLF-Uf-Ac6" rowHeight="55" style="IBUITableViewCellStyleDefault" id="zFf-yG-xYS">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFf-yG-xYS" id="nj7-y2-GhA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="54.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fLF-Uf-Ac6">
+                                                            <rect key="frame" x="15" y="0.0" width="325" height="54.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BTq-Fl-yvT" id="RqW-66-KOq"/>
+                                            <outlet property="delegate" destination="BTq-Fl-yvT" id="6LR-8O-RCI"/>
+                                        </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgG-4g-qsP" userLabel="bannerView" customClass="GADBannerView">
                                         <rect key="frame" x="0.0" y="513" width="375" height="50"/>
@@ -145,59 +158,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-Ca-cTv">
-                                <rect key="frame" x="32" y="234" width="311" height="200"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nec-Ck-MxR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Y1s-cy-qEA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bda-Tm-sSP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="f17-5X-PBZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9OQ-Nf-8eY">
+                                <rect key="frame" x="56" y="242" width="263" height="182"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Login Required" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ru-jl-Wjb">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="100"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☁️ iCloud Login Required ☁️" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ru-jl-Wjb">
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="50"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9OQ-Nf-8eY">
-                                        <rect key="frame" x="0.0" y="100" width="311" height="100"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJ9-IJ-2fI">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="42"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                                <state key="normal" title="Try Again">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="tryAgainButtonTapped:" destination="d7u-LS-miK" eventType="touchUpInside" id="HpF-ly-EVO"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpp-sB-jOl">
-                                                <rect key="frame" x="0.0" y="58" width="311" height="42"/>
-                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                                <state key="normal" title="Launch Settings">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="settingsButtonTapped:" destination="d7u-LS-miK" eventType="touchUpInside" id="zDa-th-g7W"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJ9-IJ-2fI">
+                                        <rect key="frame" x="0.0" y="66" width="263" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="qd0-c5-EHS"/>
+                                            <constraint firstAttribute="height" constant="50" id="2jY-dM-xqP"/>
                                         </constraints>
-                                    </stackView>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="Try Again">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tryAgainButtonTapped:" destination="d7u-LS-miK" eventType="touchUpInside" id="HpF-ly-EVO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpp-sB-jOl">
+                                        <rect key="frame" x="0.0" y="132" width="263" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                        <state key="normal" title="Launch Settings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="settingsButtonTapped:" destination="d7u-LS-miK" eventType="touchUpInside" id="zDa-th-g7W"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="kJ9-IJ-2fI" firstAttribute="height" secondItem="Wpp-sB-jOl" secondAttribute="height" id="ICD-Ed-QaD"/>
+                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7vR-Ca-cTv" firstAttribute="centerY" secondItem="tsg-1B-cRJ" secondAttribute="centerY" id="8fR-LF-Acf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7vR-Ca-cTv" secondAttribute="trailing" constant="16" id="Iap-xa-v9r"/>
-                            <constraint firstItem="7vR-Ca-cTv" firstAttribute="leading" secondItem="tsg-1B-cRJ" secondAttribute="leadingMargin" constant="16" id="OPp-6U-gIA"/>
-                            <constraint firstItem="7vR-Ca-cTv" firstAttribute="height" secondItem="tsg-1B-cRJ" secondAttribute="height" multiplier="0.3" id="rAd-H8-fvL"/>
+                            <constraint firstItem="9OQ-Nf-8eY" firstAttribute="centerY" secondItem="tsg-1B-cRJ" secondAttribute="centerY" id="aSu-S2-UmZ"/>
+                            <constraint firstItem="Nec-Ck-MxR" firstAttribute="leading" secondItem="tsg-1B-cRJ" secondAttribute="leading" id="cEY-ET-LRx"/>
+                            <constraint firstItem="9OQ-Nf-8eY" firstAttribute="leading" secondItem="tsg-1B-cRJ" secondAttribute="leadingMargin" constant="40" id="ege-Ib-Wwb"/>
+                            <constraint firstItem="Nec-Ck-MxR" firstAttribute="top" secondItem="tsg-1B-cRJ" secondAttribute="topMargin" id="okB-dG-FWk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9OQ-Nf-8eY" secondAttribute="trailing" constant="40" id="pDo-IK-dNL"/>
+                            <constraint firstItem="HIk-Zr-trl" firstAttribute="top" secondItem="Nec-Ck-MxR" secondAttribute="bottom" id="ql1-qg-NV9"/>
+                            <constraint firstAttribute="trailing" secondItem="Nec-Ck-MxR" secondAttribute="trailing" id="zQn-sg-Nqa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="settingsButton" destination="Wpp-sB-jOl" id="Z7j-lD-pUt"/>
                         <outlet property="tryAgainButton" destination="kJ9-IJ-2fI" id="CDF-Mf-BLJ"/>
+                        <outlet property="visualEffectView" destination="bda-Tm-sSP" id="Yfz-Yu-jJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTB-gx-XrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -352,7 +388,7 @@
                         <outlet property="voteButton" destination="Xj9-El-aQi" id="SeV-DU-V3O"/>
                         <outlet property="voteToggleButton" destination="usT-K3-8lB" id="OYn-bJ-1hH"/>
                         <outlet property="wtfButton" destination="5C9-aD-uSS" id="0Me-Iu-wHs"/>
-                        <segue destination="d7u-LS-miK" kind="presentation" identifier="iCloudSegue" id="3KT-wC-rhU"/>
+                        <segue destination="d7u-LS-miK" kind="presentation" identifier="iCloudSegue" animates="NO" modalPresentationStyle="overFullScreen" id="3KT-wC-rhU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bzi-jl-elq" userLabel="First Responder" sceneMemberID="firstResponder"/>
