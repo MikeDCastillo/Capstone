@@ -443,7 +443,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YLU-ke-WU4">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="225"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your custom text here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="bdT-GU-BPk">
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your custom text here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="bdT-GU-BPk">
                                                 <rect key="frame" x="32" y="8" width="311" height="23.5"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
@@ -453,11 +453,15 @@
                                                     <outletCollection property="gestureRecognizers" destination="haA-sJ-eaf" appends="YES" id="G1c-Nm-DrM"/>
                                                 </connections>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or here. . ." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="4t5-VF-bjF">
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or here. . ." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="4t5-VF-bjF">
                                                 <rect key="frame" x="32" y="193.5" width="311" height="23.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="MdI-MW-9ZB" appends="YES" id="kxc-Rs-baN"/>
+                                                </connections>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -476,10 +480,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaT-xl-8Kj" userLabel="Top TF holder">
-                                        <rect key="frame" x="16" y="241" width="343" height="55.5"/>
+                                        <rect key="frame" x="16" y="241" width="343" height="36"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j8O-Ut-eti">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -489,7 +493,7 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22q-M4-YX8">
-                                                <rect key="frame" x="329" y="30.5" width="10" height="21"/>
+                                                <rect key="frame" x="329" y="11" width="10" height="21"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -506,10 +510,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xwv-DK-hRl" userLabel="Bottom TextField holder">
-                                        <rect key="frame" x="16" y="312.5" width="343" height="55"/>
+                                        <rect key="frame" x="16" y="293" width="343" height="36"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfH-5G-i2z">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -519,7 +523,7 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9p-Jx-Ayr">
-                                                <rect key="frame" x="329" y="30" width="10" height="21"/>
+                                                <rect key="frame" x="329" y="11" width="10" height="21"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -535,31 +539,27 @@
                                             <constraint firstAttribute="bottom" secondItem="R9p-Jx-Ayr" secondAttribute="bottom" constant="4" id="cud-bd-D6c"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CKb-TV-Cia">
-                                        <rect key="frame" x="16" y="383.5" width="343" height="55.5"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3Pl-Hb-V3S">
+                                        <rect key="frame" x="16" y="345" width="343" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Yn8-Fb-e6R"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="White"/>
+                                            <segment title="Black"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.36078431370000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="colorSegmentControlValueChanged:" destination="hi1-qI-SWU" eventType="valueChanged" id="c5Q-d8-ddt"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xJo-CP-cYx" userLabel="colorPicker" customClass="ColorPicker" customModule="TheFinalProject" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="389" width="343" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Gh-Ne-2uj">
-                                            <size key="itemSize" width="338" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <view key="backgroundView" contentMode="scaleToFill" fixedFrame="YES" id="xJo-CP-cYx" userLabel="colorPicker" customClass="ColorPicker" customModule="TheFinalProject" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="55.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fxc-8g-gPY">
-                                                <rect key="frame" x="2.5" y="0.0" width="338" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </view>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="TaB-jZ-yHg"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kos-kp-2Er">
                                         <rect key="frame" x="0.0" y="455" width="375" height="50"/>
                                         <subviews>
@@ -589,8 +589,8 @@
                                     <constraint firstItem="Xwv-DK-hRl" firstAttribute="height" secondItem="jaT-xl-8Kj" secondAttribute="height" id="Zsd-oj-5oE"/>
                                     <constraint firstItem="jaT-xl-8Kj" firstAttribute="width" secondItem="eao-R2-db3" secondAttribute="width" constant="-32" id="a68-Vm-Cqt"/>
                                     <constraint firstItem="kos-kp-2Er" firstAttribute="width" secondItem="eao-R2-db3" secondAttribute="width" id="bbQ-IQ-VYE"/>
-                                    <constraint firstItem="CKb-TV-Cia" firstAttribute="height" secondItem="jaT-xl-8Kj" secondAttribute="height" id="qpW-PI-XBi"/>
-                                    <constraint firstItem="CKb-TV-Cia" firstAttribute="width" secondItem="eao-R2-db3" secondAttribute="width" constant="-32" id="tit-BM-Agr"/>
+                                    <constraint firstItem="3Pl-Hb-V3S" firstAttribute="width" secondItem="eao-R2-db3" secondAttribute="width" constant="-32" id="dsI-2a-C0A"/>
+                                    <constraint firstItem="xJo-CP-cYx" firstAttribute="width" secondItem="eao-R2-db3" secondAttribute="width" constant="-32" id="xZt-80-i62"/>
                                     <constraint firstItem="Xwv-DK-hRl" firstAttribute="width" secondItem="jaT-xl-8Kj" secondAttribute="width" id="z4a-Cs-eA7"/>
                                 </constraints>
                             </stackView>
@@ -620,22 +620,32 @@
                         <outlet property="bottomCounterLabel" destination="R9p-Jx-Ayr" id="OM8-tb-yLR"/>
                         <outlet property="bottomLabel" destination="4t5-VF-bjF" id="SBF-cb-Kem"/>
                         <outlet property="bottomTextField" destination="sfH-5G-i2z" id="fFZ-c5-2Z6"/>
-                        <outlet property="collectionView" destination="CKb-TV-Cia" id="gLT-Tb-EFM"/>
                         <outlet property="colorPicker" destination="xJo-CP-cYx" id="n8q-Xh-bnp"/>
+                        <outlet property="colorSegmentControl" destination="3Pl-Hb-V3S" id="b8C-ON-WrL"/>
                         <outlet property="imageView" destination="YLU-ke-WU4" id="crk-9z-N4Z"/>
                         <outlet property="saveButton" destination="h6Y-ef-Eer" id="G7g-cK-5vH"/>
                         <outlet property="topCounterLabel" destination="22q-M4-YX8" id="7M0-Wb-SdZ"/>
                         <outlet property="topLabel" destination="bdT-GU-BPk" id="ED2-U1-6E3"/>
                         <outlet property="topTextField" destination="j8O-Ut-eti" id="Dl9-PN-iMl"/>
+                        <outlet property="viewTappedRecognizer" destination="xnw-wl-Zhh" id="Hv6-9B-inK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQt-5a-Qfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="xnw-wl-Zhh">
+                <tapGestureRecognizer enabled="NO" id="xnw-wl-Zhh" userLabel="View Tapped">
                     <connections>
                         <action selector="viewTapped:" destination="hi1-qI-SWU" id="Xkr-Oc-33p"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="haA-sJ-eaf"/>
+                <tapGestureRecognizer id="haA-sJ-eaf" userLabel="Top Label">
+                    <connections>
+                        <action selector="topLabelTapped:" destination="hi1-qI-SWU" id="wAy-Rb-se6"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="MdI-MW-9ZB">
+                    <connections>
+                        <action selector="bottomLabelTapped:" destination="hi1-qI-SWU" id="6y8-2G-Tjm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1036" y="-613.04347826086962"/>
         </scene>

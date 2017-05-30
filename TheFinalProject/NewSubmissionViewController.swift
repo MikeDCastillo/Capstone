@@ -19,10 +19,12 @@ class NewSubmissionViewController: UIViewController {
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var topCounterLabel: UILabel!
     @IBOutlet weak var bottomCounterLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var colorSegmentControl: UISegmentedControl!
+    @IBOutlet weak var colorPicker: ColorPicker!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
-    @IBOutlet var colorPicker: ColorPicker!
+    @IBOutlet var viewTappedRecognizer: UITapGestureRecognizer!
+    
     
     fileprivate var topText = "" {
         didSet {
@@ -53,7 +55,19 @@ class NewSubmissionViewController: UIViewController {
             
         }
     }
-    fileprivate var currentColor = UIColor.white
+    
+    fileprivate var selectedIndex = 0 {
+        didSet {
+            currentColor = selectedIndex == 0 ? .white : .black
+        }
+    }
+    
+    fileprivate var currentColor = UIColor.white {
+        didSet {
+            topLabel.textColor = currentColor
+            bottomLabel.textColor = currentColor
+        }
+    }
     fileprivate let characterLimit = 40
     fileprivate let submissionController = SubmissionController.shared
     fileprivate var meme: Meme? {
@@ -89,6 +103,11 @@ class NewSubmissionViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func colorSegmentControlValueChanged(_ sender: UISegmentedControl) {
+        selectedIndex = sender.selectedSegmentIndex
+    }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let meme = meme, let user = UserController.shared.currentUser else { return }
         let actualTopText: String? = topText.isEmpty ? nil : topText
@@ -100,6 +119,14 @@ class NewSubmissionViewController: UIViewController {
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(false)
+    }
+    
+    @IBAction func topLabelTapped(_ sender: UITapGestureRecognizer) {
+        topTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func bottomLabelTapped(_ sender: UITapGestureRecognizer) {
+        bottomTextField.becomeFirstResponder()
     }
     
     @IBAction func textFieldEditingChanged(_ sender: UITextField) {
@@ -122,7 +149,7 @@ extension NewSubmissionViewController {
         guard let topText = topTextField.text, let bottomText = bottomTextField.text else { saveButton.isEnabled = false; return }
         let hasText = !topText.isEmpty || !bottomText.isEmpty
         saveButton.isEnabled = hasText
-        saveButton.backgroundColor = hasText ? .clear : #colorLiteral(red: 0.3607843137, green: 0.6470588235, blue: 1, alpha: 1)
+        saveButton.backgroundColor = hasText ? .mainAppColor : UIColor.mainAppColor.withAlphaComponent(0.3)
     }
     
 }
@@ -132,11 +159,19 @@ extension NewSubmissionViewController {
 
 extension NewSubmissionViewController: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        viewTappedRecognizer.isEnabled = true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         let numberOfChars = newText.characters.count
         return numberOfChars <= characterLimit
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        viewTappedRecognizer.isEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -157,8 +192,7 @@ extension NewSubmissionViewController: ColorDelegate {
 
     func pickedColor(color: UIColor) {
         currentColor = color
-        topLabel.textColor = color
-        bottomLabel.textColor = color
+        colorSegmentControl.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
 }
