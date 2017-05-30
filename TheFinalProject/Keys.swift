@@ -9,7 +9,7 @@
 import Foundation
 
 enum Keys {
-    
+    static let appStoreURLString = "appStoreURLString"
     static let avatar = "avatar"
     static let avatars = "avatars"
     static let avatarURLString = "avatarURLString"

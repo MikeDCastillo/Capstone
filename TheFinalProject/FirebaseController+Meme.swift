@@ -31,6 +31,13 @@ extension FirebaseController {
         return rootRef.child("votes").child(memeId)
     }
     
+    ///rootRef/settings
+    var settingsRef: DatabaseReference {
+        return rootRef.child("settings")
+    }
+    
+    //Storage
+    
     func avatarStorageRef(userId: String) -> StorageReference {
         return storageRef.child(Keys.avatars).child(userId)
     }

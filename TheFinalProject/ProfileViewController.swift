@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import GoogleMobileAds
 import Kingfisher
-
 
 class ProfileViewController: UIViewController, Controller {
     
-    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -22,23 +19,20 @@ class ProfileViewController: UIViewController, Controller {
     
     let imagePicker = UIImagePickerController()
     var firebaseController = FirebaseController()
+    fileprivate var appStoreURL: URL?
     
     // Life - Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        userUpdated(nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(userUpdated(_:)), name: NSNotification.Name.userUpdated, object: nil)
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        //this is for simulator as of now
-        //FIXME: no magic strings in here
-        bannerView.adUnitID = "ca-app-pub-3828876899715465/5171904637"
-        //this is the viewController that the banner will be displayed on
-        bannerView.rootViewController = self
-        bannerView.load(request)
         
+        let transparentColor = UIColor.black.withAlphaComponent(0.8)
+        view.backgroundColor = transparentColor
+        editButton.backgroundColor = .clear
+        
+        userUpdated(nil)
+        fetchAppStoreURL()
+        NotificationCenter.default.addObserver(self, selector: #selector(userUpdated(_:)), name: NSNotification.Name.userUpdated, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,10 +42,13 @@ class ProfileViewController: UIViewController, Controller {
         editButton.layer.cornerRadius = editButton.bounds.height / 2
     }
     
-    @IBAction func dismissButtonPressed(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func dismissButtonPressed(_ sender: UIButton) {
+        dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func viewTapped(_ sender: Any) {
+        dismiss(animated: false, completion: nil)
+    }
     
     @IBAction func editButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "", message: "Change Profile Picture?", preferredStyle: .actionSheet)
@@ -90,6 +87,12 @@ class ProfileViewController: UIViewController, Controller {
 
 extension ProfileViewController {
     
+    fileprivate func fetchAppStoreURL() {
+        let settingsController = SettingsController()
+        settingsController.getAppStoreURL { url in
+            self.appStoreURL = url
+        }
+    }
     //FIXME: User placeholder
     fileprivate func updateAvatarImage(url: URL?, placeholder: UIImage? = #imageLiteral(resourceName: "meMeme0")) {
         avatarImageView.kf.setImage(with: url, placeholder: placeholder)
@@ -143,7 +146,10 @@ extension ProfileViewController {
     }
     
     fileprivate func inviteFriends() {
-        
+        let text = "Check out MemeMe in the app store and see if you can create the funniest meme"
+        guard let appStoreURL = appStoreURL else { return }
+        let activityViewController = UIActivityViewController(activityItems: [text, appStoreURL], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
     
     fileprivate func giveFeedback() {

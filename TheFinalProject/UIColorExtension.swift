@@ -8,11 +8,20 @@
 
 import UIKit
 
-enum InitError: Error {
-    case invalidParameter(String)
+extension UIColor {
+    
+    static var mainAppColor: UIColor {
+        return try! UIColor(hex: "5CA5FF")
+    }
+    
+    
 }
 
 extension UIColor {
+    
+    enum InitError: Error {
+        case invalidParameter(String)
+    }
     
     convenience init(hex hexString: String) throws {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
