@@ -19,7 +19,7 @@ class AnimationLaunchViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        super.viewWillDisappear(animated)
         
         animateLaunchScreenAgain()
     }
@@ -70,7 +70,7 @@ class AnimationLaunchViewController: UIViewController {
             self.imageView.alpha = 1.0
         }) { (_) in
             self.imageView.stopAnimating()
-            self.imageView.image = UIImage(named: "troll")
+//            self.imageView.image = UIImage(named: "troll")
             self.performSegue(withIdentifier: "toFeedStart", sender: nil)
     }
 }

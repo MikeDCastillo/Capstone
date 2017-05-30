@@ -17,14 +17,14 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var voteButton: UIButton!
     @IBOutlet weak var voteToggleButton: UIButton!
-    @IBOutlet weak var lolButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dislikeButton: UIButton!
     @IBOutlet weak var wtfButton: UIButton!
     @IBOutlet weak var lastButton: UIButton!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    fileprivate var lolButtonCenter: CGPoint!
+    fileprivate var likeButtonCenter: CGPoint!
     fileprivate var dislikeButtonCenter: CGPoint!
     fileprivate var wtfButtonCenter: CGPoint!
     fileprivate let userController = UserController.shared
@@ -107,21 +107,21 @@ class FeedViewController: UIViewController {
         
         if voteToggleButton.currentTitle == voteToggleString {
             UIView.animate(withDuration: 0.4, animations: {
-                self.lolButton.alpha = 1
+                self.likeButton.alpha = 1
                 self.dislikeButton.alpha = 1
                 self.wtfButton.alpha = 1
                 // move out animation
-                self.lolButton.center = self.lolButtonCenter
+                self.likeButton.center = self.likeButtonCenter
                 self.dislikeButton.center = self.dislikeButtonCenter
                 self.wtfButton.center = self.wtfButtonCenter
             })
         } else {
-            self.lolButton.alpha = 0
+            self.likeButton.alpha = 0
             self.dislikeButton.alpha = 0
             self.wtfButton.alpha = 0
             // move in
             UIView.animate(withDuration: 0.4, animations: {
-                self.voteToggleButton.center = self.lolButton.center
+                self.voteToggleButton.center = self.likeButton.center
                 self.voteToggleButton.center = self.dislikeButton.center
                 self.voteToggleButton.center = self.wtfButton.center
             })
@@ -130,7 +130,7 @@ class FeedViewController: UIViewController {
         toggleVoteButtonText(on: sender, voteToggle: voteToggleString, voteType: voteTypeString)
     }
     
-    @IBAction func lolButtonTapped(_ sender: UIButton) {
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
         // animate button here
         toggleVoteButtonText(on: voteToggleButton, voteToggle: voteToggleString, voteType: voteTypeString)
     }
@@ -315,11 +315,11 @@ extension FeedViewController {
     
     func setupUIButtons() {
         // To cache CG point postions of UI Buttons
-        lolButtonCenter = lolButton.center
+        likeButtonCenter = likeButton.center
         dislikeButtonCenter = dislikeButton.center
         wtfButtonCenter = wtfButton.center
         //setting the initail GGPoint of buttons under the vote button. then setting the CGPoints where they live when pulled back under the vote button
-        lolButton.center = voteToggleButton.center
+        likeButton.center = voteToggleButton.center
         dislikeButton.center = voteToggleButton.center
         wtfButton.center = voteToggleButton.center
     }
