@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import MessageUI
 
 class ProfileViewController: UIViewController, Controller {
     
@@ -153,7 +154,16 @@ extension ProfileViewController {
     }
     
     fileprivate func giveFeedback() {
+        guard MFMailComposeViewController.canSendMail() else { return } // FIXME: error handling
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
         
+        // Configure the fields of the interface.
+        composeVC.setToRecipients(["mcastillo2089@sudomail.com"])
+        composeVC.setSubject("App Feedback")
+        composeVC.setMessageBody("How can I help you?", isHTML: false)
+        
+        present(composeVC, animated: true, completion: nil)
     }
     
     func saveUsername(_ username: String) {
@@ -164,6 +174,13 @@ extension ProfileViewController {
     
 }
 
+extension ProfileViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
 
 // MARK: - TableView
 
