@@ -68,7 +68,7 @@ class NewSubmissionViewController: UIViewController {
             bottomLabel.textColor = currentColor
         }
     }
-    fileprivate let characterLimit = 40
+    fileprivate let characterLimit = 55
     fileprivate let submissionController = SubmissionController.shared
     fileprivate var meme: Meme? {
         return MemeController.shared.meme
@@ -78,6 +78,7 @@ class NewSubmissionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.tintColor = .white
         colorPicker.delegate = self
         setupSaveButton()
         updateSaveButton()

@@ -49,6 +49,10 @@
 	<string>MemeMe needs access to your Camera to add your profile image</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>MemeMe needs access to your Photo Library to add your profile image</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LemonMilk.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

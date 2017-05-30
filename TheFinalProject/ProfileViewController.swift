@@ -154,7 +154,10 @@ extension ProfileViewController {
     }
     
     fileprivate func giveFeedback() {
-        guard MFMailComposeViewController.canSendMail() else { return } // FIXME: error handling
+        let alertController = UIAlertController(title: "Mail Error", message: "There was an error finding your mail. Please login/enable Mail via your phone's settings", preferredStyle: .alert)
+        let goBackAction = UIAlertAction(title: "Go Back", style: .default)
+        alertController.addAction(goBackAction)
+        guard MFMailComposeViewController.canSendMail() else { present(alertController, animated: true); return } // FIXME: error handling
         let composeVC = MFMailComposeViewController()
         composeVC.mailComposeDelegate = self
         
@@ -195,7 +198,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         var title: String {
             switch self {
             case .editUserName:
-                return "Edit username"
+                return "Edit Username"
             case .inviteFriends:
                 return "Invite Friends"
             case .support:

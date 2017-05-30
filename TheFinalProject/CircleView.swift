@@ -6,10 +6,13 @@
 ////  Copyright © 2017 Michael Castillo. All rights reserved.
 ////
 //
+//
 //import UIKit
 //
 //class CircleView: UIView {
-//
+//    
+//    static let circleView = CircleView()
+//    
 //    override func draw(_ rect: CGRect) {
 //        // Drawing code
 //    }
@@ -78,5 +81,6 @@
 //        // Animate the drawing of the circle over the course of 1 second
 //        circleView.animateCircle(duration: 1.0)
 //    }
+//
 //    
 //}

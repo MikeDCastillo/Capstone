@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E7003DDC0E1E83AF592E1EC /* Pods_TheFinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3296B9F137EEFBA2B9389109 /* Pods_TheFinalProject.framework */; };
 		732B3A2A1E91DDBC002B31A9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A291E91DDBC002B31A9 /* FeedViewController.swift */; };
-		732B3A321E928940002B31A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A2E1E928940002B31A9 /* LaunchScreen.storyboard */; };
 		732B3A331E928940002B31A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A301E928940002B31A9 /* Main.storyboard */; };
 		732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */; };
 		732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */; };
@@ -17,11 +16,13 @@
 		7332979F1EDCB99400D9DD6D /* ICloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */; };
 		733297A11EDD0B4B00D9DD6D /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733297A01EDD0B4B00D9DD6D /* SortType.swift */; };
 		733297A31EDD289500D9DD6D /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733297A21EDD289500D9DD6D /* SettingsController.swift */; };
+		733297A71EDD411000D9DD6D /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 733297A61EDD411000D9DD6D /* LemonMilk.otf */; };
 		73364C281ED6A83E0057DE6C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73364C271ED6A83E0057DE6C /* UIColorExtension.swift */; };
 		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
 		737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737241451E4EBFD6006F6E49 /* AppDelegate.swift */; };
 		7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7372414C1E4EBFD6006F6E49 /* Assets.xcassets */; };
+		737D9C231EDD728A0089731C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D9C211EDD728A0089731C /* Launch Screen.storyboard */; };
 		7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */; };
 		7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */; };
 		7384B4891EBAF136005F4E4B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4881EBAF136005F4E4B /* Generator.swift */; };
@@ -50,12 +51,12 @@
 		73C2D4431EDABED40037B75B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D4421EDABED40037B75B /* CircleView.swift */; };
 		73F132FF1ED5ED6000B102F8 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F132FE1ED5ED6000B102F8 /* ColorView.swift */; };
 		73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3AB981ED153060073456C /* NewSubmissionViewController.swift */; };
+		73FA8CEA1EDD55A100168159 /* AnimationLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3296B9F137EEFBA2B9389109 /* Pods_TheFinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheFinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		732B3A291E91DDBC002B31A9 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		732B3A2F1E928940002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		732B3A311E928940002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		732B3A351E928A08002B31A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = SubmissionCollectionViewCell.xib; sourceTree = "<group>"; };
 		732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmissionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICloudViewController.swift; sourceTree = "<group>"; };
 		733297A01EDD0B4B00D9DD6D /* SortType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		733297A21EDD289500D9DD6D /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		733297A61EDD411000D9DD6D /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
 		73364C271ED6A83E0057DE6C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
 		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		737241451E4EBFD6006F6E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7372414C1E4EBFD6006F6E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737241511E4EBFD6006F6E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		737D9C221EDD728A0089731C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
 		7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkController+Meme.swift"; sourceTree = "<group>"; };
 		7384B4881EBAF136005F4E4B /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		73C2D4421EDABED40037B75B /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		73F132FE1ED5ED6000B102F8 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		73F3AB981ED153060073456C /* NewSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubmissionViewController.swift; sourceTree = "<group>"; };
+		73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationLaunchViewController.swift; sourceTree = "<group>"; };
 		C1B88D50517F5CDB16933651 /* Pods-TheFinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.release.xcconfig"; sourceTree = "<group>"; };
 		D0C1E172AD14298A8508A233 /* Pods-TheFinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheFinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheFinalProject/Pods-TheFinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,8 +128,8 @@
 		732B3A2D1E928940002B31A9 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				732B3A2E1E928940002B31A9 /* LaunchScreen.storyboard */,
 				732B3A301E928940002B31A9 /* Main.storyboard */,
+				737D9C211EDD728A0089731C /* Launch Screen.storyboard */,
 				732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */,
 			);
 			path = Base.lproj;
@@ -189,6 +193,7 @@
 				73BDFCD71E9365C70019CB57 /* NSNotification+Meme.swift */,
 				73A6C7251E862B3300751051 /* DateHelper.swift */,
 				7332979C1EDBE18A00D9DD6D /* Keys.swift */,
+				733297A61EDD411000D9DD6D /* LemonMilk.otf */,
 				737241511E4EBFD6006F6E49 /* Info.plist */,
 				7372414C1E4EBFD6006F6E49 /* Assets.xcassets */,
 			);
@@ -220,6 +225,7 @@
 				739D87E51ED51FF50094C835 /* ProfileViewController.swift */,
 				7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */,
 				732B3A291E91DDBC002B31A9 /* FeedViewController.swift */,
+				73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */,
 				732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */,
 			);
 			name = View;
@@ -322,11 +328,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737D9C231EDD728A0089731C /* Launch Screen.storyboard in Resources */,
+				733297A71EDD411000D9DD6D /* LemonMilk.otf in Resources */,
 				732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */,
 				736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */,
 				7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */,
 				732B3A331E928940002B31A9 /* Main.storyboard in Resources */,
-				732B3A321E928940002B31A9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +398,7 @@
 				73C2D4411EDA863B0037B75B /* CaseCountable.swift in Sources */,
 				739D87E81ED54DF50094C835 /* CloudKitManager.swift in Sources */,
 				7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */,
+				73FA8CEA1EDD55A100168159 /* AnimationLaunchViewController.swift in Sources */,
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
 				733297A31EDD289500D9DD6D /* SettingsController.swift in Sources */,
@@ -423,14 +431,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		732B3A2E1E928940002B31A9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				732B3A2F1E928940002B31A9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		732B3A301E928940002B31A9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -445,6 +445,14 @@
 				732B3A351E928A08002B31A9 /* Base */,
 			);
 			name = SubmissionCollectionViewCell.xib;
+			sourceTree = "<group>";
+		};
+		737D9C211EDD728A0089731C /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				737D9C221EDD728A0089731C /* Base */,
+			);
+			name = "Launch Screen.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

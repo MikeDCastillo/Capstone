@@ -18,7 +18,7 @@ class ICloudViewController: UIViewController {
     
     fileprivate var isLoading = false {
         didSet{
-            let title = isLoading ? "..." : "Try Again"
+            let title = isLoading ? "..." : "🔄 Try Again 🔄"
             tryAgainButton.setTitle(title, for: .normal)
             tryAgainButton.isEnabled = !isLoading
         }
