@@ -707,7 +707,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="SwK-g3-wde" id="Nlu-gd-rOS"/>
-                        <segue destination="hk9-E6-fHa" kind="show" identifier="toFeedStart" animates="NO" id="6wQ-k1-06a"/>
+                        <segue destination="hk9-E6-fHa" kind="presentation" identifier="toFeedStart" animates="NO" id="6wQ-k1-06a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6J-hC-6QL" userLabel="First Responder" sceneMemberID="firstResponder"/>

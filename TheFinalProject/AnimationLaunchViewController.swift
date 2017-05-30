@@ -12,66 +12,37 @@ class AnimationLaunchViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    fileprivate let animationDuration: TimeInterval = 2.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.imageView.alpha = 0
         animateLaunchScreen()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        animateLaunchScreenAgain()
+//        animateLaunchScreen(fadeOut: true)
     }
     
     var imageNames = ["meMeme0", "meMeme1", "meMeme2", "meMeme3", "meMeme4", "meMeme5", "meMeme6", "meMeme7", "meMeme8", "meMeme9"]
-    var reversedImageNames = ["meMeme9", "meMeme8", "meMeme7", "meMeme6", "meMeme5", "meMeme4", "meMeme3", "meMeme2", "meMeme1", "meMeme0"]
 
-    func animateLaunchScreen () {
-        var images = [UIImage]()
-        
-        for i in 0..<imageNames.count {
-            //            guard let image = UIImage(named: "meMeme\(i)") else { break }
-            images.append(UIImage(named: imageNames[i])!)
-        }
-        
+    func animateLaunchScreen() {
+        let images = imageNames.reversed().flatMap { UIImage(named: $0) }
         imageView.animationImages = images
-        imageView.animationDuration = 2.0
+        imageView.animationDuration = animationDuration
         imageView.startAnimating()
-        fadeOut()
-        
+        self.fadeIn()
+        //FIXME: get this the way you want it
     }
     
-    func animateLaunchScreenAgain () {
-        var images = [UIImage]()
-        
-        for i in 0..<reversedImageNames.count {
-            //            guard let image = UIImage(named: "meMeme\(i)") else { break }
-            images.append(UIImage(named: reversedImageNames[i])!)
-        }
-        
-        imageView.animationImages = images
-        imageView.animationDuration = 2.0
-        imageView.startAnimating()
-        fadeIn()
-    }
-    
-    func fadeOut(withDuration duration: TimeInterval = 2.0) {
-        UIView.animate(withDuration: duration, animations: { 
-            self.imageView.alpha = 0.0
-        }) { (_) in
-            self.animateLaunchScreenAgain()
-
-        }
-    }
-    
-    func fadeIn(withDuration duration: TimeInterval = 2.0) {
-        UIView.animate(withDuration: duration, animations: {
-            self.imageView.alpha = 1.0
-        }) { (_) in
+    func fadeIn() {
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.imageView.alpha = 1
+        }) { _ in
             self.imageView.stopAnimating()
-//            self.imageView.image = UIImage(named: "troll")
-            self.performSegue(withIdentifier: "toFeedStart", sender: nil)
+            self.performSegue(withIdentifier: "toFeedStart", sender: self)
+        }
     }
-}
+    
 }
