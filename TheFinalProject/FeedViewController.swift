@@ -16,12 +16,11 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var voteButton: UIButton!
-    @IBOutlet weak var voteToggleButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dislikeButton: UIButton!
     @IBOutlet weak var wtfButton: UIButton!
-    @IBOutlet weak var lastButton: UIButton!
-    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     fileprivate var likeButtonCenter: CGPoint!
@@ -30,8 +29,6 @@ class FeedViewController: UIViewController {
     fileprivate let userController = UserController.shared
     fileprivate let memeController = MemeController.shared
     fileprivate let layout = UICollectionViewFlowLayout()
-    fileprivate let voteToggleString = "Vote Toggle"
-    fileprivate let voteTypeString = "Vote Type"
     fileprivate let iCloudSegue = "iCloudSegue"
     
     @IBAction func segmentControlTapped(_ sender: Any) {
@@ -66,117 +63,54 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         memeController.getTodaysMeme()
-        let nibId = String(describing: SubmissionCollectionViewCell.self)
-        let nib = UINib(nibName: nibId, bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: nibId)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .horizontal
-        collectionView.collectionViewLayout = layout
-        setupVoteButton()
+        setUpCollectionView()
         setupUIButtons()
-        
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.todaysMemeUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(submissionsUpdated(_:)), name: NSNotification.Name.submissionUpdated, object: nil)
-        
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        //TODO: - create provisioning profile for when going live on App Store
-        //this is for simulator as of now
-        bannerView.adUnitID = "ca-app-pub-3828876899715465/5171904637"
-        //this is the viewController that the banner will be displayed on
-        bannerView.rootViewController = self
-        bannerView.load(request)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         loadCurrentUser()
     }
     
     // MARK: - Actions
     
-    @IBAction func VoteToggleButtonPressed(_ sender: UIButton) {
-        
-        if voteToggleButton.currentTitle == voteToggleString {
-            UIView.animate(withDuration: 0.4, animations: {
-                self.likeButton.alpha = 1
-                self.dislikeButton.alpha = 1
-                self.wtfButton.alpha = 1
-                // move out animation
-                self.likeButton.center = self.likeButtonCenter
-                self.dislikeButton.center = self.dislikeButtonCenter
-                self.wtfButton.center = self.wtfButtonCenter
-            })
-        } else {
-            self.likeButton.alpha = 0
-            self.dislikeButton.alpha = 0
-            self.wtfButton.alpha = 0
-            // move in
-            UIView.animate(withDuration: 0.4, animations: {
-                self.voteToggleButton.center = self.likeButton.center
-                self.voteToggleButton.center = self.dislikeButton.center
-                self.voteToggleButton.center = self.wtfButton.center
-            })
-        }
-        //setting button text
-        toggleVoteButtonText(on: sender, voteToggle: voteToggleString, voteType: voteTypeString)
+    @IBAction func voteButtonTapped(_ sender: UIButton) {
+        dump(likeButton.center)
+        dump(dislikeButton.center)
+        dump(wtfButton.center)
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut, animations: {
+            self.voteButton.isHidden = true
+            self.likeButton.alpha = 1
+            self.dislikeButton.alpha = 1
+            self.wtfButton.alpha = 1
+            
+            self.likeButton.center = self.likeButtonCenter
+            self.dislikeButton.center = self.dislikeButtonCenter
+            self.wtfButton.center = self.wtfButtonCenter
+        }, completion: nil)
     }
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        // animate button here
-        toggleVoteButtonText(on: voteToggleButton, voteToggle: voteToggleString, voteType: voteTypeString)
+        guard let currentSubmission = currentSubmission() else { return }
+        VoteController.shared.vote(.like, on: currentSubmission)
     }
     
     @IBAction func dislikeButtonTapped(_ sender: UIButton) {
-        // animate button here
-        toggleVoteButtonText(on: voteToggleButton, voteToggle: voteToggleString, voteType: voteTypeString)
-        
+        guard let currentSubmission = currentSubmission() else { return }
+        VoteController.shared.vote(.dislike, on: currentSubmission)
     }
     
     @IBAction func wtfButtonTapped(_ sender: UIButton) {
-        // animate button here
-        toggleVoteButtonText(on: voteToggleButton, voteToggle: voteToggleString, voteType: voteTypeString)
+        guard let currentSubmission = currentSubmission() else { return }
+        VoteController.shared.vote(.wtf, on: currentSubmission)
     }
     
-    @IBAction func voteButtonPressed(_ sender: Any) {
-        UIView.animate(withDuration: 1.0) {
-            let angle = CGFloat(180 * Double.pi / 180)
-            self.voteButton.transform = CGAffineTransform(rotationAngle: angle)
-            let alert = UIAlertController(title: "You Voted", message: "Come back later", preferredStyle: .actionSheet)
-            let dismiss = UIAlertAction(title: "bye", style: .cancel)
-            alert.addAction(dismiss)
-            self.present(alert, animated: true, completion: nil)
-            self.voteButton.alpha = 0
-            //call vote function here
-        }
-    }
-    
-    @IBAction func firstButtonTapped(_ sender: Any) {
-        
-        if submissions.count > 0 {
-            guard ((self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: true)) != nil) else { return }
-        } else {
-            presentAlertController()
-        }
-    }
-    
-    @IBAction func lastButtonTapped(_ sender: Any) {
-        let section = 0
-        let lastItem = self.collectionView.numberOfItems(inSection: section) - 1
-        let indexPath = IndexPath.init(row: lastItem, section: section)
-        if submissions.count > 0 {
-            guard ((self.collectionView?.scrollToItem(at: indexPath, at: .right, animated: true)) != nil) else { return }
-        } else {
-            presentAlertController()
-        }
+    @IBAction func arrowButtonTapped(_ sender: UIButton) {
+        let previous = sender == previousButton
+        moveCell(previous: previous)
     }
     
     func memeUpdated(_ notification: NSNotification) {
@@ -188,21 +122,45 @@ class FeedViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    func toggleVoteButtonText (on uiButton: UIButton, voteToggle: String, voteType: String) {
-        if uiButton.currentTitle == "Vote Toggle" {
-            uiButton.setTitle("Vote Type", for: .normal)
-        } else {
-            uiButton.setTitle("Vote Toggle", for: .normal)
-        }
-    }
-    
-    
 }
 
 
 // MARK: - Fileprivate
 
 extension FeedViewController {
+    
+    fileprivate func setUpCollectionView() {
+        let nibId = String(describing: SubmissionCollectionViewCell.self)
+        let nib = UINib(nibName: nibId, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: nibId)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+    }
+    
+    fileprivate func setupUIButtons() {
+        // To cache CG point postions of UI Buttons
+        likeButtonCenter = likeButton.center
+        dislikeButtonCenter = dislikeButton.center
+        wtfButtonCenter = wtfButton.center
+        
+        //setting the initail GGPoint of buttons under the vote button. then setting the CGPoints where they live when pulled back under the vote button
+        likeButton.center = voteButton.center
+        dislikeButton.center = voteButton.center
+        wtfButton.center = voteButton.center
+        voteButton.layer.cornerRadius = 5
+    }
+    
+    func setUpAds() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        //TODO: - create provisioning profile for when going live on App Store
+        bannerView.adUnitID = "ca-app-pub-3828876899715465/5171904637"
+        bannerView.rootViewController = self
+        bannerView.load(request)
+    }
     
     fileprivate func loadCurrentUser() {
         userController.loadCurrentUser { user, iCloudId in
@@ -220,30 +178,31 @@ extension FeedViewController {
     }
     
     fileprivate func createUser(with iCloudId: String) {
-        print("Creating USER NOW")
         self.userController.createUser(iCloudId: iCloudId, username: nil, completion: { error in
             if let error = error {
                 print(error)
-                print("UH OH")
-            } else {
-                print("Welcome. You are the newest user")
-                dump(self.userController.currentUser)
             }
         })
     }
     
-    fileprivate func setupVoteButton() {
-        voteButton.layer.cornerRadius = 10
+    fileprivate func currentSubmission() -> Submission? {
+        guard let indexPath = collectionView.indexPathForItem(at: collectionView.center) else  { return nil }
+        return submissions[indexPath.row]
     }
     
-    fileprivate func presentAlertController() {
-        let alertController = UIAlertController(title: "Create A Meme", message: "You need to have some memes created to use this Button", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Let's Create One!", style: .default) { (alert) in
+    fileprivate func moveCell(previous: Bool) {
+        guard submissions.count > 1 else { return }
+          guard let indexPath = collectionView.indexPathForItem(at: collectionView.center) else  { return }
+        if previous {
+            guard indexPath.row > 0 else { return }
+            let indexPathToScroll = IndexPath(item: indexPath.item - 1, section: 0)
+            collectionView.scrollToItem(at: indexPathToScroll, at: .centeredHorizontally, animated: true)
+        } else {
+            guard indexPath.row < submissions.count - 1 else { return }
+            let indexPathToScroll = IndexPath(item: indexPath.item + 1, section: 0)
+            collectionView.scrollToItem(at: indexPathToScroll, at: .centeredHorizontally, animated: true)
         }
-        alertController.addAction(action)
-        self.present(alertController, animated: true)
     }
-    
     
 }
 
@@ -305,24 +264,5 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout, UIScrollViewDe
             scrollToNearestVisibleCollectionViewCell()
         }
     }
-    
-}
-
-
-// MARK: - setup Buttons
-
-extension FeedViewController {
-    
-    func setupUIButtons() {
-        // To cache CG point postions of UI Buttons
-        likeButtonCenter = likeButton.center
-        dislikeButtonCenter = dislikeButton.center
-        wtfButtonCenter = wtfButton.center
-        //setting the initail GGPoint of buttons under the vote button. then setting the CGPoints where they live when pulled back under the vote button
-        likeButton.center = voteToggleButton.center
-        dislikeButton.center = voteToggleButton.center
-        wtfButton.center = voteToggleButton.center
-    }
- 
     
 }

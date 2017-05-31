@@ -72,16 +72,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JB-bS-24c">
-                                        <rect key="frame" x="112.5" y="98" width="150.5" height="150.5"/>
+                                        <rect key="frame" x="113" y="98" width="149.5" height="150.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-AN-FWO">
-                                                <rect key="frame" x="1" y="0.0" width="150" height="150"/>
+                                                <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gcY-AN-FWO" secondAttribute="height" id="yVd-JZ-LJ8"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-V7-fAM">
-                                                <rect key="frame" x="107" y="106" width="44" height="44"/>
+                                                <rect key="frame" x="106.5" y="106" width="44" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Gmw-V7-fAM" secondAttribute="height" id="DoE-yW-U3d"/>
@@ -284,117 +284,158 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDa-iP-sNC">
-                                <rect key="frame" x="16" y="80" width="343" height="232"/>
-                            </imageView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="glq-Um-uJO">
-                                <rect key="frame" x="127" y="64" width="121" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Recent"/>
-                                    <segment title="Likes"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentControlTapped:" destination="476-oA-LXZ" eventType="valueChanged" id="lCt-d0-59d"/>
-                                </connections>
-                            </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2d-sh-Mqc">
-                                <rect key="frame" x="0.0" y="80" width="375" height="282"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" secondItem="o2d-sh-Mqc" secondAttribute="width" multiplier="0.75" id="vic-0j-fCn"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p1A-cH-ZPn">
-                                    <size key="itemSize" width="298" height="181"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="476-oA-LXZ" id="WGn-Nh-cVK"/>
-                                    <outlet property="delegate" destination="476-oA-LXZ" id="0QV-mi-n72"/>
-                                </connections>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xj9-El-aQi">
-                                <rect key="frame" x="112" y="433" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Vote">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="voteButtonPressed:" destination="476-oA-LXZ" eventType="touchUpInside" id="prn-MV-uP2"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GMR-6a-3Io" userLabel="bannerView" customClass="GADBannerView">
-                                <rect key="frame" x="27" y="560" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C9-aD-uSS" userLabel="Wtf?!">
-                                <rect key="frame" x="239" y="471" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="!🤔?"/>
-                                <connections>
-                                    <action selector="wtfButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="FPL-7b-bvO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azg-ZM-QE8" userLabel="Dislike">
-                                <rect key="frame" x="162" y="471" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="👎"/>
-                                <connections>
-                                    <action selector="dislikeButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="OjF-NG-YM6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJX-VH-vkq" userLabel="like">
-                                <rect key="frame" x="88" y="471" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="👍"/>
-                                <connections>
-                                    <action selector="likeButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="jAS-Az-ogb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usT-K3-8lB">
-                                <rect key="frame" x="112" y="382" width="150" height="30"/>
-                                <state key="normal" title="Vote Toggle"/>
-                                <connections>
-                                    <action selector="VoteToggleButtonPressed:" destination="476-oA-LXZ" eventType="touchUpInside" id="IvU-6R-ZPk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTP-Pe-bO7">
-                                <rect key="frame" x="346" y="181" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="⇥"/>
-                                <connections>
-                                    <action selector="lastButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="HG1-nE-H6H"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nea-n7-fAX">
-                                <rect key="frame" x="0.0" y="180" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="⇤"/>
-                                <connections>
-                                    <action selector="firstButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="oU0-Bp-Pyl"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7GU-8y-Odo">
+                                <rect key="frame" x="16" y="80" width="343" height="587"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="glq-Um-uJO">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="aiS-xm-v48"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Recent"/>
+                                            <segment title="Likes"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.36078431370000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="segmentControlTapped:" destination="476-oA-LXZ" eventType="valueChanged" id="lCt-d0-59d"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucg-ly-DGj" userLabel="MemeView">
+                                        <rect key="frame" x="0.0" y="48" width="343" height="266"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDa-iP-sNC">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="206"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="NDa-iP-sNC" secondAttribute="height" multiplier="5:3" id="Ggj-0f-zf8"/>
+                                                </constraints>
+                                            </imageView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2d-sh-Mqc">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="266"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p1A-cH-ZPn">
+                                                    <size key="itemSize" width="298" height="181"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="476-oA-LXZ" id="WGn-Nh-cVK"/>
+                                                    <outlet property="delegate" destination="476-oA-LXZ" id="0QV-mi-n72"/>
+                                                </connections>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="NDa-iP-sNC" firstAttribute="top" secondItem="Ucg-ly-DGj" secondAttribute="top" id="LSL-Vz-Ge4"/>
+                                            <constraint firstItem="NDa-iP-sNC" firstAttribute="leading" secondItem="Ucg-ly-DGj" secondAttribute="leading" id="P2b-SQ-u6z"/>
+                                            <constraint firstAttribute="trailing" secondItem="NDa-iP-sNC" secondAttribute="trailing" id="Skb-2a-ZIN"/>
+                                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="leading" secondItem="Ucg-ly-DGj" secondAttribute="leading" id="Up0-Ih-rum"/>
+                                            <constraint firstAttribute="trailing" secondItem="o2d-sh-Mqc" secondAttribute="trailing" id="Z1G-F5-2wo"/>
+                                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="height" secondItem="NDa-iP-sNC" secondAttribute="height" constant="60" id="hmN-P8-yMX"/>
+                                            <constraint firstAttribute="bottom" secondItem="o2d-sh-Mqc" secondAttribute="bottom" id="i2Q-Sr-bWE"/>
+                                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="top" secondItem="Ucg-ly-DGj" secondAttribute="top" id="vcb-qH-VG6"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQo-AL-gpa" userLabel="VoteView">
+                                        <rect key="frame" x="0.0" y="330" width="343" height="143"/>
+                                        <subviews>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C9-aD-uSS" userLabel="wtf">
+                                                <rect key="frame" x="289" y="35.5" width="54" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <state key="normal" title="💩"/>
+                                                <connections>
+                                                    <action selector="wtfButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="FPL-7b-bvO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azg-ZM-QE8" userLabel="Dislike">
+                                                <rect key="frame" x="144.5" y="35.5" width="54" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <state key="normal" title="👎"/>
+                                                <connections>
+                                                    <action selector="dislikeButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="OjF-NG-YM6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJX-VH-vkq" userLabel="like">
+                                                <rect key="frame" x="0.0" y="35.5" width="54" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <state key="normal" title="👍"/>
+                                                <connections>
+                                                    <action selector="likeButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="jAS-Az-ogb"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usT-K3-8lB">
+                                                <rect key="frame" x="58.5" y="0.0" width="226" height="44"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="PpX-Wb-DVG"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                                <state key="normal" title="Vote">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="voteButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="fPI-JU-tPg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="5C9-aD-uSS" firstAttribute="centerY" secondItem="eQo-AL-gpa" secondAttribute="centerY" id="NzP-1s-btr"/>
+                                            <constraint firstItem="azg-ZM-QE8" firstAttribute="centerY" secondItem="eQo-AL-gpa" secondAttribute="centerY" id="VTC-9g-hsQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="5C9-aD-uSS" secondAttribute="trailing" id="aW9-Bl-zfH"/>
+                                            <constraint firstItem="iJX-VH-vkq" firstAttribute="leading" secondItem="eQo-AL-gpa" secondAttribute="leading" id="dBi-pD-0zm"/>
+                                            <constraint firstItem="usT-K3-8lB" firstAttribute="centerX" secondItem="eQo-AL-gpa" secondAttribute="centerX" id="mGt-Ca-BP4"/>
+                                            <constraint firstItem="usT-K3-8lB" firstAttribute="top" secondItem="eQo-AL-gpa" secondAttribute="top" id="mgC-6C-jLl"/>
+                                            <constraint firstItem="azg-ZM-QE8" firstAttribute="centerX" secondItem="eQo-AL-gpa" secondAttribute="centerX" id="ogK-Tp-XgA"/>
+                                            <constraint firstItem="iJX-VH-vkq" firstAttribute="centerY" secondItem="eQo-AL-gpa" secondAttribute="centerY" id="p2r-6j-cY0"/>
+                                            <constraint firstItem="usT-K3-8lB" firstAttribute="width" secondItem="eQo-AL-gpa" secondAttribute="width" multiplier="0.66" id="s6b-QH-LTS"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kIV-eb-kgA">
+                                        <rect key="frame" x="0.0" y="489" width="343" height="32"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nea-n7-fAX">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="⬅️"/>
+                                                <connections>
+                                                    <action selector="arrowButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="ebi-bj-47L"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTP-Pe-bO7">
+                                                <rect key="frame" x="313" y="0.0" width="30" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="➡️"/>
+                                                <connections>
+                                                    <action selector="arrowButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="BB5-09-fKL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="CBM-v6-gyI"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMR-6a-3Io" userLabel="bannerView" customClass="GADBannerView">
+                                        <rect key="frame" x="0.0" y="537" width="343" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="b5C-z7-Dng"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="usT-K3-8lB" firstAttribute="leading" secondItem="B6c-OS-8hS" secondAttribute="leadingMargin" constant="96" id="43L-w0-6yK"/>
-                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="leading" secondItem="B6c-OS-8hS" secondAttribute="leading" id="Gkq-qn-8uA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="usT-K3-8lB" secondAttribute="trailing" constant="97" id="Sk5-5M-Igq"/>
-                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="trailing" secondItem="NDa-iP-sNC" secondAttribute="trailing" constant="16" id="Ute-ok-hjz"/>
-                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="top" secondItem="5C4-hM-xaO" secondAttribute="bottom" constant="16" id="VaF-3y-4az"/>
-                            <constraint firstItem="NDa-iP-sNC" firstAttribute="top" secondItem="o2d-sh-Mqc" secondAttribute="top" id="Xka-Yd-Dzo"/>
-                            <constraint firstItem="NDa-iP-sNC" firstAttribute="leading" secondItem="o2d-sh-Mqc" secondAttribute="leading" constant="16" id="Zfz-OE-30B"/>
-                            <constraint firstAttribute="trailing" secondItem="o2d-sh-Mqc" secondAttribute="trailing" id="iq6-Yq-mzJ"/>
-                            <constraint firstItem="NDa-iP-sNC" firstAttribute="bottom" secondItem="o2d-sh-Mqc" secondAttribute="bottom" constant="-50" id="ix7-pR-Y1H"/>
-                            <constraint firstItem="usT-K3-8lB" firstAttribute="top" secondItem="o2d-sh-Mqc" secondAttribute="bottom" constant="20" id="o0C-U0-RcI"/>
+                            <constraint firstAttribute="trailing" secondItem="7GU-8y-Odo" secondAttribute="trailing" constant="16" id="0Qc-Vc-mL0"/>
+                            <constraint firstItem="7GU-8y-Odo" firstAttribute="leading" secondItem="B6c-OS-8hS" secondAttribute="leading" constant="16" id="Fez-nQ-BGV"/>
+                            <constraint firstItem="7GU-8y-Odo" firstAttribute="top" secondItem="5C4-hM-xaO" secondAttribute="bottom" constant="16" id="dEA-mB-csK"/>
+                            <constraint firstItem="XRO-KL-CAx" firstAttribute="top" secondItem="7GU-8y-Odo" secondAttribute="bottom" id="qbS-Hq-Qib"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="MeMeMe" id="ATd-c4-vR8">
+                    <navigationItem key="navigationItem" title="meMeMe" id="ATd-c4-vR8">
                         <barButtonItem key="leftBarButtonItem" title="⚙" id="acc-d2-qKE">
                             <connections>
                                 <segue destination="BTq-Fl-yvT" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="afS-8v-1Vq"/>
@@ -403,7 +444,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lJs-Xd-99g">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="oSz-qO-n0N" kind="presentation" id="5gR-t0-Q9k"/>
+                                <segue destination="oSz-qO-n0N" kind="presentation" modalPresentationStyle="overFullScreen" id="5gR-t0-Q9k"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -412,13 +453,12 @@
                         <outlet property="bannerView" destination="GMR-6a-3Io" id="hM0-QC-Qzv"/>
                         <outlet property="collectionView" destination="o2d-sh-Mqc" id="VS7-ck-vZw"/>
                         <outlet property="dislikeButton" destination="azg-ZM-QE8" id="XqY-YE-ciG"/>
-                        <outlet property="firstButton" destination="Nea-n7-fAX" id="Eae-WL-BOo"/>
                         <outlet property="imageView" destination="NDa-iP-sNC" id="tKT-hc-wlO"/>
-                        <outlet property="lastButton" destination="YTP-Pe-bO7" id="OW7-3f-mWs"/>
                         <outlet property="likeButton" destination="iJX-VH-vkq" id="bxV-6w-CqS"/>
+                        <outlet property="nextButton" destination="YTP-Pe-bO7" id="kJp-vb-pzY"/>
+                        <outlet property="previousButton" destination="Nea-n7-fAX" id="W9c-WE-o0L"/>
                         <outlet property="segmentedControl" destination="glq-Um-uJO" id="cGH-Fk-9gC"/>
-                        <outlet property="voteButton" destination="Xj9-El-aQi" id="SeV-DU-V3O"/>
-                        <outlet property="voteToggleButton" destination="usT-K3-8lB" id="OYn-bJ-1hH"/>
+                        <outlet property="voteButton" destination="usT-K3-8lB" id="o3l-nJ-ul4"/>
                         <outlet property="wtfButton" destination="5C9-aD-uSS" id="0Me-Iu-wHs"/>
                         <segue destination="d7u-LS-miK" kind="presentation" identifier="iCloudSegue" animates="NO" modalPresentationStyle="overFullScreen" id="3KT-wC-rhU"/>
                     </connections>
