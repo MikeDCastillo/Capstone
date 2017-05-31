@@ -61,7 +61,11 @@ class VoteController: Controller {
 extension VoteController {
 
     func votes(for submission: Submission, with type: VoteType? = nil) -> [Vote] {
-        return votes.filter( { $0.submissionId == submission.id } )
+        if let voteType = type {
+            return votes.filter( { $0.submissionId == submission.id && $0.type == voteType })
+        } else {
+            return votes.filter( { $0.submissionId == submission.id } )
+        }
         
     }
 }

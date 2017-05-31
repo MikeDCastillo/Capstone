@@ -9,8 +9,8 @@
 import Foundation
 
 enum SortType: Int {
-    case likes
     case recent
+    case likes
     
     var title: String {
         switch self {

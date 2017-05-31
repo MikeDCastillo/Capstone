@@ -21,6 +21,12 @@ class SubmissionCollectionViewCell: UICollectionViewCell, AutoClassNameable {
     @IBOutlet weak var wtfLabel: UILabel!
     
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
+        
+    }
+    
     func update(with submission: Submission, user: User?, votes: [Vote]) {
         topLabel.text = submission.topText
         bottomLabel.text = submission.bottomText

@@ -72,16 +72,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JB-bS-24c">
-                                        <rect key="frame" x="112.5" y="98" width="150.5" height="150.5"/>
+                                        <rect key="frame" x="113" y="98" width="149.5" height="150.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-AN-FWO">
-                                                <rect key="frame" x="1" y="0.0" width="150" height="150"/>
+                                                <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gcY-AN-FWO" secondAttribute="height" id="yVd-JZ-LJ8"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-V7-fAM">
-                                                <rect key="frame" x="107" y="106" width="44" height="44"/>
+                                                <rect key="frame" x="106.5" y="106" width="44" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Gmw-V7-fAM" secondAttribute="height" id="DoE-yW-U3d"/>
@@ -302,7 +302,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucg-ly-DGj" userLabel="MemeView">
-                                        <rect key="frame" x="0.0" y="48" width="343" height="266"/>
+                                        <rect key="frame" x="0.0" y="48" width="343" height="306"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NDa-iP-sNC">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="206"/>
@@ -311,7 +311,7 @@
                                                 </constraints>
                                             </imageView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2d-sh-Mqc">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="266"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="306"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p1A-cH-ZPn">
                                                     <size key="itemSize" width="298" height="181"/>
@@ -333,16 +333,16 @@
                                             <constraint firstAttribute="trailing" secondItem="NDa-iP-sNC" secondAttribute="trailing" id="Skb-2a-ZIN"/>
                                             <constraint firstItem="o2d-sh-Mqc" firstAttribute="leading" secondItem="Ucg-ly-DGj" secondAttribute="leading" id="Up0-Ih-rum"/>
                                             <constraint firstAttribute="trailing" secondItem="o2d-sh-Mqc" secondAttribute="trailing" id="Z1G-F5-2wo"/>
-                                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="height" secondItem="NDa-iP-sNC" secondAttribute="height" constant="60" id="hmN-P8-yMX"/>
+                                            <constraint firstItem="o2d-sh-Mqc" firstAttribute="height" secondItem="NDa-iP-sNC" secondAttribute="height" constant="100" id="hmN-P8-yMX"/>
                                             <constraint firstAttribute="bottom" secondItem="o2d-sh-Mqc" secondAttribute="bottom" id="i2Q-Sr-bWE"/>
                                             <constraint firstItem="o2d-sh-Mqc" firstAttribute="top" secondItem="Ucg-ly-DGj" secondAttribute="top" id="vcb-qH-VG6"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQo-AL-gpa" userLabel="VoteView">
-                                        <rect key="frame" x="0.0" y="330" width="343" height="143"/>
+                                        <rect key="frame" x="0.0" y="370" width="343" height="103"/>
                                         <subviews>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C9-aD-uSS" userLabel="wtf">
-                                                <rect key="frame" x="289" y="35.5" width="54" height="72"/>
+                                                <rect key="frame" x="289" y="15.5" width="54" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="💩"/>
                                                 <connections>
@@ -350,7 +350,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azg-ZM-QE8" userLabel="Dislike">
-                                                <rect key="frame" x="144.5" y="35.5" width="54" height="72"/>
+                                                <rect key="frame" x="144.5" y="15.5" width="54" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="👎"/>
                                                 <connections>
@@ -358,7 +358,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJX-VH-vkq" userLabel="like">
-                                                <rect key="frame" x="0.0" y="35.5" width="54" height="72"/>
+                                                <rect key="frame" x="0.0" y="15.5" width="54" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <state key="normal" title="👍"/>
                                                 <connections>

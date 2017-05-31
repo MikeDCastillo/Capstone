@@ -35,6 +35,7 @@ class FeedViewController: UIViewController {
     fileprivate var submissions =  [Submission]()
     fileprivate var currentSortType = SortType.likes {
         didSet {
+            submissions = SubmissionController.shared.submissions.sorted(by: currentSortType.sort)
             collectionView.reloadData()
         }
     }
@@ -234,7 +235,7 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension FeedViewController: UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 32, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
     
     func scrollToNearestVisibleCollectionViewCell() {
