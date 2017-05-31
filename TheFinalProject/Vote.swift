@@ -59,3 +59,11 @@ extension Vote: JSONExportable {
         return jsonDictionary
     }
 }
+
+extension Array where Iterator.Element == Vote {
+
+    func ofType(_ type: VoteType) -> [Vote] {
+       return self.filter { $0.type == type }
+    }
+    
+}

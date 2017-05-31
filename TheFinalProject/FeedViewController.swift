@@ -68,6 +68,7 @@ class FeedViewController: UIViewController {
         setupUIButtons()
         NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.todaysMemeUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(submissionsUpdated(_:)), name: NSNotification.Name.submissionUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(votesUpdated(_:)), name: NSNotification.Name.votesUpdated, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,6 +125,10 @@ class FeedViewController: UIViewController {
         collectionView.reloadData()
     }
     
+    func votesUpdated(_ notification: NSNotification) {
+        collectionView.reloadData()
+    }
+
 }
 
 
@@ -192,19 +197,20 @@ extension FeedViewController {
     
     fileprivate func currentSubmission() -> Submission? {
         guard let indexPath = collectionView.indexPathForItem(at: collectionView.center) else  { return nil }
-        return submissions[indexPath.row]
+        return submissions[indexPath.item]
     }
     
     fileprivate func moveCell(previous: Bool) {
         guard submissions.count > 1 else { return }
-          guard let indexPath = collectionView.indexPathForItem(at: collectionView.center) else  { return }
+        guard let indexPathAtCenter = collectionView.centerCellIndexPath else { return }
+
         if previous {
-            guard indexPath.row > 0 else { return }
-            let indexPathToScroll = IndexPath(item: indexPath.item - 1, section: 0)
+            guard indexPathAtCenter.item > 0 else { return }
+            let indexPathToScroll = IndexPath(item: indexPathAtCenter.item - 1, section: 0)
             collectionView.scrollToItem(at: indexPathToScroll, at: .centeredHorizontally, animated: true)
         } else {
-            guard indexPath.row < submissions.count - 1 else { return }
-            let indexPathToScroll = IndexPath(item: indexPath.item + 1, section: 0)
+            guard indexPathAtCenter.item < submissions.count - 1 else { return }
+            let indexPathToScroll = IndexPath(item: indexPathAtCenter.item + 1, section: 0)
             collectionView.scrollToItem(at: indexPathToScroll, at: .centeredHorizontally, animated: true)
         }
     }
@@ -222,9 +228,9 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubmissionCollectionViewCell.className, for: indexPath) as! SubmissionCollectionViewCell
-        let submission = submissions[indexPath.row]
+        let submission = submissions[indexPath.item]
         let user = users.first(where: { $0.id == submission.userId })
-        cell.update(with: submission, user: user)
+        cell.update(with: submission, user: user, votes: VoteController.shared.votes(for: submission))
         return cell
     }
     
@@ -252,7 +258,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout, UIScrollViewDe
             let distance: Float = fabsf(visibleCenterPositionOfScrollView - cellCenter)
             if distance < closestDistance {
                 closestDistance = distance
-                closestCellIndex = collectionView.indexPath(for: cell)!.row
+                closestCellIndex = collectionView.indexPath(for: cell)!.item
             }
         }
         if closestCellIndex != -1 {
@@ -270,4 +276,15 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout, UIScrollViewDe
         }
     }
     
+}
+
+extension UICollectionView {
+    
+    var centerPoint : CGPoint {
+        return CGPoint(x: center.x + contentOffset.x, y: center.y + contentOffset.y);
+    }
+    
+    var centerCellIndexPath: IndexPath? {
+        return indexPathForItem(at: centerPoint)
+    }
 }

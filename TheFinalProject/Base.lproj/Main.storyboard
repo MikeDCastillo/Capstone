@@ -116,7 +116,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Y0-yH-cyk">
                                         <rect key="frame" x="0.0" y="320.5" width="375" height="310.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="I0t-ll-gcA">
+                                        <view key="tableFooterView" contentMode="scaleToFill" id="I0t-ll-gcA">
                                             <rect key="frame" x="0.0" y="83" width="375" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -401,7 +401,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="⬅️"/>
                                                 <connections>
-                                                    <action selector="arrowButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="ebi-bj-47L"/>
+                                                    <action selector="arrowButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="OcK-OH-peL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTP-Pe-bO7">
@@ -409,7 +409,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="➡️"/>
                                                 <connections>
-                                                    <action selector="arrowButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="BB5-09-fKL"/>
+                                                    <action selector="arrowButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="2gh-Vq-6jQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -691,7 +691,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oSz-qO-n0N" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Create New" id="HSS-Uz-py5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5V8-xd-p8Q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5V8-xd-p8Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -712,7 +712,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hk9-E6-fHa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Today's Feed" id="3S0-Ko-EtX"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WBB-bV-Aq8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WBB-bV-Aq8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

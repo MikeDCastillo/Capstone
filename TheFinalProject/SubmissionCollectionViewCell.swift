@@ -16,21 +16,24 @@ class SubmissionCollectionViewCell: UICollectionViewCell, AutoClassNameable {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var upVote: UILabel!
-    @IBOutlet weak var downVote: UILabel!
-    @IBOutlet weak var randomVote: UILabel!
+    @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var dislikesLabel: UILabel!
+    @IBOutlet weak var wtfLabel: UILabel!
     
     
-    func update(with submission: Submission, user: User?/*, votes: [Vote]*/) {
+    func update(with submission: Submission, user: User?, votes: [Vote]) {
         topLabel.text = submission.topText
         bottomLabel.text = submission.bottomText
         topLabel.textColor = submission.textColor
         bottomLabel.textColor = submission.textColor
-        avatarImageView.kf.setImage(with: user?.avatarURL, placeholder: #imageLiteral(resourceName: "meMeme0"))
+        avatarImageView.kf.setImage(with: user?.avatarURL, placeholder: #imageLiteral(resourceName: "user"))
         userNameLabel.text = user?.username ?? "--"
         dateLabel.text = submission.creationDate.timeSince
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
-        //FIXME: - Vote Labels
+        likesLabel.text = "\(votes.ofType(.like).count)"
+        dislikesLabel.text = "\(votes.ofType(.dislike).count)"
+        wtfLabel.text = "\(votes.ofType(.wtf).count)"
     }
+  
     
 }

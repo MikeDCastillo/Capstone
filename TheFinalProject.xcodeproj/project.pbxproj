@@ -22,7 +22,7 @@
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
 		737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737241451E4EBFD6006F6E49 /* AppDelegate.swift */; };
 		7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7372414C1E4EBFD6006F6E49 /* Assets.xcassets */; };
-		737D9C231EDD728A0089731C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D9C211EDD728A0089731C /* Launch Screen.storyboard */; };
+		737D9C231EDD728A0089731C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D9C211EDD728A0089731C /* LaunchScreen.storyboard */; };
 		7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */; };
 		7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */; };
 		7384B4891EBAF136005F4E4B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4881EBAF136005F4E4B /* Generator.swift */; };
@@ -74,7 +74,7 @@
 		737241451E4EBFD6006F6E49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7372414C1E4EBFD6006F6E49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737241511E4EBFD6006F6E49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		737D9C221EDD728A0089731C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		737D9C221EDD728A0089731C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
 		7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkController+Meme.swift"; sourceTree = "<group>"; };
 		7384B4881EBAF136005F4E4B /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				732B3A301E928940002B31A9 /* Main.storyboard */,
-				737D9C211EDD728A0089731C /* Launch Screen.storyboard */,
+				737D9C211EDD728A0089731C /* LaunchScreen.storyboard */,
 				732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */,
 			);
 			path = Base.lproj;
@@ -328,7 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				737D9C231EDD728A0089731C /* Launch Screen.storyboard in Resources */,
+				737D9C231EDD728A0089731C /* LaunchScreen.storyboard in Resources */,
 				733297A71EDD411000D9DD6D /* LemonMilk.otf in Resources */,
 				732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */,
 				736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */,
@@ -447,12 +447,12 @@
 			name = SubmissionCollectionViewCell.xib;
 			sourceTree = "<group>";
 		};
-		737D9C211EDD728A0089731C /* Launch Screen.storyboard */ = {
+		737D9C211EDD728A0089731C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				737D9C221EDD728A0089731C /* Base */,
 			);
-			name = "Launch Screen.storyboard";
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
