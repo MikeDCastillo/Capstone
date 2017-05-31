@@ -42,6 +42,12 @@ class VoteController: Controller {
         firebaseController.save(at: ref, json: ["fake": true], completion: nil)
     }
     
+    func vote(_ type: VoteType, on submission: Submission) {
+        let ref = firebaseController.votesRef(memeId: submission.id)
+        ///////////////////////////////////////////////////////////////////////////
+//        firebaseController.save(at: ref, json: <#T##JSONObject#>, completion: <#T##((Error?) -> Void)?##((Error?) -> Void)?##(Error?) -> Void#>)
+    }
+    
 }
 
 

@@ -72,16 +72,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JB-bS-24c">
-                                        <rect key="frame" x="113" y="98" width="149.5" height="150.5"/>
+                                        <rect key="frame" x="112.5" y="98" width="150.5" height="150.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-AN-FWO">
-                                                <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
+                                                <rect key="frame" x="1" y="0.0" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gcY-AN-FWO" secondAttribute="height" id="yVd-JZ-LJ8"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-V7-fAM">
-                                                <rect key="frame" x="106.5" y="106" width="44" height="44"/>
+                                                <rect key="frame" x="107" y="106" width="44" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Gmw-V7-fAM" secondAttribute="height" id="DoE-yW-U3d"/>
@@ -460,6 +460,12 @@
                         <outlet property="segmentedControl" destination="glq-Um-uJO" id="cGH-Fk-9gC"/>
                         <outlet property="voteButton" destination="usT-K3-8lB" id="o3l-nJ-ul4"/>
                         <outlet property="wtfButton" destination="5C9-aD-uSS" id="0Me-Iu-wHs"/>
+                        <outletCollection property="originalVoteConstraints" destination="p2r-6j-cY0" collectionClass="NSMutableArray" id="SBf-VU-7Gt"/>
+                        <outletCollection property="originalVoteConstraints" destination="dBi-pD-0zm" collectionClass="NSMutableArray" id="q1I-QM-CZI"/>
+                        <outletCollection property="originalVoteConstraints" destination="ogK-Tp-XgA" collectionClass="NSMutableArray" id="8zz-tZ-d9R"/>
+                        <outletCollection property="originalVoteConstraints" destination="VTC-9g-hsQ" collectionClass="NSMutableArray" id="5y7-9T-UaF"/>
+                        <outletCollection property="originalVoteConstraints" destination="NzP-1s-btr" collectionClass="NSMutableArray" id="Amx-An-Nh4"/>
+                        <outletCollection property="originalVoteConstraints" destination="aW9-Bl-zfH" collectionClass="NSMutableArray" id="nbk-nl-MYn"/>
                         <segue destination="d7u-LS-miK" kind="presentation" identifier="iCloudSegue" animates="NO" modalPresentationStyle="overFullScreen" id="3KT-wC-rhU"/>
                     </connections>
                 </viewController>

@@ -22,6 +22,7 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet var originalVoteConstraints: [NSLayoutConstraint]!
     
     fileprivate var likeButtonCenter: CGPoint!
     fileprivate var dislikeButtonCenter: CGPoint!
@@ -80,16 +81,17 @@ class FeedViewController: UIViewController {
         dump(likeButton.center)
         dump(dislikeButton.center)
         dump(wtfButton.center)
+        
+        originalVoteConstraints.forEach { constraint in
+            constraint.isActive = true
+        }
 
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut, animations: {
             self.voteButton.isHidden = true
             self.likeButton.alpha = 1
             self.dislikeButton.alpha = 1
             self.wtfButton.alpha = 1
-            
-            self.likeButton.center = self.likeButtonCenter
-            self.dislikeButton.center = self.dislikeButtonCenter
-            self.wtfButton.center = self.wtfButtonCenter
+            self.view.layoutIfNeeded()
         }, completion: nil)
     }
     
@@ -146,6 +148,9 @@ extension FeedViewController {
         dislikeButtonCenter = dislikeButton.center
         wtfButtonCenter = wtfButton.center
         
+        originalVoteConstraints.forEach { constraint in
+            constraint.isActive = false
+        }
         //setting the initail GGPoint of buttons under the vote button. then setting the CGPoints where they live when pulled back under the vote button
         likeButton.center = voteButton.center
         dislikeButton.center = voteButton.center
