@@ -16,5 +16,8 @@ enum Keys {
     static let creationDate = "creationDate"
     static let id = "id"
     static let jpegContentType = "image/jpeg"
+    static let submissionId = "submissionId"
+    static let type = "type"
+    static let userId = "userId"
     static let username = "username"
 }

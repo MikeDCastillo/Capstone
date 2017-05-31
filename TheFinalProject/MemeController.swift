@@ -47,6 +47,7 @@ class MemeController: Controller {
             if case let .success(json) = result, let memeID = json.keys.first {
                 self.subscribeToMeme(memeID)
                 SubmissionController.shared.subscribeToSubmissions(forMemeId: memeID)
+                VoteController.shared.subscribeToVotes(memeId: memeID)
             } else {
                 self.generateMemeFromAPI()
             }

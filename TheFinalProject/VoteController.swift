@@ -30,7 +30,6 @@ class VoteController: Controller {
                     votes.append(vote)
                 })
                 self.votes = votes
-                
             case let .failure(error):
                 print(error)
             }
@@ -43,7 +42,8 @@ class VoteController: Controller {
     }
     
     func vote(_ type: VoteType, on submission: Submission) {
-        let ref = firebaseController.votesRef(memeId: submission.id).childByAutoId()
+        guard let currentMeme = MemeController.shared.meme else { return }
+        let ref = firebaseController.votesRef(memeId: currentMeme.id).childByAutoId()
         guard let currentUser = UserController.shared.currentUser else { return }
         let newVote = Vote(id: ref.key, userId: currentUser.id, type: type, submissionId: submission.id)
         firebaseController.save(at: ref, json: newVote.json()) { error in

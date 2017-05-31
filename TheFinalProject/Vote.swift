@@ -31,12 +31,11 @@ struct Vote {
 extension Vote: JSONInitializable {
 
     init(json: JSONObject) throws {
-      
-        guard let id = json["id"] as? String else { throw JSONError.keyMismatch("id") }
-        guard let userId = json["userId"] as? String else { throw JSONError.keyMismatch("userId") }
-        guard let type = json["type"] as? String else { throw JSONError.keyMismatch("type") }
-        guard let voteType = VoteType(rawValue: type) else { throw JSONError.typeMismatch("type") }
-        guard let submissionId = json["submissionId"] as? String else { throw JSONError.keyMismatch("submissionId") }
+        guard let id = json[Keys.id] as? String else { throw JSONError.keyMismatch(Keys.id) }
+        guard let userId = json[Keys.userId] as? String else { throw JSONError.keyMismatch(Keys.userId) }
+        guard let type = json[Keys.type] as? String else { throw JSONError.keyMismatch(Keys.type) }
+        guard let voteType = VoteType(rawValue: type) else { throw JSONError.typeMismatch(Keys.type) }
+        guard let submissionId = json[Keys.submissionId] as? String else { throw JSONError.keyMismatch(Keys.submissionId) }
         
         self.id = id
         self.userId = userId
@@ -51,13 +50,14 @@ extension Vote: JSONExportable {
     func json() -> JSONObject {
         var jsonDictionary = [String: Any]()
 
-        jsonDictionary["id"] = id
-        jsonDictionary["userID"] = userId
-        jsonDictionary["type"] = type
-        jsonDictionary["submissionId"] = submissionId
+        jsonDictionary[Keys.id] = id
+        jsonDictionary[Keys.userId] = userId
+        jsonDictionary[Keys.type] = type.rawValue
+        jsonDictionary[Keys.submissionId] = submissionId
         
         return jsonDictionary
     }
+    
 }
 
 extension Array where Iterator.Element == Vote {

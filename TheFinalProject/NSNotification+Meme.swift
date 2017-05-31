@@ -13,5 +13,6 @@ extension NSNotification.Name {
     static let submissionUpdated = NSNotification.Name("submissionUpdated")
     static let votesUpdated = NSNotification.Name("votesUpdated")
     static let userUpdated = NSNotification.Name("userUpdated")
+    static let usersUpdated = NSNotification.Name("usersUpdated")
 }
 

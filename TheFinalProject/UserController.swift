@@ -40,9 +40,7 @@ extension UserController {
                     let user = try? User(json: json)
                     completion(user, iCloudId)
                     
-                    if let currentUser = user {
-                        self.currentUser = currentUser
-                    }
+                    self.currentUser = user
                 case .failure(let error):
                     print("\(error)")
                     completion(nil, iCloudId)

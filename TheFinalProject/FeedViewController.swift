@@ -32,24 +32,11 @@ class FeedViewController: UIViewController {
     fileprivate let layout = UICollectionViewFlowLayout()
     fileprivate let iCloudSegue = "iCloudSegue"
     
-    @IBAction func segmentControlTapped(_ sender: Any) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            // sort array by most likes
-            //            SortType.likes.sort(submission, submission)
-            print("foo")
-            
-        case 1:
-            // sort array by most recent Date
-            //            SortType.recent.sort(<#T##Submission#>, <#T##Submission#>)
-            print("bar")
-        default:
-            break
+    fileprivate var submissions =  [Submission]()
+    fileprivate var currentSortType = SortType.likes {
+        didSet {
+            collectionView.reloadData()
         }
-    }
-    
-    fileprivate var submissions: [Submission] {
-        return SubmissionController.shared.submissions
     }
     fileprivate var todaysMeme: Meme? {
         return MemeController.shared.meme
@@ -63,12 +50,15 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        memeController.getTodaysMeme()
         setUpCollectionView()
         setupUIButtons()
+        memeController.getTodaysMeme()
+        currentSortType = SortType.recent
+        
         NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.todaysMemeUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(submissionsUpdated(_:)), name: NSNotification.Name.submissionUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(votesUpdated(_:)), name: NSNotification.Name.votesUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated(_:)), name: NSNotification.Name.votesUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated(_:)), name: NSNotification.Name.usersUpdated, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,11 +68,12 @@ class FeedViewController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction func segmentControlTapped(_ sender: Any) {
+        guard let type = SortType(rawValue: segmentedControl.selectedSegmentIndex) else { return }
+        currentSortType = type
+    }
+    
     @IBAction func voteButtonTapped(_ sender: UIButton) {
-        dump(likeButton.center)
-        dump(dislikeButton.center)
-        dump(wtfButton.center)
-        
         originalVoteConstraints.forEach { constraint in
             constraint.isActive = true
         }
@@ -122,10 +113,11 @@ class FeedViewController: UIViewController {
     }
     
     func submissionsUpdated(_ notification: NSNotification) {
+        submissions = SubmissionController.shared.submissions.sorted(by: currentSortType.sort)
         collectionView.reloadData()
     }
     
-    func votesUpdated(_ notification: NSNotification) {
+    func dataUpdated(_ notification: NSNotification) {
         collectionView.reloadData()
     }
 
@@ -196,7 +188,7 @@ extension FeedViewController {
     }
     
     fileprivate func currentSubmission() -> Submission? {
-        guard let indexPath = collectionView.indexPathForItem(at: collectionView.center) else  { return nil }
+        guard let indexPath = collectionView.centerCellIndexPath else  { return nil }
         return submissions[indexPath.item]
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SortType: String {
+enum SortType: Int {
     case likes
     case recent
     
@@ -33,4 +33,5 @@ enum SortType: String {
             return { $0.creationDate >  $1.creationDate }
         }
     }
+    
 }

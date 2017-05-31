@@ -61,14 +61,22 @@ class SubmissionController: Controller {
     }
     
     private func fetchUsers(from submissions: [Submission]) {
+        let dispatchGroup = DispatchGroup()
+        
         submissions.forEach { submission in
+            dispatchGroup.enter()
             let user = userController.users.first(where: { $0.id == submission.userId })
-            
             if let _ = user {
                 return
             } else {
-                userController.getUser(withId: submission.userId, completion: nil)
+                userController.getUser(withId: submission.userId, completion: { _ in
+                    dispatchGroup.leave()
+                })
             }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            NotificationCenter.default.post(name: NSNotification.Name.usersUpdated, object: nil)
         }
     }
     
