@@ -18,6 +18,7 @@ extension Date {
     /// Ex.  2017-02-16
     var dayString: String {
         DateHelper.formatter.formatOptions = [.withFullDate]
+        DateHelper.formatter.timeZone = TimeZone.current
         return DateHelper.formatter.string(from: self)
     }
     

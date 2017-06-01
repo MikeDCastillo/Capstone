@@ -22,6 +22,7 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var dailyVotesLabel: UILabel!
     @IBOutlet var originalVoteConstraints: [NSLayoutConstraint]!
     
     fileprivate var likeButtonCenter: CGPoint!
@@ -31,8 +32,15 @@ class FeedViewController: UIViewController {
     fileprivate let memeController = MemeController.shared
     fileprivate let layout = UICollectionViewFlowLayout()
     fileprivate let iCloudSegue = "iCloudSegue"
+    fileprivate let maxVotes = 4
+    
     
     fileprivate var submissions =  [Submission]()
+    fileprivate var votesUsed = 0
+    fileprivate var shouldEditUsername = false
+    fileprivate var canVote: Bool {
+        return votesUsed < maxVotes
+    }
     fileprivate var currentSortType = SortType.likes {
         didSet {
             submissions = SubmissionController.shared.submissions.sorted(by: currentSortType.sort)
@@ -44,6 +52,9 @@ class FeedViewController: UIViewController {
     }
     fileprivate var users: [User] {
         return Array(UserController.shared.users)
+    }
+    fileprivate var dailyVotes: [Vote] {
+        return Array(VoteController.shared.votes)
     }
     
     // MARK: - Life Cycles
@@ -67,6 +78,11 @@ class FeedViewController: UIViewController {
         loadCurrentUser()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        shouldEditUsername = false
+    }
+    
     // MARK: - Actions
     
     @IBAction func segmentControlTapped(_ sender: Any) {
@@ -75,32 +91,32 @@ class FeedViewController: UIViewController {
     }
     
     @IBAction func voteButtonTapped(_ sender: UIButton) {
-        originalVoteConstraints.forEach { constraint in
-            constraint.isActive = true
+        if let currentUser = UserController.shared.currentUser, let _ = currentUser.username {
+            originalVoteConstraints.forEach { constraint in
+                constraint.isActive = true
+            }
+            UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut, animations: {
+                self.voteButton.isHidden = true
+                self.likeButton.alpha = 1
+                self.dislikeButton.alpha = 1
+                self.wtfButton.alpha = 1
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        } else {
+            presentLoginAlert()
         }
-
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: .curveEaseInOut, animations: {
-            self.voteButton.isHidden = true
-            self.likeButton.alpha = 1
-            self.dislikeButton.alpha = 1
-            self.wtfButton.alpha = 1
-            self.view.layoutIfNeeded()
-        }, completion: nil)
     }
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        guard let currentSubmission = currentSubmission() else { return }
-        VoteController.shared.vote(.like, on: currentSubmission)
+        saveVote(ofType: .like)
     }
     
     @IBAction func dislikeButtonTapped(_ sender: UIButton) {
-        guard let currentSubmission = currentSubmission() else { return }
-        VoteController.shared.vote(.dislike, on: currentSubmission)
+        saveVote(ofType: .dislike)
     }
     
     @IBAction func wtfButtonTapped(_ sender: UIButton) {
-        guard let currentSubmission = currentSubmission() else { return }
-        VoteController.shared.vote(.wtf, on: currentSubmission)
+        saveVote(ofType: .wtf)
     }
     
     @IBAction func arrowButtonTapped(_ sender: UIButton) {
@@ -119,6 +135,7 @@ class FeedViewController: UIViewController {
     }
     
     func dataUpdated(_ notification: NSNotification) {
+        updateVoteCount()
         collectionView.reloadData()
     }
 
@@ -188,6 +205,17 @@ extension FeedViewController {
         })
     }
     
+    fileprivate func saveVote(ofType type: VoteType) {
+        guard let currentSubmission = currentSubmission() else { return }
+        if canVote {
+            VoteController.shared.vote(.like, on: currentSubmission)
+        } else {
+            print("TOO MANY VOTES!!!!!!!!!")
+           
+            //FIXME: Handle max votes
+        }
+    }
+    
     fileprivate func currentSubmission() -> Submission? {
         guard let indexPath = collectionView.centerCellIndexPath else  { return nil }
         return submissions[indexPath.item]
@@ -208,8 +236,41 @@ extension FeedViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return true
+    }
+    
+    fileprivate func presentLoginAlert() {
+        let alertController = UIAlertController(title: "Login Required", message: "Please login to use this feature", preferredStyle: .alert)
+        let loginAction = UIAlertAction(title: "Login", style: .default) { (_) in
+            self.shouldEditUsername = true
+            self.performSegue(withIdentifier: "toSettingsVC", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Later", style: .cancel, handler: nil)
+        alertController.addAction(loginAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func updateVoteCount() {
+        guard let currentUser = userController.currentUser else { return }
+        votesUsed = dailyVotes.filter { $0.userId == currentUser.id }.count
+        let votesRemaining = max(maxVotes - votesUsed, 0)
+        dailyVotesLabel.text = "\(votesRemaining)"
+    }
+
 }
 
+
+extension FeedViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSettingsVC", let profileVC = segue.destination as? ProfileViewController {
+            profileVC.shouldEditUsername = shouldEditUsername
+        }
+    }
+    
+}
 
 // MARK: - Data Source Methods
 

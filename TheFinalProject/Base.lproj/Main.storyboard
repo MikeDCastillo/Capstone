@@ -72,16 +72,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JB-bS-24c">
-                                        <rect key="frame" x="113" y="98" width="149.5" height="150.5"/>
+                                        <rect key="frame" x="112.5" y="98" width="150.5" height="150.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-AN-FWO">
-                                                <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
+                                                <rect key="frame" x="1" y="0.0" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gcY-AN-FWO" secondAttribute="height" id="yVd-JZ-LJ8"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-V7-fAM">
-                                                <rect key="frame" x="106.5" y="106" width="44" height="44"/>
+                                                <rect key="frame" x="107" y="106" width="44" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Gmw-V7-fAM" secondAttribute="height" id="DoE-yW-U3d"/>
@@ -404,6 +404,12 @@
                                                     <action selector="arrowButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="OcK-OH-peL"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Votes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyH-C5-AMs">
+                                                <rect key="frame" x="146" y="0.0" width="51" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTP-Pe-bO7">
                                                 <rect key="frame" x="313" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -438,7 +444,7 @@
                     <navigationItem key="navigationItem" title="meMeMe" id="ATd-c4-vR8">
                         <barButtonItem key="leftBarButtonItem" title="⚙" id="acc-d2-qKE">
                             <connections>
-                                <segue destination="BTq-Fl-yvT" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="afS-8v-1Vq"/>
+                                <segue destination="BTq-Fl-yvT" kind="presentation" identifier="toSettingsVC" animates="NO" modalPresentationStyle="overFullScreen" id="afS-8v-1Vq"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lJs-Xd-99g">
@@ -452,6 +458,7 @@
                     <connections>
                         <outlet property="bannerView" destination="GMR-6a-3Io" id="hM0-QC-Qzv"/>
                         <outlet property="collectionView" destination="o2d-sh-Mqc" id="VS7-ck-vZw"/>
+                        <outlet property="dailyVotesLabel" destination="XyH-C5-AMs" id="LFi-MR-bYo"/>
                         <outlet property="dislikeButton" destination="azg-ZM-QE8" id="XqY-YE-ciG"/>
                         <outlet property="imageView" destination="NDa-iP-sNC" id="tKT-hc-wlO"/>
                         <outlet property="likeButton" destination="iJX-VH-vkq" id="bxV-6w-CqS"/>

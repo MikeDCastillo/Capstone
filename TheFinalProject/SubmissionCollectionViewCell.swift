@@ -20,11 +20,9 @@ class SubmissionCollectionViewCell: UICollectionViewCell, AutoClassNameable {
     @IBOutlet weak var dislikesLabel: UILabel!
     @IBOutlet weak var wtfLabel: UILabel!
     
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
-        
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
     }
     
     func update(with submission: Submission, user: User?, votes: [Vote]) {

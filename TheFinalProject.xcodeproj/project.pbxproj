@@ -26,6 +26,8 @@
 		7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */; };
 		7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */; };
 		7384B4891EBAF136005F4E4B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4881EBAF136005F4E4B /* Generator.swift */; };
+		738579681EDFBAFC000E7442 /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738579671EDFBAFC000E7442 /* Particle.swift */; };
+		7385796A1EDFBC5E000E7442 /* MeMeMe.sks in Resources */ = {isa = PBXBuildFile; fileRef = 738579691EDFBC5E000E7442 /* MeMeMe.sks */; };
 		738D3ACB1ECEB691006EA799 /* AutoClassNameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */; };
 		7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E0461E90A9B500EEB6FE /* Controller.swift */; };
 		739D87E61ED51FF50094C835 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739D87E51ED51FF50094C835 /* ProfileViewController.swift */; };
@@ -78,6 +80,8 @@
 		7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
 		7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkController+Meme.swift"; sourceTree = "<group>"; };
 		7384B4881EBAF136005F4E4B /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		738579671EDFBAFC000E7442 /* Particle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
+		738579691EDFBC5E000E7442 /* MeMeMe.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MeMeMe.sks; sourceTree = "<group>"; };
 		738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoClassNameable.swift; sourceTree = "<group>"; };
 		7396E0461E90A9B500EEB6FE /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		739D87E51ED51FF50094C835 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 		73B5A1B61E6CB9FF00ED8EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				738579671EDFBAFC000E7442 /* Particle.swift */,
+				738579691EDFBC5E000E7442 /* MeMeMe.sks */,
 				73F3AB981ED153060073456C /* NewSubmissionViewController.swift */,
 				739D87E51ED51FF50094C835 /* ProfileViewController.swift */,
 				7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */,
@@ -328,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7385796A1EDFBC5E000E7442 /* MeMeMe.sks in Resources */,
 				737D9C231EDD728A0089731C /* LaunchScreen.storyboard in Resources */,
 				733297A71EDD411000D9DD6D /* LemonMilk.otf in Resources */,
 				732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */,
@@ -393,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7332979F1EDCB99400D9DD6D /* ICloudViewController.swift in Sources */,
+				738579681EDFBAFC000E7442 /* Particle.swift in Sources */,
 				732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */,
 				732B3A2A1E91DDBC002B31A9 /* FeedViewController.swift in Sources */,
 				73C2D4411EDA863B0037B75B /* CaseCountable.swift in Sources */,

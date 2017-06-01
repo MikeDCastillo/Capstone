@@ -17,9 +17,10 @@ class ProfileViewController: UIViewController, Controller {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var shouldEditUsername = false
     
-    let imagePicker = UIImagePickerController()
-    var firebaseController = FirebaseController()
+    fileprivate let imagePicker = UIImagePickerController()
+    fileprivate var firebaseController = FirebaseController()
     fileprivate var appStoreURL: URL?
     
     // Life - Cycle
@@ -41,6 +42,13 @@ class ProfileViewController: UIViewController, Controller {
         
         avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
         editButton.layer.cornerRadius = editButton.bounds.height / 2
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if shouldEditUsername {
+            presentUsernameEditAlert()
+        }
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
@@ -95,7 +103,7 @@ extension ProfileViewController {
         }
     }
     //FIXME: User placeholder
-    fileprivate func updateAvatarImage(url: URL?, placeholder: UIImage? = #imageLiteral(resourceName: "meMeme0")) {
+    fileprivate func updateAvatarImage(url: URL?, placeholder: UIImage? = #imageLiteral(resourceName: "user")) {
         avatarImageView.kf.setImage(with: url, placeholder: placeholder)
     }
     

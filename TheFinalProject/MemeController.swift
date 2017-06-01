@@ -27,7 +27,6 @@ class MemeController: Controller {
             case let .success(json):
                 if let meme = try? Meme(json: json) {
                     self.meme = meme
-                    
                 } else {
                     print("error subscribing to daily meme")
                 }
