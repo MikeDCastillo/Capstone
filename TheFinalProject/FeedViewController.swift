@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import GoogleMobileAds
+import SceneKit
 
 class FeedViewController: UIViewController {
     
@@ -33,7 +34,7 @@ class FeedViewController: UIViewController {
     fileprivate let layout = UICollectionViewFlowLayout()
     fileprivate let iCloudSegue = "iCloudSegue"
     fileprivate let maxVotes = 4
-    
+    fileprivate var feedbackGenerator: UINotificationFeedbackGenerator?
     
     fileprivate var submissions =  [Submission]()
     fileprivate var votesUsed = 0
@@ -66,11 +67,17 @@ class FeedViewController: UIViewController {
         setupUIButtons()
         memeController.getTodaysMeme()
         currentSortType = SortType.recent
+         feedbackGenerator = UINotificationFeedbackGenerator()
         
         NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.todaysMemeUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(submissionsUpdated(_:)), name: NSNotification.Name.submissionUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated(_:)), name: NSNotification.Name.votesUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(dataUpdated(_:)), name: NSNotification.Name.usersUpdated, object: nil)
+        likeButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        dislikeButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        wtfButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -138,7 +145,7 @@ class FeedViewController: UIViewController {
         updateVoteCount()
         collectionView.reloadData()
     }
-
+    
 }
 
 
@@ -181,7 +188,19 @@ extension FeedViewController {
         bannerView.rootViewController = self
         bannerView.load(request)
     }
-    
+    //FIXME: Broken Animation. drag out outlet to connect
+    //    func animateWithParticles() {
+    //        SCNTransaction.begin()
+    //        let scene = SCNScene()
+    //        let particlesNode = SCNNode()
+    //        guard let particleSystem = SCNParticleSystem(named: "MeMeMe", inDirectory: "") else { return }
+    //        particlesNode.addParticleSystem(particleSystem)
+    //        scene.rootNode.addChildNode(particlesNode)
+    //        particlesView.scene = scene
+    //
+    //        SCNTransaction.commit()
+    //    }
+    //
     fileprivate func loadCurrentUser() {
         userController.loadCurrentUser { user, iCloudId in
             if let _ = user {
@@ -211,7 +230,10 @@ extension FeedViewController {
             VoteController.shared.vote(.like, on: currentSubmission)
         } else {
             print("TOO MANY VOTES!!!!!!!!!")
-           
+            tapped()
+            shake()
+            dailyVotesLabel.textColor = .red
+            labelSize()
             //FIXME: Handle max votes
         }
     }
@@ -224,7 +246,7 @@ extension FeedViewController {
     fileprivate func moveCell(previous: Bool) {
         guard submissions.count > 1 else { return }
         guard let indexPathAtCenter = collectionView.centerCellIndexPath else { return }
-
+        
         if previous {
             guard indexPathAtCenter.item > 0 else { return }
             let indexPathToScroll = IndexPath(item: indexPathAtCenter.item - 1, section: 0)
@@ -256,9 +278,34 @@ extension FeedViewController {
         guard let currentUser = userController.currentUser else { return }
         votesUsed = dailyVotes.filter { $0.userId == currentUser.id }.count
         let votesRemaining = max(maxVotes - votesUsed, 0)
-        dailyVotesLabel.text = "\(votesRemaining)"
+        dailyVotesLabel.text = "\(votesRemaining) Votes Remain Today"
     }
-
+    
+    func tapped() {
+//        let generator = UIImpactFeedbackGenerator(style: .heavy)
+//        generator.impactOccurred()
+        feedbackGenerator?.notificationOccurred(.success)
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
+    }
+    
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        dailyVotesLabel.layer.add(animation, forKey: "shake")
+    }
+    
+    func labelSize() {
+        dailyVotesLabel.transform = CGAffineTransform(scaleX: 1.9, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options: UIViewAnimationOptions.allowUserInteraction, animations: {
+            self.dailyVotesLabel.transform = CGAffineTransform.identity }, completion: { Void in()
+        })
+    }
+    
 }
 
 

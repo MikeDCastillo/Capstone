@@ -23,36 +23,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="czX-xz-VmE">
-                                <rect key="frame" x="12.5" y="158.5" width="350.5" height="350.5"/>
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rubber Ducky Coding" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
-                                        <rect key="frame" x="12" y="0.0" width="326.5" height="73"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="28"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="tPs-1E-Z5M">
-                                        <rect key="frame" x="0.0" y="123" width="350.5" height="163"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="375" height="195"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Cute Rubber Duckies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5F-sa-a0p">
-                                                <rect key="frame" x="61.5" y="0.0" width="227.5" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Cute Rubber Duckies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5F-sa-a0p">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Duck" translatesAutoresizingMaskIntoConstraints="NO" id="1D5-b0-ix5">
-                                                <rect key="frame" x="164.5" y="71" width="22" height="21"/>
+                                                <rect key="frame" x="176.5" y="81.5" width="22" height="31.5"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold on your floaties...." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njw-s8-YgS">
-                                                <rect key="frame" x="87" y="142" width="176.5" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold on to your floaties...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njw-s8-YgS">
+                                                <rect key="frame" x="0.0" y="163" width="375" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="N5F-sa-a0p" firstAttribute="width" secondItem="tPs-1E-Z5M" secondAttribute="width" id="dpj-Ip-hZe"/>
+                                            <constraint firstItem="Njw-s8-YgS" firstAttribute="width" secondItem="tPs-1E-Z5M" secondAttribute="width" id="hbF-dp-dmp"/>
+                                        </constraints>
                                     </stackView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2017 Michael Castillo. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                        <rect key="frame" x="19" y="336" width="312.5" height="14.5"/>
+                                        <rect key="frame" x="31.5" y="338.5" width="312.5" height="36.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="312.5" id="vkH-Hn-xQn"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -60,6 +67,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tPs-1E-Z5M" firstAttribute="width" secondItem="czX-xz-VmE" secondAttribute="width" id="Hio-E7-z9D"/>
+                                    <constraint firstItem="GJd-Yh-RWb" firstAttribute="width" secondItem="czX-xz-VmE" secondAttribute="width" id="dcC-K5-lJy"/>
                                     <constraint firstAttribute="width" secondItem="czX-xz-VmE" secondAttribute="height" id="eCU-Ai-FII"/>
                                 </constraints>
                             </stackView>
@@ -67,6 +75,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="czX-xz-VmE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Apd-Id-V7a"/>
+                            <constraint firstItem="czX-xz-VmE" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="NNw-eS-BLs"/>
                             <constraint firstItem="czX-xz-VmE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iE1-0b-S9v"/>
                         </constraints>
                     </view>

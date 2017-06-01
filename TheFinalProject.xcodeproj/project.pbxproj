@@ -26,8 +26,10 @@
 		7384B47F1EB91C3E005F4E4B /* FacebookAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */; };
 		7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */; };
 		7384B4891EBAF136005F4E4B /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7384B4881EBAF136005F4E4B /* Generator.swift */; };
-		738579681EDFBAFC000E7442 /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738579671EDFBAFC000E7442 /* Particle.swift */; };
-		7385796A1EDFBC5E000E7442 /* MeMeMe.sks in Resources */ = {isa = PBXBuildFile; fileRef = 738579691EDFBC5E000E7442 /* MeMeMe.sks */; };
+		738579A91EDFD116000E7442 /* MeMeMe.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 738579A71EDFD116000E7442 /* MeMeMe.scnp */; };
+		738579AA1EDFD116000E7442 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 738579A81EDFD116000E7442 /* spark.png */; };
+		738579AC1EDFD1A5000E7442 /* particleMeme.png in Resources */ = {isa = PBXBuildFile; fileRef = 738579AB1EDFD1A5000E7442 /* particleMeme.png */; };
+		738579B41EDFF321000E7442 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 738579B21EDFF321000E7442 /* star.png */; };
 		738D3ACB1ECEB691006EA799 /* AutoClassNameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */; };
 		7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E0461E90A9B500EEB6FE /* Controller.swift */; };
 		739D87E61ED51FF50094C835 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739D87E51ED51FF50094C835 /* ProfileViewController.swift */; };
@@ -80,8 +82,10 @@
 		7384B47E1EB91C3E005F4E4B /* FacebookAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAPIController.swift; sourceTree = "<group>"; };
 		7384B4861EBADF40005F4E4B /* NetworkController+Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkController+Meme.swift"; sourceTree = "<group>"; };
 		7384B4881EBAF136005F4E4B /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
-		738579671EDFBAFC000E7442 /* Particle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
-		738579691EDFBC5E000E7442 /* MeMeMe.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MeMeMe.sks; sourceTree = "<group>"; };
+		738579A71EDFD116000E7442 /* MeMeMe.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = MeMeMe.scnp; sourceTree = "<group>"; };
+		738579A81EDFD116000E7442 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		738579AB1EDFD1A5000E7442 /* particleMeme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleMeme.png; sourceTree = "<group>"; };
+		738579B21EDFF321000E7442 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		738D3ACA1ECEB691006EA799 /* AutoClassNameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoClassNameable.swift; sourceTree = "<group>"; };
 		7396E0461E90A9B500EEB6FE /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		739D87E51ED51FF50094C835 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -225,8 +229,10 @@
 		73B5A1B61E6CB9FF00ED8EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				738579671EDFBAFC000E7442 /* Particle.swift */,
-				738579691EDFBC5E000E7442 /* MeMeMe.sks */,
+				738579A71EDFD116000E7442 /* MeMeMe.scnp */,
+				738579A81EDFD116000E7442 /* spark.png */,
+				738579AB1EDFD1A5000E7442 /* particleMeme.png */,
+				738579B21EDFF321000E7442 /* star.png */,
 				73F3AB981ED153060073456C /* NewSubmissionViewController.swift */,
 				739D87E51ED51FF50094C835 /* ProfileViewController.swift */,
 				7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */,
@@ -334,12 +340,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7385796A1EDFBC5E000E7442 /* MeMeMe.sks in Resources */,
+				738579AA1EDFD116000E7442 /* spark.png in Resources */,
 				737D9C231EDD728A0089731C /* LaunchScreen.storyboard in Resources */,
 				733297A71EDD411000D9DD6D /* LemonMilk.otf in Resources */,
+				738579A91EDFD116000E7442 /* MeMeMe.scnp in Resources */,
+				738579AC1EDFD1A5000E7442 /* particleMeme.png in Resources */,
 				732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */,
 				736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */,
 				7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */,
+				738579B41EDFF321000E7442 /* star.png in Resources */,
 				732B3A331E928940002B31A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,7 +409,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7332979F1EDCB99400D9DD6D /* ICloudViewController.swift in Sources */,
-				738579681EDFBAFC000E7442 /* Particle.swift in Sources */,
 				732B3A381E928D98002B31A9 /* SubmissionCollectionViewCell.swift in Sources */,
 				732B3A2A1E91DDBC002B31A9 /* FeedViewController.swift in Sources */,
 				73C2D4411EDA863B0037B75B /* CaseCountable.swift in Sources */,
