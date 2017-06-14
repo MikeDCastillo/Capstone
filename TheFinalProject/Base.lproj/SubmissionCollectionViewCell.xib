@@ -168,11 +168,11 @@
                 <outlet property="avatarImageView" destination="7ec-9R-alm" id="yNP-nP-qJs"/>
                 <outlet property="bottomLabel" destination="Vi2-hg-EJq" id="bxU-6i-Knp"/>
                 <outlet property="dateLabel" destination="cKj-eR-bky" id="7wE-ry-84V"/>
-                <outlet property="dislikesLabel" destination="VJi-dK-th0" id="abY-VJ-1mb"/>
-                <outlet property="likesLabel" destination="yJH-dQ-MgN" id="0k7-ZJ-jLX"/>
+                <outlet property="dislikesLabel" destination="VJi-dK-th0" id="xwS-Qn-Gf2"/>
+                <outlet property="likesLabel" destination="yJH-dQ-MgN" id="i1W-Nc-1eZ"/>
                 <outlet property="topLabel" destination="INV-T6-Ggp" id="G0f-US-gHc"/>
                 <outlet property="userNameLabel" destination="j0G-JQ-ZWw" id="P6h-h7-2wK"/>
-                <outlet property="wtfLabel" destination="gnu-ea-4vg" id="m84-yW-JMh"/>
+                <outlet property="wtfLabel" destination="gnu-ea-4vg" id="hEl-9T-5b9"/>
             </connections>
             <point key="canvasLocation" x="-231.5" y="-163"/>
         </collectionViewCell>

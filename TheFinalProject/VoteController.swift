@@ -59,7 +59,8 @@ class VoteController: Controller {
 // MARK: - helper func
 
 extension VoteController {
-
+    //FIXME: - check the line below. never gets run cuz of nil value
+// func votes(for submission: Submission, with type: VoteType? = nil) -> [Vote] {
     func votes(for submission: Submission, with type: VoteType? = nil) -> [Vote] {
         if let voteType = type {
             return votes.filter( { $0.submissionId == submission.id && $0.type == voteType })

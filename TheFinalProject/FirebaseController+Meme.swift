@@ -38,8 +38,12 @@ extension FirebaseController {
     
     //Storage
     
+    /// foo bar
+    ///
+    /// - Parameter userId: id of user
+    /// - Returns: reference to folder in DB
     func avatarStorageRef(userId: String) -> StorageReference {
         return storageRef.child(Keys.avatars).child(userId)
     }
-    
+ 
 }

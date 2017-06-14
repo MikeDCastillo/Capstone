@@ -33,7 +33,7 @@ class FeedViewController: UIViewController {
     fileprivate let memeController = MemeController.shared
     fileprivate let layout = UICollectionViewFlowLayout()
     fileprivate let iCloudSegue = "iCloudSegue"
-    fileprivate let maxVotes = 4
+    fileprivate let maxVotes = 1000
     fileprivate var feedbackGenerator: UINotificationFeedbackGenerator?
     
     fileprivate var submissions =  [Submission]()
@@ -67,7 +67,7 @@ class FeedViewController: UIViewController {
         setupUIButtons()
         memeController.getTodaysMeme()
         currentSortType = SortType.recent
-         feedbackGenerator = UINotificationFeedbackGenerator()
+        feedbackGenerator = UINotificationFeedbackGenerator()
         
         NotificationCenter.default.addObserver(self, selector: #selector(memeUpdated(_:)), name: NSNotification.Name.todaysMemeUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(submissionsUpdated(_:)), name: NSNotification.Name.submissionUpdated, object: nil)
@@ -76,7 +76,6 @@ class FeedViewController: UIViewController {
         likeButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         dislikeButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         wtfButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
-        
         
     }
     
@@ -114,16 +113,79 @@ class FeedViewController: UIViewController {
         }
     }
     
+    //Like Buttons
+    
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        saveVote(ofType: .like)
+        saveVoteLike(ofType: .like)
     }
+    
+    fileprivate func saveVoteLike(ofType type: VoteType) {
+        guard let currentSubmission = currentSubmission() else { return }
+        if canVote {
+            
+            ///////
+            //FIXME: - fix vote types by implementing Switch statement for cleaner, less redundant code
+            ///////
+            VoteController.shared.vote(.like, on: currentSubmission)
+            
+        } else {
+            print("TOO MANY VOTES!")
+            tapped()
+            shake()
+            dailyVotesLabel.textColor = .red
+            labelSize()
+            //FIXME: Handle max votes
+        }
+    }
+    
+    //Dislike Buttons
     
     @IBAction func dislikeButtonTapped(_ sender: UIButton) {
-        saveVote(ofType: .dislike)
+        saveVoteDislike(ofType: .dislike)
     }
     
+    fileprivate func saveVoteDislike(ofType type: VoteType) {
+        guard let currentSubmission = currentSubmission() else { return }
+        if canVote {
+            
+            ///////
+            //FIXME: - fix vote types by implementing Switch statement for cleaner, less redundant code
+            ///////
+            VoteController.shared.vote(.dislike, on: currentSubmission)
+            
+        } else {
+            print("TOO MANY VOTES!")
+            tapped()
+            shake()
+            dailyVotesLabel.textColor = .red
+            labelSize()
+            //FIXME: Handle max votes
+        }
+    }
+    
+    //WTF Buttons
+    
     @IBAction func wtfButtonTapped(_ sender: UIButton) {
-        saveVote(ofType: .wtf)
+        saveVoteWtf(ofType: .wtf)
+    }
+    
+    fileprivate func saveVoteWtf(ofType type: VoteType) {
+        guard let currentSubmission = currentSubmission() else { return }
+        if canVote {
+            
+            ///////
+            //FIXME: - fix vote types by implementing Switch statement for cleaner, less redundant code
+            ///////
+            VoteController.shared.vote(.wtf, on: currentSubmission)
+            
+        } else {
+            print("TOO MANY VOTES!")
+            tapped()
+            shake()
+            dailyVotesLabel.textColor = .red
+            labelSize()
+            //FIXME: Handle max votes
+        }
     }
     
     @IBAction func arrowButtonTapped(_ sender: UIButton) {
@@ -224,20 +286,6 @@ extension FeedViewController {
         })
     }
     
-    fileprivate func saveVote(ofType type: VoteType) {
-        guard let currentSubmission = currentSubmission() else { return }
-        if canVote {
-            VoteController.shared.vote(.like, on: currentSubmission)
-        } else {
-            print("TOO MANY VOTES!!!!!!!!!")
-            tapped()
-            shake()
-            dailyVotesLabel.textColor = .red
-            labelSize()
-            //FIXME: Handle max votes
-        }
-    }
-    
     fileprivate func currentSubmission() -> Submission? {
         guard let indexPath = collectionView.centerCellIndexPath else  { return nil }
         return submissions[indexPath.item]
@@ -282,8 +330,8 @@ extension FeedViewController {
     }
     
     func tapped() {
-//        let generator = UIImpactFeedbackGenerator(style: .heavy)
-//        generator.impactOccurred()
+        //        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        //        generator.impactOccurred()
         feedbackGenerator?.notificationOccurred(.success)
         let generator = UIImpactFeedbackGenerator(style: .light)
         generator.prepare()

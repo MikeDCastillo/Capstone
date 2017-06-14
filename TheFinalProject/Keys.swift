@@ -9,6 +9,7 @@
 import Foundation
 
 enum Keys {
+    
     static let appStoreURLString = "appStoreURLString"
     static let avatar = "avatar"
     static let avatars = "avatars"
@@ -20,4 +21,5 @@ enum Keys {
     static let type = "type"
     static let userId = "userId"
     static let username = "username"
+    
 }
