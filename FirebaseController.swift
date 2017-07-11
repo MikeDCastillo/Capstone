@@ -98,7 +98,7 @@ struct FirebaseController {
             }
         }
     }
-    
+    //TODO: - finish function to grab data from storage
 //    func getUploadedImage(for dailyMeme: Meme) -> UIImage {
 //    
 //        getData(with: <#T##DatabaseQuery#>, completion: <#T##((Result<JSONObject>) -> Void)?##((Result<JSONObject>) -> Void)?##(Result<JSONObject>) -> Void#>)

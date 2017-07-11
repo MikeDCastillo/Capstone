@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import GoogleMobileAds
 import SceneKit
+import Firebase
 
 class FeedViewController: UIViewController {
     
@@ -25,6 +26,8 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var dailyVotesLabel: UILabel!
     @IBOutlet var originalVoteConstraints: [NSLayoutConstraint]!
+    //TODO: - implement activity indicator for UX
+//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     fileprivate var likeButtonCenter: CGPoint!
     fileprivate var dislikeButtonCenter: CGPoint!
@@ -32,9 +35,9 @@ class FeedViewController: UIViewController {
     fileprivate let userController = UserController.shared
     fileprivate let memeController = MemeController.shared
     fileprivate let layout = UICollectionViewFlowLayout()
-    fileprivate let iCloudSegue = "iCloudSegue"
-    fileprivate let maxVotes = 1000
     fileprivate var feedbackGenerator: UINotificationFeedbackGenerator?
+    fileprivate let iCloudSegue = "iCloudSegue"
+    fileprivate let maxVotes = 7
     
     fileprivate var submissions =  [Submission]()
     fileprivate var votesUsed = 0
@@ -62,7 +65,6 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpCollectionView()
         setupUIButtons()
         memeController.getTodaysMeme()
@@ -195,7 +197,17 @@ class FeedViewController: UIViewController {
     
     func memeUpdated(_ notification: NSNotification) {
         guard let todaysMeme = todaysMeme else { return }
+        ///// FIXME: - add Activity indicator
+        
         imageView.kf.setImage(with: todaysMeme.imageURL)
+        
+        if imageView.image == nil {
+         
+        } else {
+            
+        }
+        
+        
     }
     
     func submissionsUpdated(_ notification: NSNotification) {
@@ -242,7 +254,7 @@ extension FeedViewController {
         voteButton.layer.cornerRadius = 5
     }
     
-    func setUpAds() {
+   fileprivate func setUpAds() {
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
         //TODO: - create provisioning profile for when going live on App Store
@@ -306,10 +318,6 @@ extension FeedViewController {
         }
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return true
-    }
-    
     fileprivate func presentLoginAlert() {
         let alertController = UIAlertController(title: "Login Required", message: "Please login to use this feature", preferredStyle: .alert)
         let loginAction = UIAlertAction(title: "Login", style: .default) { (_) in
@@ -322,14 +330,17 @@ extension FeedViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func updateVoteCount() {
+   fileprivate func updateVoteCount() {
         guard let currentUser = userController.currentUser else { return }
         votesUsed = dailyVotes.filter { $0.userId == currentUser.id }.count
         let votesRemaining = max(maxVotes - votesUsed, 0)
         dailyVotesLabel.text = "\(votesRemaining) Votes Remain Today"
     }
     
-    func tapped() {
+    // MARK: - animations when dialy votes exceded
+
+    
+    @objc fileprivate func tapped() {
         //        let generator = UIImpactFeedbackGenerator(style: .heavy)
         //        generator.impactOccurred()
         feedbackGenerator?.notificationOccurred(.success)
@@ -338,7 +349,7 @@ extension FeedViewController {
         generator.impactOccurred()
     }
     
-    func shake() {
+    fileprivate func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.duration = 0.6
@@ -346,7 +357,7 @@ extension FeedViewController {
         dailyVotesLabel.layer.add(animation, forKey: "shake")
     }
     
-    func labelSize() {
+    fileprivate func labelSize() {
         dailyVotesLabel.transform = CGAffineTransform(scaleX: 1.9, y: 0.6)
         
         UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options: UIViewAnimationOptions.allowUserInteraction, animations: {
@@ -427,6 +438,9 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout, UIScrollViewDe
     
 }
 
+// MARK: - setup constraints and positions of labels/buttons
+
+
 extension UICollectionView {
     
     var centerPoint : CGPoint {
@@ -436,4 +450,16 @@ extension UICollectionView {
     var centerCellIndexPath: IndexPath? {
         return indexPathForItem(at: centerPoint)
     }
+    
+//    func showActivityIndicator(view: UIView) {
+//        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+//        activityIndicator.frame = CGRect(x: 0, y: 0, width: 0.40, height: 0.40)
+//        activityIndicator.center = view.center
+//        activityIndicator.hidesWhenStopped = true
+//        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+//        view.addSubview(activityIndicator)
+//        activityIndicator.startAnimating()
+//        
+//    }
+    
 }

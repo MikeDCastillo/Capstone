@@ -19,6 +19,7 @@ enum Keys {
     static let jpegContentType = "image/jpeg"
     static let submissionId = "submissionId"
     static let type = "type"
+    static let uploadedMeme = "uploadedMeme"
     static let userId = "userId"
     static let username = "username"
     
