@@ -5,6 +5,9 @@
 //  Created by Michael Castillo on 5/23/17.
 //  Copyright © 2017 Michael Castillo. All rights reserved.
 //
+//DateHelper, Keys
+//Autoclass Nameable, case Countable, icloudVC
+
 
 import UIKit
 import Kingfisher
@@ -18,7 +21,7 @@ class ProfileViewController: UIViewController, Controller {
     @IBOutlet weak var tableView: UITableView!
     
     var shouldEditUsername = false
-    
+    //******************//
     fileprivate let imagePicker = UIImagePickerController()
     fileprivate var firebaseController = FirebaseController()
     fileprivate var appStoreURL: URL?
@@ -70,7 +73,7 @@ class ProfileViewController: UIViewController, Controller {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             alertController.addAction(cameraAction)
         }
-            
+        
         let photoLibraryAction = UIAlertAction(title: "Photo Library 🌄", style: .default) { _ in
             self.presentImagePicker(sourceType: .photoLibrary )
         }
@@ -85,7 +88,7 @@ class ProfileViewController: UIViewController, Controller {
         }
         present(alertController, animated: true, completion: nil)
     }
- 
+    
     func userUpdated(_ sender: NSNotification?) {
         guard let currentUser = UserController.shared.currentUser else { return }
         updateAvatarImage(url: currentUser.avatarURL)
@@ -102,7 +105,7 @@ extension ProfileViewController {
             self.appStoreURL = url
         }
     }
-    //FIXME: User placeholder
+    
     fileprivate func updateAvatarImage(url: URL?, placeholder: UIImage? = #imageLiteral(resourceName: "user")) {
         avatarImageView.kf.setImage(with: url, placeholder: placeholder)
     }
@@ -126,7 +129,7 @@ extension ProfileViewController {
     
 }
 
-
+// MARK: - TableViewCell Functions
 extension ProfileViewController {
     
     fileprivate func presentUsernameEditAlert() {
@@ -177,7 +180,7 @@ extension ProfileViewController {
         present(composeVC, animated: true, completion: nil)
     }
     
-    func saveUsername(_ username: String) {
+    fileprivate func saveUsername(_ username: String) {
         guard var updatedUser = UserController.shared.currentUser else { return }
         updatedUser.username = username
         UserController.shared.updateUser(updatedUser)
@@ -193,7 +196,7 @@ extension ProfileViewController: MFMailComposeViewControllerDelegate {
     
 }
 
-// MARK: - TableView
+// MARK: - TableView Data
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -222,7 +225,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return SettingsRow.caseCount
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingsRow = SettingsRow(rawValue: indexPath.row)!
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
         cell.textLabel?.text = settingsRow.title

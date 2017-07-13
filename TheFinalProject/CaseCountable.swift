@@ -8,11 +8,11 @@
 
 import Foundation
 
-// enum which provides a count of its cases
+// enum which returns count of cases
 protocol CaseCountable { }
 
 
-// provide a default implementation to count the cases for Int enums assuming starting at 0 and contiguous
+// count the cases for Int enums assuming start at 0
 extension CaseCountable where Self : RawRepresentable, Self.RawValue == Int {
     // count the number of cases in the enum
     static var caseCount: Int {
