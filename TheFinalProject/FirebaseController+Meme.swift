@@ -52,7 +52,7 @@ extension FirebaseController {
     
     //FIXME: - make computed property to return a random number in 75
     var memeJpgNumber: String {
-        for i in 1...75 {}
+        for _ in 1...75 {}
         return "\(1)"
     }
     //TODO: - finsih this function by taking picture and displaying it
