@@ -22,5 +22,6 @@ enum Keys {
     static let uploadedMeme = "uploadedMeme"
     static let userId = "userId"
     static let username = "username"
+    static let hasAgreedToTerms = "hasAgreedToTerms"
     
 }

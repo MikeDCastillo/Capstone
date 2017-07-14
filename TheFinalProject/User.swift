@@ -14,7 +14,8 @@ struct User {
     var creationDate: Date
     var avatarURLString: String?
     var username: String?
-
+    var hasAgreedToTerms: Bool
+    
     var avatarURL: URL? {
         guard let urlString = avatarURLString else { return nil }
         return URL(string: urlString)
@@ -55,11 +56,13 @@ extension User: JSONInitializable {
         let creationDate = Date(timeIntervalSinceReferenceDate: creationDateDouble)
         let avatarString = json[Keys.avatarURLString] as? String
         let username = json[Keys.username] as? String
+        let hasAgreedToTerms = json[Keys.hasAgreedToTerms] as? Bool
         
         self.id = id
         self.avatarURLString = avatarString
         self.creationDate = creationDate
         self.username = username
+        self.hasAgreedToTerms = hasAgreedToTerms ?? false
     }
     
 }
