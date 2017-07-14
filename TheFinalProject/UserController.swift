@@ -21,8 +21,8 @@ class UserController: Controller {
     var users = Set<User>()
 }
 
-// MARK: - CRUD Functions
 
+// MARK: - CRUD Functions
 
 extension UserController {
     
@@ -64,11 +64,15 @@ extension UserController {
         }
     }
     
-    func updateUser(_ user: User) {
+    func updateUser(_ user: User, completion: ((Error?) -> Void)? = nil) {
         let ref =  firebaseController.usersRef.child(user.id)
         firebaseController.save(at: ref, json: user.json()) { error in
-            guard error == nil else { print("error saving user: \(error.debugDescription)"); return }
-            self.currentUser = user
+            if let error = error {
+                print("error saving user: \(error)")
+                completion?(error)
+            } else {
+                completion?(nil)
+            }
         }
     }
     

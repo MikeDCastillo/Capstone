@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="btb-E1-ToX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Terms-->
+        <scene sceneID="fBz-ER-jyu">
+            <objects>
+                <viewController storyboardIdentifier="TermsViewController" id="Bvr-Gh-nIV" customClass="TermsViewController" customModule="TheFinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wyu-ZC-SHm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Urb-XP-zaY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VJa-u3-iug">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sIJ-rV-gEr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iuq-KQ-yQR">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <mutableString key="text">Meme_Me App End User License Agreement
+
+This End User License Agreement (“Agreement”) is between you and Meme_Me and governs use of this app made available through the Apple App Store. By installing the Meme_Me App, you agree to be bound by this Agreement and understand that there is no tolerance for objectionable content. If you do not agree with the terms and conditions of this Agreement, you are not entitled to use the Meme_Me App.
+
+In order to ensure Meme_Me provides the best experience possible for everyone, we strongly enforce a no tolerance policy for objectionable content. If you see inappropriate content, please use the “Report as offensive” feature found under each post.
+
+1. Parties
+
+This Agreement is between you and Meme_Me only, and not Apple, Inc. (“Apple”). Notwithstanding the foregoing, you acknowledge that Apple and its subsidiaries are third party beneficiaries of this Agreement and Apple has the right to enforce this Agreement against you. Meme_Me, not Apple, is solely responsible for the Meme_Me App and its content.
+
+2. Privacy
+
+Meme_Me may collect and use information about your usage of the Meme_Me App, including certain types of information from and about your device. Meme_Me may use this information, as long as it is in a form that does not personally identify you, to measure the use and performance of the Meme_Me App.
+
+3. Limited License
+
+Meme_Me grants you a limited, non-exclusive, non-transferable, revocable license to use theMeme_Me App for your personal, non-commercial purposes. You may only use theMeme_Me App on Apple devices that you own or control and as permitted by the App Store Terms of Service.
+
+4. Age Restrictions
+
+By using the Meme_Me App, you represent and warrant that (a) you are 17 years of age or older and you agree to be bound by this Agreement; (b) if you are under 17 years of age, you have obtained verifiable consent from a parent or legal guardian; and (c) your use of the Meme_Me App does not violate any applicable law or regulation. Your access to the Meme_Me App may be terminated without warning if Meme_Me believes, in its sole discretion, that you are under the age of 17 years and have not obtained verifiable consent from a parent or legal guardian. If you are a parent or legal guardian and you provide your consent to your child’s use of the Meme_Me App, you agree to be bound by this Agreement in respect to your child’s use of the Meme_Me App.
+
+5. Objectionable Content Policy
+
+Content may not be submitted to Meme_Me, who will moderate all content and ultimately decide whether or not to post a submission to the extent such content includes, is in conjunction with, or alongside any, Objectionable Content. Objectionable Content includes, but is not limited to: (i) sexually explicit materials; (ii) obscene, defamatory, libelous, slanderous, violent and/or unlawful content or profanity; (iii) content that infringes upon the rights of any third party, including copyright, trademark, privacy, publicity or other personal or proprietary right, or that is deceptive or fraudulent; (iv) content that promotes the use or sale of illegal or regulated substances, tobacco products, ammunition and/or firearms; and (v) gambling, including without limitation, any online casino, sports books, bingo or poker.
+
+6. Warranty
+
+Meme_Me disclaims all warranties about the Meme_Me App to the fullest extent permitted by law. To the extent any warranty exists under law that cannot be disclaimed, Meme_Me, not Apple, shall be solely responsible for such warranty.
+
+7. Maintenance and Support
+
+Meme_Me does provide minimal maintenance or support for it but not to the extent that any maintenance or support is required by applicable law, Meme_Me, not Apple, shall be obligated to furnish any such maintenance or support.
+
+8. Product Claims
+
+Meme_Me, not Apple, is responsible for addressing any claims by you relating to the Meme_Me App or use of it, including, but not limited to: (i) any product liability claim; (ii) any claim that the Meme_Me App fails to conform to any applicable legal or regulatory requirement; and (iii) any claim arising under consumer protection or similar legislation. Nothing in this Agreement shall be deemed an admission that you may have such claims.
+
+9. Third Party Intellectual Property Claims
+
+Meme_Me shall not be obligated to indemnify or defend you with respect to any third party claim arising out or relating to the Meme_Me App. To the extent Meme_Me is required to provide indemnification by applicable law, Meme_Me, not Apple, shall be solely responsible for the investigation, defense, settlement and discharge of any claim that the Meme_Me App or your use of it infringes any third party intellectual property right.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMR-eG-eI0">
+                                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Crc-Rw-rHx"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem systemItem="cancel" id="9YC-pe-oAD">
+                                                <connections>
+                                                    <action selector="cancelButtonPressed:" destination="Bvr-Gh-nIV" id="44u-vW-UXH"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="rD2-mf-hhh"/>
+                                            <barButtonItem title="Agree" style="done" id="ElX-Ds-FrQ">
+                                                <connections>
+                                                    <action selector="agreeButtonPressed:" destination="Bvr-Gh-nIV" id="B9a-zT-XNk"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sIJ-rV-gEr" firstAttribute="leading" secondItem="VJa-u3-iug" secondAttribute="leading" id="8nf-bN-ixT"/>
+                            <constraint firstItem="sIJ-rV-gEr" firstAttribute="top" secondItem="VJa-u3-iug" secondAttribute="top" id="BQn-Iv-fkw"/>
+                            <constraint firstAttribute="bottom" secondItem="sIJ-rV-gEr" secondAttribute="bottom" id="EnM-zt-RTX"/>
+                            <constraint firstAttribute="trailing" secondItem="sIJ-rV-gEr" secondAttribute="trailing" id="axb-bd-fwh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Terms" id="pBV-0Y-eEs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZdE-yl-S9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615.20000000000005" y="827.13643178410803"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="khC-3R-hAx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="btb-E1-ToX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oTG-bz-zBo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bvr-Gh-nIV" kind="relationship" relationship="rootViewController" id="OsK-sn-aLX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJ5-rb-H8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-324" y="827.13643178410803"/>
+        </scene>
+    </scenes>
+</document>

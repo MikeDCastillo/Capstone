@@ -14,7 +14,15 @@ struct User {
     var creationDate: Date
     var avatarURLString: String?
     var username: String?
-    var hasAgreedToTerms: Bool
+    var hasAgreedToTerms = false
+    
+    init(id: String, creationDate: Date = Date(), avatarURLString: String? = nil, username: String? = nil, hasAgreedToTerms: Bool = false) {
+        self.id = id
+        self.creationDate = creationDate
+        self.avatarURLString = avatarURLString
+        self.username = username
+        self.hasAgreedToTerms = hasAgreedToTerms
+    }
     
     var avatarURL: URL? {
         guard let urlString = avatarURLString else { return nil }

@@ -53,6 +53,8 @@
 		73BE1B571E8D5B0E0088CC03 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */; };
 		73C2D4411EDA863B0037B75B /* CaseCountable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D4401EDA863B0037B75B /* CaseCountable.swift */; };
 		73C2D4431EDABED40037B75B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D4421EDABED40037B75B /* CircleView.swift */; };
+		73EB11C01F192F8900880B1C /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB11BF1F192F8900880B1C /* TermsViewController.swift */; };
+		73EB11C31F192F9800880B1C /* TermsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73EB11C11F192F9800880B1C /* TermsViewController.storyboard */; };
 		73F132FF1ED5ED6000B102F8 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F132FE1ED5ED6000B102F8 /* ColorView.swift */; };
 		73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3AB981ED153060073456C /* NewSubmissionViewController.swift */; };
 		73FA8CEA1EDD55A100168159 /* AnimationLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */; };
@@ -109,6 +111,8 @@
 		73BE1B531E8D5B0E0088CC03 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "FacebookSDKs-iOS-4.20.2/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		73C2D4401EDA863B0037B75B /* CaseCountable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseCountable.swift; sourceTree = "<group>"; };
 		73C2D4421EDABED40037B75B /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		73EB11BF1F192F8900880B1C /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		73EB11C21F192F9800880B1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TermsViewController.storyboard; sourceTree = "<group>"; };
 		73F132FE1ED5ED6000B102F8 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		73F3AB981ED153060073456C /* NewSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubmissionViewController.swift; sourceTree = "<group>"; };
 		73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationLaunchViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				732B3A301E928940002B31A9 /* Main.storyboard */,
 				737D9C211EDD728A0089731C /* LaunchScreen.storyboard */,
 				732B3A341E928A08002B31A9 /* SubmissionCollectionViewCell.xib */,
+				73EB11C11F192F9800880B1C /* TermsViewController.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				732B3A291E91DDBC002B31A9 /* FeedViewController.swift */,
 				73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */,
 				732B3A371E928D98002B31A9 /* SubmissionCollectionViewCell.swift */,
+				73EB11BF1F192F8900880B1C /* TermsViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 				738579AC1EDFD1A5000E7442 /* particleMeme.png in Resources */,
 				732B3A361E928A08002B31A9 /* SubmissionCollectionViewCell.xib in Resources */,
 				736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */,
+				73EB11C31F192F9800880B1C /* TermsViewController.storyboard in Resources */,
 				7372414D1E4EBFD6006F6E49 /* Assets.xcassets in Resources */,
 				738579B41EDFF321000E7442 /* star.png in Resources */,
 				732B3A331E928940002B31A9 /* Main.storyboard in Resources */,
@@ -438,6 +445,7 @@
 				73BE1B2C1E8A293B0088CC03 /* VoteController.swift in Sources */,
 				73BE1B261E8A28F90088CC03 /* MemeController.swift in Sources */,
 				7384B4891EBAF136005F4E4B /* Generator.swift in Sources */,
+				73EB11C01F192F8900880B1C /* TermsViewController.swift in Sources */,
 				738D3ACB1ECEB691006EA799 /* AutoClassNameable.swift in Sources */,
 				73B5A1BA1E6CBA7700ED8EDB /* User.swift in Sources */,
 				7396E0471E90A9B500EEB6FE /* Controller.swift in Sources */,
@@ -469,6 +477,14 @@
 				737D9C221EDD728A0089731C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		73EB11C11F192F9800880B1C /* TermsViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73EB11C21F192F9800880B1C /* Base */,
+			);
+			name = TermsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
