@@ -68,10 +68,16 @@ class NewSubmissionViewController: UIViewController {
             bottomLabel.textColor = currentColor
         }
     }
+    
     fileprivate let characterLimit = 55
     fileprivate let submissionController = SubmissionController.shared
     fileprivate var meme: Meme? {
         return MemeController.shared.meme
+    }
+    
+    fileprivate var userHasAgreedToTerms: Bool {
+        guard let currentUser = UserController.shared.currentUser else { return }
+        
     }
     
     // Life Cycle
@@ -97,6 +103,7 @@ class NewSubmissionViewController: UIViewController {
         //this is the viewController that the banner will be displayed on
         bannerView.rootViewController = self
         bannerView.load(request)
+
         
     }
     
