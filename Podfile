@@ -11,5 +11,6 @@ pod 'Firebase/Storage'
 pod 'JSQMessagesViewController'
 pod 'KeychainSwift'
 pod 'Whisper'
+pod "SlackTextViewController"
 
 end
