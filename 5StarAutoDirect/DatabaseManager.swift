@@ -10,17 +10,18 @@ import Foundation
 import Firebase
 import KeychainSwift
 
-let DB_BASE = Database.database().reference()
-
 class DatabaseManager {
-    private var _keyChain = KeychainSwift()
-    private var _refDatabase = DB_BASE
     
-    var keyChain: KeychainSwift {
+    static private let firebaseController = FirebaseController()
+    static private let keyChain = KeychainSwift()
+    
+    static var uid: String? {
         get {
-            return _keyChain
-        } set {
-            _keyChain = newValue
+            return keyChain.get(Keys.uid)
+        }
+        set {
+            guard let newValue = newValue else { return }
+            keyChain.set(newValue, forKey: Keys.uid)
         }
     }
     

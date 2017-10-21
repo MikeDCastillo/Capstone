@@ -34,4 +34,5 @@ class UserInfoTableViewCell: UITableViewCell {
 //        phoneLabel.text = user.phone
 //        carSpecsLabel.text = "Make: \(user.car.make), Model: \(user.car.model), Budget: \(user.car.budget), Color: \(user.car.color), Other: \(user.car.otherAttributes)"
     }
+    
 }

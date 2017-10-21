@@ -1,62 +1,43 @@
 import Firebase
 import FirebaseDatabase
+import SlackTextViewController
 import UIKit
 import Whisper
 
-// I may need two different properties, one for the user(broker), and one for the person the user is interacting with, i.e. customer property
+   // X     // TODO: - 1. Msg Contoller. check if self.messages if it doesnt have messages. add it in
+  // X      // TODO: - 2. call the load init messages    /
+        // TODO: - 3. slack TableViewController. create custom cells - 2 different Xibs with different reuse identifiers.
+        // TODO: - 4. double check Msg subscription is working. view didLoad
+        // TODO: - MessagesTableViewController - refresh data. fire off notification
 
-class MessageConvoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate {
+class MessageConvoViewController: SLKTextViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var messageTextView: UITextView!
-    @IBOutlet weak var sendButton: UIButton!
+    fileprivate let firebaseController = FirebaseController()
+    fileprivate let currentUserId = UserController.shared.currentUser?.identifier
     
-    let firebaseController = FirebaseController()
-    let messageController = MessageController()
-    let currentUserId = UserController.shared.currentUser?.identifier
-    
-    var message: Message?
-    var messages: [Message] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+    fileprivate var messages: [Message] {
+        return MessageController.shared.messages
     }
-    var user: User? {
-        didSet {
-            observeMessages()
-        }
+    fileprivate var currentUser: User? {
+        return UserController.shared.currentUser
     }
     
-    var customer: User? {
-        didSet {
-            observeMessages()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
-        tableView.dataSource = self
-        tableView.delegate = self
-        navigationItem.title = user?.name
-        self.messageTextView.layer.cornerRadius = 8
-        self.messageTextView.layer.borderWidth = 1
-            
-        showNotificationBanner()
-        //FIXME: - unwrap optional value here to prevent crash
+        
+        title = currentUser?.name
         //TODO: - add in car sound everytime msg received
-        //TODO: - suscribe to changes at value and ref of "messages"
         //FIXME: - check if currentUser.id == message.toId is the same for notifications
      
-        guard let user = user else { return }
+        guard let user = currentUser else { return }
         if user.isBroker {
-            navigationItem.title = customer?.name
+            navigationItem.title = UserController.shared.
         } else {
             navigationItem.title = "Broker"
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .messagesUpdated, object: nil)
     }
     
     @IBAction func sendButtonAnimationTapped(_ sender: UIButton) {
@@ -89,22 +70,26 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     
     func observeMessages() {
         let ref = Database.database().reference().child("messages")
-        ref.observe(.childAdded, with: { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                //Alex code for messages
-                guard let message = Message(jsonDictionary: dictionary) else { return }
-                
-                guard let customer = self.customer else { return }
-                if message.toID == customer.name {
-                    self.messages.append(message)
-                }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }, withCancel: nil)
+//        ref.observe(.childAdded, with: { (snapshot) in
+//            
+//            if let dictionary = snapshot.value as? [String: AnyObject] {
+//                //Alex code for messages
+//                guard let message = Message(jsonDictionary: dictionary) else { return }
+//                
+//                guard let customer = self.customer else { return }
+//                if message.id == customer.name {
+//                    self.messages.append(message)
+//                }
+//                
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }, withCancel: nil)
+    }
+    
+    func newMessageReceived() {
+        tableView.reloadData()
     }
     
     func handleSend() {
@@ -136,4 +121,5 @@ class MessageConvoViewController: UIViewController, UITableViewDataSource, UITab
     }
     
 }
+
 

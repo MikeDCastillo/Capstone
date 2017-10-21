@@ -12,13 +12,17 @@ import Whisper
 
 typealias JSONObject = [String: Any]
 
-enum Result<T> {
-    case success(T)
-    case failure(Error)
-}
 
 protocol JSONInitializable {
     init?(json: JSONObject)
+}
+
+protocol Identifiable: Equatable {
+    var id: String { get }
+}
+
+func ==<T: Identifiable>(lhs: T, rhs: T) -> Bool {
+    return lhs.id == rhs.id
 }
 
 enum JSONError: Error {

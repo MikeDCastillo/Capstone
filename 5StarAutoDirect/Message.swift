@@ -9,24 +9,55 @@
 import UIKit
 import Foundation
 
-class Message: NSObject {
+struct Message: Identifiable {
     
-    private let textKey = "text"
-    private let toIDKey = "name"
-    
+    var brokerId: String
+    var createdAt: Date
+    let id: String
+    var ownerId: String
     var text: String
-    var toID: String
-    //TODO: - creat user id 
+    var userId: String
     
-    init(text: String, toID: String) {
+    init(text: String, brokerId: String, userId: String, ownerId: String) {
         self.text = text
-        self.toID = toID
+        self.id = UUID().uuidString
+        self.brokerId = brokerId
+        self.userId = userId
+        self.ownerId = ownerId
+        self.createdAt = Date()
     }
     
     init?(jsonDictionary: [String: Any]) {
-        guard let text = jsonDictionary[textKey] as? String,
-            let toID = jsonDictionary[toIDKey] as? String else { return nil }
+        guard let text = jsonDictionary[Keys.textKey] as? String,
+         let brokerId = jsonDictionary[Keys.brokerId] as? String,
+            let id = jsonDictionary[Keys.id] as? String,
+            let userId = jsonDictionary[Keys.userId] as? String,
+            let ownerId = jsonDictionary[Keys.ownerId] as? String,
+            let dateNumber = jsonDictionary[Keys.createdAt] as? Double else { return nil }
+            
         self.text = text
-        self.toID = toID
+        self.brokerId = brokerId
+        self.id = id
+        self.userId = userId
+        self.ownerId = ownerId
+        self.createdAt = Date(timeIntervalSince1970: dateNumber)
     }
+    
+}
+
+extension Message: JSONExportable {
+    
+    func jsonObject() -> [String : Any] {
+        var dictionary = [String: Any]()
+        
+        dictionary[Keys.id] = id
+        dictionary[Keys.brokerId] = brokerId
+        dictionary[Keys.createdAt] = createdAt.timeIntervalSince1970
+        dictionary[Keys.id] = id
+        dictionary[Keys.ownerId] = ownerId
+        dictionary[Keys.textKey] = text
+        
+        return dictionary
+    }
+    
 }

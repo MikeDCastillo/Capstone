@@ -20,9 +20,6 @@ import AVFoundation
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
-    var audioPlayer = AVAudioPlayer()
-    var users: [User] = []
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -31,38 +28,29 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIImageView!
     @IBOutlet weak var signOutButton: UIButton!
     
+    fileprivate var audioPlayer = AVAudioPlayer()
+
     override func viewDidLoad() { // we can change this to VWA to stop the login from flashing
         super.viewDidLoad()
         
-        //uploading sound to play on button
-        do {
-            
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ferrari", ofType: "m4a")!))
-            audioPlayer.prepareToPlay()
-        }
-        catch {
-            print(error)
-        }
-        
-        //making navigation controller transparent
+        prepSound()
+        UserController.shared.fetchUsers()
+
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
         //TODO: - check AUTH independent of User. then check if they contain email
         //TODO: - send user verification email via firebase (auth has User property)
-        let keyChain = DatabaseManager().keyChain
-        if keyChain.get("uid") != nil {
+        
+        if let _ = DatabaseManager.uid {
             if (Auth.auth().currentUser?.email?.uppercased().contains("FIVESTARAUTODIRECT"))! {
-//                self.displayPopUp()
-                self.fetchUsers(completion: { (users) in
-                    self.users = users
-                    self.performSegue(withIdentifier: .pushBrokerTVC, sender: self)
-                })
+                performSegue(withIdentifier: .pushBrokerTVC, sender: self)
             } else {
-                self.performSegue(withIdentifier: .pushUserHomeVC, sender: self)
+                performSegue(withIdentifier: .pushUserHomeVC, sender: self)
             }
-        }
+        } // else -> Stay on sign up
+        
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
@@ -78,17 +66,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
             
             self.audioPlayer.play()
-            if isBroker {
-//                self.displayPopUp()
-                self.fetchUsers(completion: { (users) in
-                    DispatchQueue.main.async {
-                        self.users = users
-                        self.performSegue(withIdentifier: SegueIdentifier.pushBrokerTVC, sender: self)
-                    }
-                })
-            } else {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: SegueIdentifier.pushUserHomeVC, sender: self)
+            DispatchQueue.main.async {
+                if isBroker {
+                    self.performSegue(withIdentifier: .pushBrokerTVC, sender: self)
+                } else {
+                    self.performSegue(withIdentifier: .pushUserHomeVC, sender: self)
                 }
             }
         }
@@ -97,12 +79,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
         case .pushBrokerTVC:
-            let createdUser = BrokerTableViewController.shared.user // FIXME: !AHHHHH!!!
-            let users = self.users
-            if let detailVC = segue.destination as? BrokerTableViewController {
-                detailVC.user = createdUser
-                detailVC.users = users
-            }
+            break
         case .pushUserHomeVC:
             let createdUser = UserHomeViewController.shared.user // FIXME: Use a user controller or something. ANYTHING BUT THIS
             if let detailVC = segue.destination as? UserHomeViewController {
@@ -116,6 +93,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.resignFirstResponder()
         phoneTextField.resignFirstResponder()
         nameTextField.resignFirstResponder()
+    }
+    
+    func prepSound() {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Ferrari", ofType: "m4a")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch {
+            print(error)
+        }
     }
     
     func presentMissingInfoAlert() {
@@ -133,12 +120,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 //        popUpVC.didMove(toParentViewController: self)
 //    }
     
-    func fetchUsers(completion: @escaping ([User]) -> Void) {
-        UserController.shared.fetchUsers { (users) in
-            guard let users = users else { return }
-            completion(users)
-        }
-    }
     
     //    func badEmail() {
     //        let pleaseEnterValidEmailAlertController = UIAlertController(title: "Please enter a valid email", message: nil, preferredStyle: .alert)

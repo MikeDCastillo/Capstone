@@ -7,47 +7,68 @@ import Whisper
 class MessageController {
     
     static var shared = MessageController()
+    let firebaseController = FirebaseController()
     
     var messages = [Message]() {
         didSet {
-            
+            NotificationCenter.default.post(name: .messagesUpdated, object: nil)
         }
     }
     
-    let ref = Database.database().reference(fromURL: "https://starautodirect-5b1fc.firebaseio.com/")
-    let messagesRef = Database.database().reference().child("messages")
+    let rootRef = Database.database().reference()
+    var messagesRef: DatabaseReference {
+        return rootRef.child("messages")
+    }
     
-    func fetchMessages(completion: @escaping ([Message]?) -> Void) {
-        ref.child("messages").observe(.value, with: { (snapshot) in
-            
-            if let dictionaryOfMessages = snapshot.value as? [String: [String: Any]] {
-                print(dictionaryOfMessages)
-                let messages = dictionaryOfMessages.flatMap({Message(jsonDictionary: $0.value) } )
-//                print(messages)
-                completion(messages)
+    //1
+    func checkForDuplicates(in messages: [Message]) {
+        if self.messages.count == messages.count {
+            print("No new messages")
+            return
+        }
+    }
+    
+    var userMessagesQuery: DatabaseQuery? {
+        guard let currentUser = UserController.shared.currentUser else { return nil }
+        if currentUser.isBroker {
+            return messagesRef.queryOrdered(byChild: Keys.brokerId).queryEqual(toValue: currentUser.identifier)
+        } else {
+            return messagesRef.queryOrdered(byChild: Keys.userId).queryEqual(toValue: currentUser.identifier)
+        }
+    }
+    
+    func loadInitialMessages() {
+        guard let query = userMessagesQuery else { return }
+        firebaseController.getData(with: query) { result in
+            switch result {
+            case .failure:
+                break
+            case .success(let json):
+                let messages: [Message] = json.flatMap({ (key, value) -> Message? in
+                    guard let value = value as? JSONObject else { return nil }
+                    return Message(jsonDictionary: value)
+                })
+                self.messages = messages
             }
+            self.subscribeToMessages()
+        }
+    }
+    
+    func subscribeToMessages() {
+        guard let query = userMessagesQuery else { return }
+        query.observe(DataEventType.childAdded, with: { snapshot in
+            guard let snapshotJSON = snapshot.value as? JSONObject,
+                let newMessage = Message(jsonDictionary: snapshotJSON) else { return }
+            self.messages.append(newMessage)
         })
     }
     
-    func detectOtherMessagesNotFromCurrentUser(user: User?, message: Message){
-        messagesRef.observe(.value, with: { (snapshot) in
-            if let dictionaryOfMessages = snapshot.value as? [String: JSONObject] {
-                let messages = dictionaryOfMessages.flatMap( {Message(jsonDictionary: $0.value) } )
-                guard let userMessages = user?.messages else { return }
-                if userMessages != messages {}
-            }
-        })
+    func saveMessage(with text: String, brokerId: String, userId: String) {
+        guard let currentUser = UserController.shared.currentUser else { return }
         
+        let newMessage = Message(text: text, brokerId: brokerId, userId: userId, ownerId: currentUser.identifier)
+        let newMessageRef = messagesRef.childByAutoId()
+        newMessageRef.updateChildValues(newMessage.jsonObject())
     }
     
-    func observeChildMessagesAdded(atRef ref: DatabaseReference, viewController: UIViewController, completion: ((Result<JSONObject>) -> Void)?) {
-        ref.child("messages").observe(.childAdded, with: { (snapshot) in
-            //TODO: - Determine if value has changed
-            if let snap = snapshot.value as? JSONObject {
-                completion?(Result.success(snap))
-            } else {
-                completion?(Result.failure(JSONError.typeMismatch(snapshot.key) ))
-            }
-        })
-    }
 }

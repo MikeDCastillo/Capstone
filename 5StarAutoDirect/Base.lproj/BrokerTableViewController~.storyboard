@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vsM-T7-mHP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vsM-T7-mHP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-Regular</string>
-        </array>
-        <array key="AvenirNextCondensed.ttc">
-            <string>AvenirNextCondensed-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Broker Table View Controller-->
         <scene sceneID="aA4-Fo-2dd">
@@ -94,10 +86,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="vsM-T7-mHP" id="Ike-4Y-sIW"/>
-                            <outlet property="delegate" destination="vsM-T7-mHP" id="nHq-kD-Hlw"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zXD-jJ-xtf" colorLabel="IBBuiltInLabel-Blue">
                         <nil key="title"/>
@@ -106,7 +94,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User List Label" translatesAutoresizingMaskIntoConstraints="NO" id="2kq-oy-LxB">
-                                    <rect key="frame" x="-8.5" y="-26" width="376" height="66"/>
+                                    <rect key="frame" x="-9" y="-26" width="376" height="66"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </imageView>
                             </subviews>

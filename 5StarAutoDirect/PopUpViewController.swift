@@ -19,16 +19,14 @@
 //        self.view.backgroundColor = UIColor(colorLiteralRed: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
 //        signInIndicator.layer.cornerRadius = 10
 //        signInIndicator.layer.masksToBounds = true
-//        
+//        NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .messagesUpdated, object: nil)
+
 //        showAnimate()
 //    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+
 //    
 //    //MARK: Pop up animations
+
 //    func showAnimate() {
 //        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
 //        self.view.alpha = 0.0
@@ -49,4 +47,11 @@
 //            }
 //        });
 //    }
+
+//  MARK: - internal
+//@objc func newMessageReceived() {
+//    showNotificationBanner()
+//}
+
+
 //}

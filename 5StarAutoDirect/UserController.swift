@@ -15,9 +15,11 @@ class UserController {
     
     let firebaseController = FirebaseController()
     var currentUser: User?
+    var isSubscribedToUsers = false
     var rootRef = Database.database().reference()
     var users = [User]() {
         didSet {
+            NotificationCenter.default.post(name: .usersLoaded, object: nil)
         }
     }
     
@@ -70,7 +72,8 @@ class UserController {
             let referenceForCurrentUser = self.rootRef.child(refString).child(uidString)
             //            referenceForCurrentUser.setValue(user.jsonRepresentation)
             referenceForCurrentUser.setValue(user.jsonObject(), withCompletionBlock: { (error, ref) in
-                UserController.completeSignIn(id: user.name)
+                DatabaseManager.uid = uidString
+                self.currentUser = user
                 completion(isBroker, nil)
             })
             
@@ -96,30 +99,51 @@ class UserController {
     }
     
     // getting users from firebase
-    func fetchUsers(completion: @escaping ([User]?) -> Void) {
-        rootRef.child("users").observe(.value, with: { (snapshot) in
-            // this block will bring down entire JSON brnach
-            if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
-                let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )
-                completion(users)
+    func fetchUsers() {
+        guard !isSubscribedToUsers else { return }
+        isSubscribedToUsers = true
+        let usersRef: DatabaseReference = rootRef.child("users")
+        
+        firebaseController.subscribe(toRef: usersRef) { (result) in
+            let usersResult = result.map({ (json) -> [User] in
+                var userArray = [User]()
+                json.forEach({ (key, value) in
+                    guard var valueJSON = value as? JSONObject else { return }
+                    valueJSON[Keys.id] = key
+                    guard let newUser = User(jsonDictionary: valueJSON) else { return }
+                    userArray.append(newUser)
+                })
+                return userArray
+            })
+            switch usersResult {
+            case .success(let users):
+                self.users = users
+            case .failure(let error):
+                print(error)
             }
-        })
-    }
-    //TODO: - test func
-    //Use to get currentUser
-    func currentUser(completion: @escaping([User]?) -> Void) {
-        rootRef.child("users").observeSingleEvent(of: .value, with: { snapshot in
-            if let dictionaryOfUsers = snapshot.value as? [String:[String:Any]] {
-                let users = dictionaryOfUsers.flatMap( { User(jsonDictionary: $0.value, identifier: $0.key) } )
-                completion(users)
-            }
-        })
+        }
     }
     
-    static func completeSignIn(id: String) {
-        let keyChain = DatabaseManager().keyChain
-        keyChain.set(id , forKey: "uid")
+    //Use to get currentUser
+    
+    func getCurrentUser() {
+        guard let currentAuthUser = Auth.auth().currentUser else { return }
+        let ref = firebaseController.usersRef.child(currentAuthUser.uid)
+        firebaseController.getData(at: ref) { (result) in
+            let userResult = result.map(User.init)
+            switch userResult {
+            case .failure:
+                break
+            case .success(let user):
+                self.currentUser = user
+                if user == nil {
+                    print("trouble getting current user")
+                }
+            }
+        }
+        
     }
+    
 }
 
 protocol UserControllerDelegate: class {

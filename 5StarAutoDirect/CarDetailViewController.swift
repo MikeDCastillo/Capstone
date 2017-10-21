@@ -70,7 +70,7 @@ class CarDetailViewController: UIViewController {
         carSoundPlayer.prepare()
         originalBorderColor = textFields.first?.layer.borderColor
         
-        showNotificationBanner()
+        NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .messagesUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reactToKeyboardShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reactToKeyboardHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -118,6 +118,10 @@ class CarDetailViewController: UIViewController {
 // MARK: - Internal
 
 extension CarDetailViewController {
+    
+    @objc fileprivate func newMessageReceived() {
+        showNotificationBanner()
+    }
 
     fileprivate func emptyTextfieldDetected(_ textField: UITextField) {
         toggleTextField(textfield: textField, isRed: true)
@@ -142,7 +146,7 @@ extension CarDetailViewController {
         carSoundPlayer.play()
     }
     
-    func constructedCar() -> Car? {
+   fileprivate func constructedCar() -> Car? {
         guard let make = makeTextField.text, let model = modelTextField.text, let budget = budgetTextField.text, let color = colorTextField.text, let otherAttributes = otherTextField.text else { return nil }
         return Car(make: make, model: model, budget: budget, color: color, otherAttributes: otherAttributes)
     }

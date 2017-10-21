@@ -28,8 +28,9 @@ class User {
         self.identifier = identifier
     }
     
-    init?(jsonDictionary: [String: Any], identifier: String) {
-        guard let name = jsonDictionary[Keys.name] as? String,
+    init?(jsonDictionary: [String: Any]) {
+        guard let identifier = jsonDictionary[Keys.id] as? String,
+            let name = jsonDictionary[Keys.name] as? String,
             let phone = jsonDictionary[Keys.phone] as? String,
             let email = jsonDictionary[Keys.email] as? String,
             let isBroker = jsonDictionary[Keys.isBroker] as? Bool,

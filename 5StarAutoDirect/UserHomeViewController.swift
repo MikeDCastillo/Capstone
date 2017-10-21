@@ -17,7 +17,8 @@ class UserHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showNotificationBanner()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .messagesUpdated, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,5 +47,9 @@ class UserHomeViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func newMessageReceived() {
+        showNotificationBanner()
     }
 }

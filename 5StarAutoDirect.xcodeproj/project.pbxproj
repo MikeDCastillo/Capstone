@@ -22,6 +22,8 @@
 		66D2A4D61F1E890300FCAE76 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */; };
 		66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EDEA361EE8755500BF8357 /* AppDelegate.swift */; };
 		66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66EDEA3D1EE8755500BF8357 /* Assets.xcassets */; };
+		732CE8671F9AB4FE006C3754 /* OtherUserMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732CE8651F9AB4FE006C3754 /* OtherUserMessageCell.xib */; };
+		732CE86A1F9AB52C006C3754 /* CurrentUserMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732CE8681F9AB52C006C3754 /* CurrentUserMessageCell.xib */; };
 		733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */; };
 		733A0DF31F3C271E0094DCB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */; };
 		733A0DF41F3C271E0094DCB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A0DF11F3C271E0094DCB9 /* Main.storyboard */; };
@@ -32,6 +34,9 @@
 		737D375F1F4FD84E00094891 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */; };
 		737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D37601F50737C00094891 /* UIApplicationExtension.swift */; };
 		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
+		73CD184A1F970C7400EEAE7F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD18491F970C7400EEAE7F /* Result.swift */; };
+		73E2A0551F8FE65700A29700 /* UserNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2A0541F8FE65700A29700 /* UserNotificationController.swift */; };
+		73FD369C1F83518700E372C7 /* ExtensionNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD369B1F83518700E372C7 /* ExtensionNotificationName.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
 		9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659243E1F31285200CC7266 /* PopUpViewController.swift */; };
 		C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */; };
@@ -63,6 +68,9 @@
 		66EDEA3D1EE8755500BF8357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66EDEA421EE8755500BF8357 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5StarAutoDirect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		732CE8661F9AB4FE006C3754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = OtherUserMessageCell.xib; sourceTree = "<group>"; };
+		732CE8691F9AB52C006C3754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = CurrentUserMessageCell.xib; sourceTree = "<group>"; };
+		732CE86C1F9AB88C006C3754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = MessageCell.swift; sourceTree = "<group>"; };
 		733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		733A0DF01F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733A0DF21F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +81,9 @@
 		737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		737D37601F50737C00094891 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		73CD18491F970C7400EEAE7F /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		73E2A0541F8FE65700A29700 /* UserNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationController.swift; sourceTree = "<group>"; };
+		73FD369B1F83518700E372C7 /* ExtensionNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNotificationName.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 		9659243E1F31285200CC7266 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTableViewController.swift; sourceTree = "<group>"; };
@@ -133,9 +144,11 @@
 				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
 				6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */,
 				6668D37E1F33849400347FCD /* MessageTableViewCell.swift */,
+				732CE86B1F9AB88C006C3754 /* MessageCell.swift */,
 				9659243E1F31285200CC7266 /* PopUpViewController.swift */,
 				66813B851EF1AE35000FA884 /* SignUpViewController.swift */,
 				66813B871EF1AE42000FA884 /* UserHomeViewController.swift */,
+				73E2A0541F8FE65700A29700 /* UserNotificationController.swift */,
 				665AB6281F2103A700EAEE12 /* UserInfoTableViewCell.swift */,
 				66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */,
 			);
@@ -191,6 +204,8 @@
 				733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */,
 				733A0DF11F3C271E0094DCB9 /* Main.storyboard */,
 				7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */,
+				732CE8651F9AB4FE006C3754 /* OtherUserMessageCell.xib */,
+				732CE8681F9AB52C006C3754 /* CurrentUserMessageCell.xib */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -207,6 +222,7 @@
 		C82920721EF339F90089A695 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				73CD18491F970C7400EEAE7F /* Result.swift */,
 				C82920701EF30B090089A695 /* Extensions.swift */,
 				7359AACA1F36DFDF009891AC /* Keys.swift */,
 				C829206E1EF2EFD80089A695 /* NetworkController.swift */,
@@ -214,6 +230,7 @@
 				733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */,
 				7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */,
 				737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */,
+				73FD369B1F83518700E372C7 /* ExtensionNotificationName.swift */,
 				737D37601F50737C00094891 /* UIApplicationExtension.swift */,
 			);
 			name = Infrastructure;
@@ -284,10 +301,12 @@
 			files = (
 				733A0DF41F3C271E0094DCB9 /* Main.storyboard in Resources */,
 				66D2A4D41F1E84C200FCAE76 /* Ferrari.m4a in Resources */,
+				732CE86A1F9AB52C006C3754 /* CurrentUserMessageCell.xib in Resources */,
 				C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */,
 				733A0DF31F3C271E0094DCB9 /* LaunchScreen.storyboard in Resources */,
 				66EDEA3E1EE8755500BF8357 /* Assets.xcassets in Resources */,
 				7345A93A1F454F3100C98E86 /* BrokerTableViewController.storyboard in Resources */,
+				732CE8671F9AB4FE006C3754 /* OtherUserMessageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,9 +334,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Whisper/Whisper.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Whisper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -330,13 +368,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-5StarAutoDirect-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -348,6 +389,7 @@
 			files = (
 				737D375F1F4FD84E00094891 /* ViewControllerExtension.swift in Sources */,
 				66813B7A1EF1AD59000FA884 /* Message.swift in Sources */,
+				73FD369C1F83518700E372C7 /* ExtensionNotificationName.swift in Sources */,
 				66813B881EF1AE42000FA884 /* UserHomeViewController.swift in Sources */,
 				7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */,
 				66813B811EF1ADCE000FA884 /* MessageController.swift in Sources */,
@@ -355,6 +397,7 @@
 				7359AACB1F36DFDF009891AC /* Keys.swift in Sources */,
 				6668D37D1F33841300347FCD /* MessageConvoCollectionViewController.swift in Sources */,
 				665AB6291F2103A700EAEE12 /* UserInfoTableViewCell.swift in Sources */,
+				73E2A0551F8FE65700A29700 /* UserNotificationController.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
 				737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */,
@@ -368,6 +411,7 @@
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
 				7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */,
 				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,
+				73CD184A1F970C7400EEAE7F /* Result.swift in Sources */,
 				9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */,
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
 				C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */,
@@ -378,6 +422,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		732CE8651F9AB4FE006C3754 /* OtherUserMessageCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				732CE8661F9AB4FE006C3754 /* Base */,
+			);
+			name = OtherUserMessageCell.xib;
+			sourceTree = "<group>";
+		};
+		732CE8681F9AB52C006C3754 /* CurrentUserMessageCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				732CE8691F9AB52C006C3754 /* Base */,
+			);
+			name = CurrentUserMessageCell.xib;
+			sourceTree = "<group>";
+		};
+		732CE86B1F9AB88C006C3754 /* MessageCell.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				732CE86C1F9AB88C006C3754 /* Base */,
+			);
+			name = MessageCell.swift;
+			sourceTree = "<group>";
+		};
 		733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

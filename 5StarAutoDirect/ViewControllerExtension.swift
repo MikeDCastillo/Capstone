@@ -12,14 +12,8 @@ import Whisper
 extension UIViewController {
     
     func showNotificationBanner() {
-        
-        let currentUser = UserController.shared.currentUser
-        print("button tapped")
         let announcement = Announcement(title: "Message Received", subtitle: "Please check your inbox", image: nil, action: nil)
-        if let topController = UIApplication.topViewController() {
-
-            Whisper.show(shout: announcement, to: topController)
-        }
+        Whisper.show(shout: announcement, to: self)
     }
-}
 
+}

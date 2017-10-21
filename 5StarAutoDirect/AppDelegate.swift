@@ -15,18 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         FirebaseApp.configure()
         
+        // FIXME: DON'T DO THIS HERE!! Do it in context. If you don't tell the user you're going to do this permission check they will just say no without thinking
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
             if let error = error {
                 print("Error requesting authorization for notifications: \(error)")
             }
         }
         return true
-        //TODO: - fetch current User function. set as currentUser
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
