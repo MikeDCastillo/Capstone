@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -33,7 +33,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="142"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GIA-dk-RZN" id="Oi8-cX-esH">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="141.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="YQ1-ex-5NW">
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="1576.8" y="884.70764617691157"/>
         </scene>
-        <!--MessageView-->
+        <!--MessagesViewController-->
         <scene sceneID="QaS-1R-ons">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MessageView" id="AKT-Dg-RVy" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="MessagesViewController" id="AKT-Dg-RVy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqR-3b-zg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2233" y="798"/>

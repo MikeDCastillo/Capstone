@@ -54,9 +54,9 @@ extension BrokerTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
         case .userCellToMessageVC:
-            guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? MessageConvoViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? MessagesViewController else { return }
             let selectedUser = self.users[indexPath.row]
-            detailVC.customer = selectedUser
+            UserController.shared.selectedUser = selectedUser
         }
     }
     
