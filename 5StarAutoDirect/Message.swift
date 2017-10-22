@@ -18,6 +18,16 @@ struct Message: Identifiable {
     var text: String
     var userId: String
     
+    var broker: User? {
+        return UserController.shared.users.first(where: { $0.identifier == brokerId })
+    }
+    var owner: User? {
+        return UserController.shared.users.first(where: { $0.identifier == ownerId })
+    }
+    var client: User? {
+        return UserController.shared.users.first(where: { $0.identifier == userId })
+    }
+    
     init(text: String, brokerId: String, userId: String, ownerId: String) {
         self.text = text
         self.id = UUID().uuidString
