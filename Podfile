@@ -11,6 +11,6 @@ pod 'Firebase/Storage'
 pod 'JSQMessagesViewController'
 pod 'KeychainSwift'
 pod 'Whisper'
-pod "SlackTextViewController"
+pod 'SlackTextViewController', :git => 'https://github.com/slackhq/SlackTextViewController'
 
 end
