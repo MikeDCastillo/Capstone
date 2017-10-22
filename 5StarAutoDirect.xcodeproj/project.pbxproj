@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		665AB6291F2103A700EAEE12 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665AB6281F2103A700EAEE12 /* UserInfoTableViewCell.swift */; };
-		6668D37D1F33841300347FCD /* MessageConvoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */; };
-		6668D37F1F33849400347FCD /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6668D37E1F33849400347FCD /* MessageTableViewCell.swift */; };
+		6668D37D1F33841300347FCD /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6668D37C1F33841300347FCD /* MessagesViewController.swift */; };
 		66813B781EF1AD4A000FA884 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B771EF1AD4A000FA884 /* User.swift */; };
 		66813B7A1EF1AD59000FA884 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B791EF1AD59000FA884 /* Message.swift */; };
 		66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66813B7B1EF1AD6B000FA884 /* Car.swift */; };
@@ -31,6 +30,7 @@
 		7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93B1F45511C00C98E86 /* SegueHandling.swift */; };
 		7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
+		73773A3D1F9B224E00F7A1CB /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73773A3C1F9B224D00F7A1CB /* MessageCell.swift */; };
 		737D375F1F4FD84E00094891 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */; };
 		737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D37601F50737C00094891 /* UIApplicationExtension.swift */; };
 		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
@@ -50,8 +50,7 @@
 /* Begin PBXFileReference section */
 		2EDB9CA6D50489671D4F0017 /* Pods-5StarAutoDirect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.debug.xcconfig"; sourceTree = "<group>"; };
 		665AB6281F2103A700EAEE12 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
-		6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageConvoCollectionViewController.swift; sourceTree = "<group>"; };
-		6668D37E1F33849400347FCD /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		6668D37C1F33841300347FCD /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		66813B771EF1AD4A000FA884 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		66813B791EF1AD59000FA884 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		66813B7B1EF1AD6B000FA884 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -70,7 +69,6 @@
 		7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5StarAutoDirect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		732CE8661F9AB4FE006C3754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = OtherUserMessageCell.xib; sourceTree = "<group>"; };
 		732CE8691F9AB52C006C3754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = CurrentUserMessageCell.xib; sourceTree = "<group>"; };
-		732CE86C1F9AB88C006C3754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = MessageCell.swift; sourceTree = "<group>"; };
 		733A0DEC1F3C24080094DCB9 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		733A0DF01F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733A0DF21F3C271E0094DCB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +76,7 @@
 		7345A93B1F45511C00C98E86 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
 		7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		73773A3C1F9B224D00F7A1CB /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		737D37601F50737C00094891 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
@@ -142,9 +141,8 @@
 				C829206A1EF2E3AD0089A695 /* BrokerTableViewController.swift */,
 				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
 				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
-				6668D37C1F33841300347FCD /* MessageConvoCollectionViewController.swift */,
-				6668D37E1F33849400347FCD /* MessageTableViewCell.swift */,
-				732CE86B1F9AB88C006C3754 /* MessageCell.swift */,
+				6668D37C1F33841300347FCD /* MessagesViewController.swift */,
+				73773A3C1F9B224D00F7A1CB /* MessageCell.swift */,
 				9659243E1F31285200CC7266 /* PopUpViewController.swift */,
 				66813B851EF1AE35000FA884 /* SignUpViewController.swift */,
 				66813B871EF1AE42000FA884 /* UserHomeViewController.swift */,
@@ -271,7 +269,7 @@
 				TargetAttributes = {
 					66EDEA321EE8755500BF8357 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = HK9J242HR4;
+						DevelopmentTeam = 4UKSSV9PZ8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -395,7 +393,7 @@
 				66813B811EF1ADCE000FA884 /* MessageController.swift in Sources */,
 				66813B861EF1AE35000FA884 /* SignUpViewController.swift in Sources */,
 				7359AACB1F36DFDF009891AC /* Keys.swift in Sources */,
-				6668D37D1F33841300347FCD /* MessageConvoCollectionViewController.swift in Sources */,
+				6668D37D1F33841300347FCD /* MessagesViewController.swift in Sources */,
 				665AB6291F2103A700EAEE12 /* UserInfoTableViewCell.swift in Sources */,
 				73E2A0551F8FE65700A29700 /* UserNotificationController.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
@@ -405,9 +403,9 @@
 				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
 				733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
+				73773A3D1F9B224E00F7A1CB /* MessageCell.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
-				6668D37F1F33849400347FCD /* MessageTableViewCell.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
 				7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */,
 				C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */,
@@ -436,14 +434,6 @@
 				732CE8691F9AB52C006C3754 /* Base */,
 			);
 			name = CurrentUserMessageCell.xib;
-			sourceTree = "<group>";
-		};
-		732CE86B1F9AB88C006C3754 /* MessageCell.swift */ = {
-			isa = PBXVariantGroup;
-			children = (
-				732CE86C1F9AB88C006C3754 /* Base */,
-			);
-			name = MessageCell.swift;
 			sourceTree = "<group>";
 		};
 		733A0DEF1F3C271E0094DCB9 /* LaunchScreen.storyboard */ = {
@@ -571,7 +561,7 @@
 			baseConfigurationReference = 2EDB9CA6D50489671D4F0017 /* Pods-5StarAutoDirect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HK9J242HR4;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -586,7 +576,7 @@
 			baseConfigurationReference = 7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HK9J242HR4;
+				DEVELOPMENT_TEAM = 4UKSSV9PZ8;
 				INFOPLIST_FILE = 5StarAutoDirect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

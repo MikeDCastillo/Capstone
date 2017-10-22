@@ -15,8 +15,8 @@ class UserController {
     
     let firebaseController = FirebaseController()
     var currentUser: User?
+    var selectedUser: User?
     var isSubscribedToUsers = false
-    var rootRef = Database.database().reference()
     var users = [User]() {
         didSet {
             NotificationCenter.default.post(name: .usersLoaded, object: nil)
@@ -69,7 +69,7 @@ class UserController {
             
             // Put authenticated user in firebase database under appropriate node.
             
-            let referenceForCurrentUser = self.rootRef.child(refString).child(uidString)
+            let referenceForCurrentUser = self.firebaseController.rootRef.child(refString).child(uidString)
             //            referenceForCurrentUser.setValue(user.jsonRepresentation)
             referenceForCurrentUser.setValue(user.jsonObject(), withCompletionBlock: { (error, ref) in
                 DatabaseManager.uid = uidString
@@ -102,7 +102,7 @@ class UserController {
     func fetchUsers() {
         guard !isSubscribedToUsers else { return }
         isSubscribedToUsers = true
-        let usersRef: DatabaseReference = rootRef.child("users")
+        let usersRef: DatabaseReference = firebaseController.rootRef.child("users")
         
         firebaseController.subscribe(toRef: usersRef) { (result) in
             let usersResult = result.map({ (json) -> [User] in

@@ -6,34 +6,18 @@
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-// 3
-class MessageCell: UICollectionViewCell {
+class MessageCell: UITableViewCell {
     
-    // MARK: - Outlets / Properties
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
-    @IBOutlet weak var otherUserMessageLabel: UILabel!
-    @IBOutlet weak var currentUserMessageLabel: UILabel!
-    
-    // MARK: - Life - Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        registerXibFiles()
-    }
-    
-}
-
-
-// MARK: - Fileprivate
-
-extension MessageCell {
-    
-    fileprivate func registerXibFiles() {
-        tableView.register(UINib(nibName: "OtherUserMessageCell", bundle: nil), forCellReuseIdentifier: "otherUserMessageCell")
-        tableView.register(UINib(nibName: "CurrentUserMessageCell", bundle: nil), forCellReuseIdentifier: "currentUserMessageCell")
+    func update(with message: Message) {
+        if let messageOwner = message.owner {
+            userNameLabel.text = messageOwner.name
+        }
+        messageLabel.text = message.text
     }
     
 }

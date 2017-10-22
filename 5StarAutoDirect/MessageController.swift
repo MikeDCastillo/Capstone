@@ -20,14 +20,6 @@ class MessageController {
         return rootRef.child("messages")
     }
     
-    //1
-    func checkForDuplicates(in messages: [Message]) {
-        if self.messages.count == messages.count {
-            print("No new messages")
-            return
-        }
-    }
-    
     var userMessagesQuery: DatabaseQuery? {
         guard let currentUser = UserController.shared.currentUser else { return nil }
         if currentUser.isBroker {
@@ -37,6 +29,15 @@ class MessageController {
         }
     }
     
+    var currentMessages: [Message] {
+        guard let currentUser = UserController.shared.currentUser else { return [] }
+        if currentUser.isBroker {
+            guard let selectedUser = UserController.shared.selectedUser else { return [] }
+            return messages.filter { $0.userId == selectedUser.identifier }.sorted(by: { $0.createdAt < $1.createdAt })
+        } else {
+            return messages.sorted(by: { $0.createdAt < $1.createdAt })
+        }
+    }
     func loadInitialMessages() {
         guard let query = userMessagesQuery else { return }
         firebaseController.getData(with: query) { result in
@@ -59,6 +60,7 @@ class MessageController {
         query.observe(DataEventType.childAdded, with: { snapshot in
             guard let snapshotJSON = snapshot.value as? JSONObject,
                 let newMessage = Message(jsonDictionary: snapshotJSON) else { return }
+            guard !self.messages.contains(newMessage) else { return }
             self.messages.append(newMessage)
         })
     }
