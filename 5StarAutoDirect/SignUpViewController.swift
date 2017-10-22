@@ -81,7 +81,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         case .pushBrokerTVC:
             break
         case .pushUserHomeVC:
-            let createdUser = UserHomeViewController.shared.user // FIXME: Use a user controller or something. ANYTHING BUT THIS
+            let createdUser = UserController.shared.currentUser
             if let detailVC = segue.destination as? UserHomeViewController {
                 detailVC.user = createdUser
             }
