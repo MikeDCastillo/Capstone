@@ -243,7 +243,7 @@
             </objects>
             <point key="canvasLocation" x="2424" y="945"/>
         </scene>
-        <!--Title-->
+        <!--Home-->
         <scene sceneID="0CB-xF-OFD">
             <objects>
                 <viewController id="blU-ME-HwJ" customClass="UserHomeViewController" customModule="_StarAutoDirect" customModuleProvider="target" sceneMemberID="viewController">
@@ -255,50 +255,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-KV-iNj">
-                                <rect key="frame" x="12" y="504" width="343" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <state key="normal" title="Find car button"/>
-                                <connections>
-                                    <segue destination="5oK-9V-gFU" kind="show" identifier="toCarDetail" id="nh5-mC-Pqg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-rV-gFi">
-                                <rect key="frame" x="39" y="588" width="289" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="Your car button"/>
-                                <connections>
-                                    <segue destination="HE8-yK-ANU" kind="show" identifier="userHomeVCToMessageConvoVC" id="H8u-SR-k5v"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Find Your Car image" translatesAutoresizingMaskIntoConstraints="NO" id="rCL-qv-Rae">
-                                <rect key="frame" x="39" y="504" width="283" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Freeway sky view" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-hK-ObL">
-                                <rect key="frame" x="0.0" y="247" width="375" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FIVE STAR LOGO COLOR JPG" translatesAutoresizingMaskIntoConstraints="NO" id="pnq-Xd-UBi">
-                                <rect key="frame" x="16" y="20" width="45" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Your Car Updates image" translatesAutoresizingMaskIntoConstraints="NO" id="eJ6-lT-1ba">
-                                <rect key="frame" x="39" y="588" width="283" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="atI-lT-b2S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="643"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Freeway sky view" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-hK-ObL">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="431"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bfU-Or-T1b">
+                                        <rect key="frame" x="25" y="447" width="325" height="196"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2l-KV-iNj">
+                                                <rect key="frame" x="0.0" y="0.0" width="325" height="90"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="WEV-GA-9gO"/>
+                                                </constraints>
+                                                <state key="normal" image="Find Your Car image"/>
+                                                <connections>
+                                                    <segue destination="5oK-9V-gFU" kind="show" identifier="toCarDetail" id="nh5-mC-Pqg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-rV-gFi">
+                                                <rect key="frame" x="0.0" y="106" width="325" height="90"/>
+                                                <state key="normal" image="Your Car Updates image"/>
+                                                <connections>
+                                                    <segue destination="HE8-yK-ANU" kind="show" identifier="userHomeVCToMessageConvoVC" id="H8u-SR-k5v"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="q0H-hK-ObL" firstAttribute="width" secondItem="atI-lT-b2S" secondAttribute="width" id="Dmt-CO-aK6"/>
+                                    <constraint firstItem="bfU-Or-T1b" firstAttribute="width" secondItem="atI-lT-b2S" secondAttribute="width" constant="-50" id="YCo-gH-aCQ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="atI-lT-b2S" secondAttribute="trailing" id="L4z-oL-Nac"/>
+                            <constraint firstItem="atI-lT-b2S" firstAttribute="top" secondItem="xBp-q1-CE9" secondAttribute="top" id="eCT-sb-ZRl"/>
+                            <constraint firstItem="atI-lT-b2S" firstAttribute="leading" secondItem="xBp-q1-CE9" secondAttribute="leading" id="iVQ-kn-gQY"/>
+                            <constraint firstAttribute="bottom" secondItem="atI-lT-b2S" secondAttribute="bottom" constant="24" id="ud5-Pt-Ecz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="W2s-6f-53y">
-                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="Nsl-Fr-Ghe">
-                            <connections>
-                                <action selector="signOutButtonTapped:" destination="blU-ME-HwJ" id="pIN-sO-fiv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Home" id="W2s-6f-53y"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idr-B6-c3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -434,6 +435,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="SyO-Rx-kkF"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="c81-FC-3N3" id="HIM-DH-QUM"/>
                         <outlet property="nameTextField" destination="cnZ-FZ-y5Q" id="MRE-0L-7M7"/>
