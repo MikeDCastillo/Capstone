@@ -35,22 +35,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         prepSound()
         UserController.shared.fetchUsers()
-
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        
         
         //TODO: - check AUTH independent of User. then check if they contain email
         //TODO: - send user verification email via firebase (auth has User property)
         
-        if let _ = DatabaseManager.uid {
-            if (Auth.auth().currentUser?.email?.uppercased().contains("FIVESTARAUTODIRECT"))! {
-                performSegue(withIdentifier: .pushBrokerTVC, sender: self)
+        if let authUser = Auth.auth().currentUser {
+            if authUser.email?.uppercased().contains("FIVESTARAUTODIRECT") == true {
+            performSegue(withIdentifier: .pushBrokerTVC, sender: self)
             } else {
                 performSegue(withIdentifier: .pushUserHomeVC, sender: self)
             }
         } // else -> Stay on sign up
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     @IBAction func submitButtonTapped(_ sender: Any) {
