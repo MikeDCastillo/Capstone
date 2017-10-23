@@ -6,19 +6,32 @@
 //  Copyright © 2017 PineAPPle LLC. All rights reserved.
 //
 
-import Firebase
 import Foundation
+import Firebase
 
 class UserController {
     
     static let shared = UserController()
     
     let firebaseController = FirebaseController()
-    var currentUser: User?
-    var selectedUser: User?
+    var currentUserId: String? {
+        return Auth.auth().currentUser?.uid
+    }
+    var currentUser: User? {
+        guard let id = currentUserId else { return nil }
+        return users.first(where: { $0.identifier == id })
+    }
+    var selectedUserId: String?
+    var selectedUser: User? {
+        guard let id = selectedUserId else { return nil }
+        return users.first(where: { $0.identifier == id })
+    }
     var isSubscribedToUsers = false
     var users = [User]() {
         didSet {
+            if let currentUser = currentUser, !currentUser.isBroker {
+                selectedUserId = currentUserId
+            }
             NotificationCenter.default.post(name: .usersLoaded, object: nil)
         }
     }
@@ -33,15 +46,7 @@ class UserController {
     
     func updateUser(user: User) {
         let ref = firebaseController.usersRef.child(user.identifier)
-        firebaseController.save(at: ref, json: user.jsonObject()) { (error) in
-            if let error = error {
-                print(error.localizedDescription, "\(#line) in \(#file)")
-                //TODO: - Alert controller
-            } else {
-                self.currentUser = user
-                print("success updating User \(#line)")
-            }
-        }
+        firebaseController.save(at: ref, json: user.jsonObject(), completion: nil)
     }
     
     enum UserControllerError: Error {
@@ -50,18 +55,14 @@ class UserController {
     
     //Model objects into jsonExportable
     func saveUserToFirebase(name: String, phone: String, email: String, password: String, completion: @escaping(_ isBroker: Bool?, Error?) -> Void) {
-        
         let isBroker = email.uppercased().contains("FIVESTARAUTODIRECT")
-        let refString = isBroker ? "brokers" : "users"
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-            
             if let error = error {
                 print(error)
                 completion(nil, error)
                 return
             }
-            
             guard let uidString = user?.uid
                 else { completion(nil, UserControllerError.uidNil); return }
             
@@ -69,11 +70,9 @@ class UserController {
             
             // Put authenticated user in firebase database under appropriate node.
             
-            let referenceForCurrentUser = self.firebaseController.rootRef.child(refString).child(uidString)
-            //            referenceForCurrentUser.setValue(user.jsonRepresentation)
+            let referenceForCurrentUser = self.firebaseController.usersRef.child(uidString)
             referenceForCurrentUser.setValue(user.jsonObject(), withCompletionBlock: { (error, ref) in
                 DatabaseManager.uid = uidString
-                self.currentUser = user
                 completion(isBroker, nil)
             })
             
@@ -102,7 +101,7 @@ class UserController {
     func fetchUsers() {
         guard !isSubscribedToUsers else { return }
         isSubscribedToUsers = true
-        let usersRef: DatabaseReference = firebaseController.rootRef.child("users")
+        let usersRef: DatabaseReference = firebaseController.usersRef
         
         firebaseController.subscribe(toRef: usersRef) { (result) in
             let usersResult = result.map({ (json) -> [User] in
@@ -122,26 +121,6 @@ class UserController {
                 print(error)
             }
         }
-    }
-    
-    //Use to get currentUser
-    
-    func getCurrentUser() {
-        guard let currentAuthUser = Auth.auth().currentUser else { return }
-        let ref = firebaseController.usersRef.child(currentAuthUser.uid)
-        firebaseController.getData(at: ref) { (result) in
-            let userResult = result.map(User.init)
-            switch userResult {
-            case .failure:
-                break
-            case .success(let user):
-                self.currentUser = user
-                if user == nil {
-                    print("trouble getting current user")
-                }
-            }
-        }
-        
     }
     
 }
