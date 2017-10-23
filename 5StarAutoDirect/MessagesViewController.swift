@@ -1,16 +1,12 @@
 import SlackTextViewController
 import UIKit
 import Whisper
-        // TODO: - 3. slack TableViewController. create custom cells - 2 different Xibs with different reuse identifiers.
-        // TODO: - 4. double check Msg subscription is working. view didLoad
-        // TODO: - MessagesTableViewController - refresh data. fire off notification
 
 class MessagesViewController: SLKTextViewController {
     
     fileprivate let firebaseController = FirebaseController()
     fileprivate let currentUserId = UserController.shared.currentUser?.identifier
-    fileprivate let currentUserCellId = "currentUserMessageCell"
-    fileprivate let otherUserCellId = "otherUserMessageCell"
+    fileprivate let cellId = "messageCellId"
     
     fileprivate var messages: [Message] {
         return MessageController.shared.currentMessages
@@ -42,13 +38,11 @@ class MessagesViewController: SLKTextViewController {
         title = currentUser?.name
         commonInit()
         textView.placeholder = "Write your mesage"
+        tableView.rowHeight = UITableViewAutomaticDimension
         rightButton.setTitle(NSLocalizedString("Send", comment: ""), for: .normal)
         
-        
         rightButton.isEnabled = true
-        tableView.register(MessageCell.classForCoder(), forCellReuseIdentifier: currentUserCellId)
-        tableView.register(MessageCell.classForCoder(), forCellReuseIdentifier: otherUserCellId)
-
+//        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: cellId)
         
         //TODO: - add in car sound everytime msg received
         //FIXME: - check if currentUser.id == message.toId is the same for notifications
@@ -59,19 +53,25 @@ class MessagesViewController: SLKTextViewController {
                 navigationItem.title = customer.name
             }
         } else {
-            navigationItem.title = "Chat with Broker"
+            navigationItem.title = "Chat"
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .messagesUpdated, object: nil)
+        NotificationCenter.default.addObserver(self.tableView, selector: #selector(UITableView.reloadData), name: .messagesUpdated, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func didPressRightButton(_ sender: Any?) {
         sendMessage()
         super.didPressRightButton(sender)
-    }
-    
-    func newMessageReceived() {
-        tableView.reloadData()
     }
     
 }
@@ -83,18 +83,8 @@ extension MessagesViewController {
     
     fileprivate func sendMessage() {
         guard let currentUser = currentUser, let selectedUser = UserController.shared.selectedUser else { return }
-        var brokerId: String
-        var userId: String
-        if currentUser.isBroker {
-            brokerId = currentUser.identifier
-            userId = selectedUser.identifier
-        } else {
-            brokerId = selectedUser.identifier
-            userId = currentUser.identifier
-        }
-        
-        MessageController.shared.saveMessage(with: textView.text, brokerId: brokerId, userId: userId)
-        textView.text = ""
+        let customerId = currentUser.isBroker ? selectedUser.identifier : currentUser.identifier
+        MessageController.shared.saveMessage(with: textView.text, customerId: customerId)
     }
 
 }
@@ -105,8 +95,11 @@ extension MessagesViewController {
 extension MessagesViewController {
     
     func message(at indexPath: IndexPath) -> Message {
-        let reverseMessages = messages
-        return reverseMessages[indexPath.row]
+        return messages[indexPath.row]
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,10 +109,19 @@ extension MessagesViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let currentUser = currentUser else { return UITableViewCell() }
         let messageAtRow = message(at: indexPath)
-        let identifier = messageAtRow.ownerId == currentUser.identifier ? currentUserCellId : otherUserCellId
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MessageCell
+        let isCreator = messageAtRow.ownerId == currentUser.identifier
+        var messageCell = tableView.dequeueReusableCell(withIdentifier: cellId)
+        if messageCell == nil {
+            messageCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
+        }
+        guard let cell = messageCell else { fatalError() }
+        cell.textLabel?.text = isCreator ? "You" : messageAtRow.owner?.name
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        
+        cell.detailTextLabel?.text = messageAtRow.text
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 20)
+        cell.detailTextLabel?.numberOfLines = 0
         cell.transform = tableView.transform
-        cell.update(with: messageAtRow)
         
         return cell
     }

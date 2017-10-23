@@ -29,8 +29,12 @@ class UserController {
     var isSubscribedToUsers = false
     var users = [User]() {
         didSet {
-            if let currentUser = currentUser, !currentUser.isBroker {
-                selectedUserId = currentUserId
+            if let currentUser = currentUser {
+                MessageController.shared.loadInitialMessages()
+                if !currentUser.isBroker {
+                    selectedUserId = currentUserId
+                }
+                
             }
             NotificationCenter.default.post(name: .usersLoaded, object: nil)
         }
@@ -72,7 +76,6 @@ class UserController {
             
             let referenceForCurrentUser = self.firebaseController.usersRef.child(uidString)
             referenceForCurrentUser.setValue(user.jsonObject(), withCompletionBlock: { (error, ref) in
-                DatabaseManager.uid = uidString
                 completion(isBroker, nil)
             })
             
@@ -98,7 +101,7 @@ class UserController {
     }
     
     // getting users from firebase
-    func fetchUsers() {
+    func subscribeToUsers() {
         guard !isSubscribedToUsers else { return }
         isSubscribedToUsers = true
         let usersRef: DatabaseReference = firebaseController.usersRef

@@ -15,6 +15,7 @@ enum Keys {
     static let car = "car"
     static let color = "color"
     static let createdAt = "createdAt"
+    static let customerId = "customerId"
     static let isBroker = "isBroker"
     static let id = "id"
     static let otherAttributes = "otherAttributes"
@@ -24,8 +25,6 @@ enum Keys {
     static let model = "model"
     static let email = "email"
     static let textKey = "text"
-    static let userId = "userId"
     static let ownerId = "ownerId"
     static let uid = "uid"
-    
 }

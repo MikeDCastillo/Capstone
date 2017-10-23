@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="otherUserMessageCell" rowHeight="91" id="N0m-XC-h1Z" customClass="MessageCell">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OtherUserMessageCell" rowHeight="91" id="N0m-XC-h1Z" customClass="OtherUserMessageCell" customModule="_StarAutoDirect" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="380" height="91"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N0m-XC-h1Z" id="Q2P-f2-tIt">
@@ -44,8 +44,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="messageLabel" destination="VSF-PB-cqh" id="2bZ-xP-6pp"/>
-                <outlet property="userNameLabel" destination="aaE-TL-nl0" id="xif-GV-tX0"/>
+                <outlet property="messageLabel" destination="VSF-PB-cqh" id="vbx-rI-8M7"/>
+                <outlet property="userNameLabel" destination="aaE-TL-nl0" id="3mc-WQ-zcP"/>
             </connections>
             <point key="canvasLocation" x="311" y="35.5"/>
         </tableViewCell>

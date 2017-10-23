@@ -1,5 +1,5 @@
 //
-//  YourCarViewController.swift
+//  UserHomeViewController.swift
 //  5StarAutoDirect
 //
 //  Created by Clay Mills on 6/14/17.
@@ -11,7 +11,6 @@ import Firebase
 
 class UserHomeViewController: UIViewController {
     
-    
     var user: User?
     
     override func viewDidLoad() {
@@ -19,15 +18,16 @@ class UserHomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .messagesUpdated, object: nil)
     }
     
-    @IBAction func signOutButtonTapped(_ sender: Any) {
-        try! Auth.auth().signOut()
-        navigationController?.popViewController(animated: true)
-    }
-    
+    // FIXME: There is no way to sign in so don't let them sign out
+//    @IBAction func signOutButtonTapped(_ sender: Any) {
+//        try! Auth.auth().signOut()
+//        navigationController?.popViewController(animated: true)
+//    }
     
     func newMessageReceived() {
         showNotificationBanner()
     }
+    
 }
 
 
@@ -41,7 +41,7 @@ extension UserHomeViewController: SegueHandling {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
         case .userHomeVCToMessageConvoVC:
-            UserController.shared.selectedUser = UserController.shared.currentUser
+            UserController.shared.selectedUserId = UserController.shared.currentUserId
         case .toCarDetail:
             let selectedUser = CarDetailViewController.shared.user
             guard let detailVC = segue.destination as? CarDetailViewController else { return }

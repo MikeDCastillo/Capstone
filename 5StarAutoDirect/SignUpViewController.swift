@@ -12,7 +12,6 @@
 
 import UIKit
 import FirebaseAuth
-import KeychainSwift
 import FirebaseDatabase
 import AVFoundation
 
@@ -30,19 +29,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     fileprivate var audioPlayer = AVAudioPlayer()
 
-    override func viewDidLoad() { // we can change this to VWA to stop the login from flashing
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         prepSound()
-        UserController.shared.fetchUsers()
-        
-        
-        //TODO: - check AUTH independent of User. then check if they contain email
-        //TODO: - send user verification email via firebase (auth has User property)
-        
+        UserController.shared.subscribeToUsers()
+
         if let authUser = Auth.auth().currentUser {
             if authUser.email?.uppercased().contains("FIVESTARAUTODIRECT") == true {
-            performSegue(withIdentifier: .pushBrokerTVC, sender: self)
+                performSegue(withIdentifier: .pushBrokerTVC, sender: self)
             } else {
                 performSegue(withIdentifier: .pushUserHomeVC, sender: self)
             }
@@ -166,6 +161,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
 }
+
 
 extension SignUpViewController: SegueHandling {
     

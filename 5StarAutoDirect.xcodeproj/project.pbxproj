@@ -29,13 +29,13 @@
 		7345A93A1F454F3100C98E86 /* BrokerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7345A9381F454F3100C98E86 /* BrokerTableViewController.storyboard */; };
 		7345A93C1F45511C00C98E86 /* SegueHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93B1F45511C00C98E86 /* SegueHandling.swift */; };
 		7345A93E1F45528A00C98E86 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */; };
+		7355092A1F9DACD300486C1F /* OtherUserMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735509291F9DACD300486C1F /* OtherUserMessageCell.swift */; };
 		7359AACB1F36DFDF009891AC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359AACA1F36DFDF009891AC /* Keys.swift */; };
-		73773A3D1F9B224E00F7A1CB /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73773A3C1F9B224D00F7A1CB /* MessageCell.swift */; };
+		73773A3D1F9B224E00F7A1CB /* CurrentUserMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73773A3C1F9B224D00F7A1CB /* CurrentUserMessageCell.swift */; };
 		737D375F1F4FD84E00094891 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */; };
 		737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D37601F50737C00094891 /* UIApplicationExtension.swift */; };
 		73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */; };
 		73CD184A1F970C7400EEAE7F /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CD18491F970C7400EEAE7F /* Result.swift */; };
-		73E2A0551F8FE65700A29700 /* UserNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E2A0541F8FE65700A29700 /* UserNotificationController.swift */; };
 		73FD369C1F83518700E372C7 /* ExtensionNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FD369B1F83518700E372C7 /* ExtensionNotificationName.swift */; };
 		87D3BAC662DA4FD175014BE8 /* Pods_5StarAutoDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225914FBE40A6B362A6E2E1 /* Pods_5StarAutoDirect.framework */; };
 		9659243F1F31285200CC7266 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659243E1F31285200CC7266 /* PopUpViewController.swift */; };
@@ -43,7 +43,6 @@
 		C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C829206E1EF2EFD80089A695 /* NetworkController.swift */; };
 		C82920711EF30B090089A695 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82920701EF30B090089A695 /* Extensions.swift */; };
 		C830971F1EF829970004B56D /* FiveStepTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830971E1EF829970004B56D /* FiveStepTableViewController.swift */; };
-		C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83274941F054B3E000E3FE5 /* DatabaseManager.swift */; };
 		C83E6C781EFD962F00DFC078 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -75,13 +74,14 @@
 		7345A9391F454F3100C98E86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BrokerTableViewController.storyboard; sourceTree = "<group>"; };
 		7345A93B1F45511C00C98E86 /* SegueHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandling.swift; sourceTree = "<group>"; };
 		7345A93D1F45528A00C98E86 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		735509291F9DACD300486C1F /* OtherUserMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserMessageCell.swift; sourceTree = "<group>"; };
+		7355092C1F9DB55800486C1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/CurrentUserMessageCell.strings; sourceTree = "<group>"; };
 		7359AACA1F36DFDF009891AC /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
-		73773A3C1F9B224D00F7A1CB /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		73773A3C1F9B224D00F7A1CB /* CurrentUserMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserMessageCell.swift; sourceTree = "<group>"; };
 		737D375E1F4FD84E00094891 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		737D37601F50737C00094891 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		73CD18491F970C7400EEAE7F /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		73E2A0541F8FE65700A29700 /* UserNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationController.swift; sourceTree = "<group>"; };
 		73FD369B1F83518700E372C7 /* ExtensionNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNotificationName.swift; sourceTree = "<group>"; };
 		7A94B1FBB708C8D183907D26 /* Pods-5StarAutoDirect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5StarAutoDirect.release.xcconfig"; path = "Pods/Target Support Files/Pods-5StarAutoDirect/Pods-5StarAutoDirect.release.xcconfig"; sourceTree = "<group>"; };
 		9659243E1F31285200CC7266 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +89,6 @@
 		C829206E1EF2EFD80089A695 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C82920701EF30B090089A695 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C830971E1EF829970004B56D /* FiveStepTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveStepTableViewController.swift; sourceTree = "<group>"; };
-		C83274941F054B3E000E3FE5 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C83E6C771EFD962E00DFC078 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +126,6 @@
 		66813B821EF1ADD8000FA884 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C83274941F054B3E000E3FE5 /* DatabaseManager.swift */,
 				73962F981F3D6E6F001BE8C6 /* FirebaseController.swift */,
 				66813B801EF1ADCE000FA884 /* MessageController.swift */,
 				66813B7E1EF1ADC0000FA884 /* UserController.swift */,
@@ -142,11 +140,11 @@
 				66813B891EF1AE53000FA884 /* CarDetailViewController.swift */,
 				C830971E1EF829970004B56D /* FiveStepTableViewController.swift */,
 				6668D37C1F33841300347FCD /* MessagesViewController.swift */,
-				73773A3C1F9B224D00F7A1CB /* MessageCell.swift */,
+				735509291F9DACD300486C1F /* OtherUserMessageCell.swift */,
+				73773A3C1F9B224D00F7A1CB /* CurrentUserMessageCell.swift */,
 				9659243E1F31285200CC7266 /* PopUpViewController.swift */,
 				66813B851EF1AE35000FA884 /* SignUpViewController.swift */,
 				66813B871EF1AE42000FA884 /* UserHomeViewController.swift */,
-				73E2A0541F8FE65700A29700 /* UserNotificationController.swift */,
 				665AB6281F2103A700EAEE12 /* UserInfoTableViewCell.swift */,
 				66D2A4D51F1E890300FCAE76 /* WelcomeViewController.swift */,
 			);
@@ -395,15 +393,13 @@
 				7359AACB1F36DFDF009891AC /* Keys.swift in Sources */,
 				6668D37D1F33841300347FCD /* MessagesViewController.swift in Sources */,
 				665AB6291F2103A700EAEE12 /* UserInfoTableViewCell.swift in Sources */,
-				73E2A0551F8FE65700A29700 /* UserNotificationController.swift in Sources */,
 				66813B8A1EF1AE53000FA884 /* CarDetailViewController.swift in Sources */,
 				C829206B1EF2E3AD0089A695 /* BrokerTableViewController.swift in Sources */,
 				737D37611F50737C00094891 /* UIApplicationExtension.swift in Sources */,
 				73962F991F3D6E6F001BE8C6 /* FirebaseController.swift in Sources */,
-				C83274951F054B3E000E3FE5 /* DatabaseManager.swift in Sources */,
 				733A0DED1F3C24080094DCB9 /* SoundPlayer.swift in Sources */,
 				66813B781EF1AD4A000FA884 /* User.swift in Sources */,
-				73773A3D1F9B224E00F7A1CB /* MessageCell.swift in Sources */,
+				73773A3D1F9B224E00F7A1CB /* CurrentUserMessageCell.swift in Sources */,
 				66813B7F1EF1ADC0000FA884 /* UserController.swift in Sources */,
 				C82920711EF30B090089A695 /* Extensions.swift in Sources */,
 				66813B7C1EF1AD6B000FA884 /* Car.swift in Sources */,
@@ -414,6 +410,7 @@
 				66EDEA371EE8755500BF8357 /* AppDelegate.swift in Sources */,
 				C829206F1EF2EFD80089A695 /* NetworkController.swift in Sources */,
 				66D2A4D61F1E890300FCAE76 /* WelcomeViewController.swift in Sources */,
+				7355092A1F9DACD300486C1F /* OtherUserMessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +429,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				732CE8691F9AB52C006C3754 /* Base */,
+				7355092C1F9DB55800486C1F /* en */,
 			);
 			name = CurrentUserMessageCell.xib;
 			sourceTree = "<group>";
