@@ -20,8 +20,7 @@ class ProfileViewController: UIViewController, Controller {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var shouldEditUsername = false
-    //******************//
+    fileprivate var shouldEditUsername = false
     fileprivate let imagePicker = UIImagePickerController()
     fileprivate var firebaseController = FirebaseController()
     fileprivate var appStoreURL: URL?
@@ -195,6 +194,7 @@ extension ProfileViewController: MFMailComposeViewControllerDelegate {
     }
     
 }
+
 
 // MARK: - TableView Data
 

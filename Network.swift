@@ -6,7 +6,7 @@
 //  Copyright © 2017 Michael Castillo. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
 
 enum Result<T> {
@@ -19,8 +19,9 @@ enum NetworkError: Error {
 }
 
 typealias JSONObject = [AnyHashable: Any]
+typealias JSONResultCompletion = (Result<JSONObject>) -> Void
 
-struct NetworkController {
+struct Network {
     
     enum HTTPMethod: String {
         case get = "GET"
@@ -29,12 +30,13 @@ struct NetworkController {
         case delete = "DELETE"
     }
     
-    func performRequest(for url: URL, httpMethod: HTTPMethod, urlParameters: [String: String]? = nil, body: Data? = nil, completion: ((Result<JSONObject>) -> Void)? = nil) {
+    func performRequest(for url: URL, httpMethod: HTTPMethod, urlParameters: [String: String]? = nil, body: Data? = nil, completion: JSONResultCompletion? = nil) {
         let requestURL = self.url(byAdding: urlParameters, to: url)
         var request = URLRequest(url: requestURL)
         request.httpMethod = httpMethod.rawValue
         request.httpBody = body
         
+        dump(request.url)
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 dump(error.localizedDescription)
