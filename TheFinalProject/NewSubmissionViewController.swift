@@ -25,7 +25,6 @@ class NewSubmissionViewController: UIViewController {
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet var viewTappedRecognizer: UITapGestureRecognizer!
     
-    
     fileprivate var topText = "" {
         didSet {
             topLabel.text = topText
@@ -74,11 +73,11 @@ class NewSubmissionViewController: UIViewController {
     fileprivate var meme: Meme? {
         return MemeController.shared.meme
     }
-    
-    fileprivate var userHasAgreedToTerms: Bool {
-        guard let currentUser = UserController.shared.currentUser else { return }
-        
-    }
+            // TODO: - finish this product
+//    fileprivate var userHasAgreedToTerms: Bool {
+//        guard let currentUser = UserController.shared.currentUser else { return }
+//
+//    }
     
     // Life Cycle
     override func viewDidLoad() {
@@ -121,7 +120,7 @@ class NewSubmissionViewController: UIViewController {
         let actualTopText: String? = topText.isEmpty ? nil : topText
         let actualBottomText: String? = bottomText.isEmpty ? nil : bottomText
 //        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: currentColor, creationDate: Date())
-        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: currentColor, creationDate: Date(), blockedUsers: nil)
+        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: currentColor, creationDate: Date())
         
         submissionController.saveSubmission(newSubmission, memeId: meme.id)
         dismiss(animated: true, completion: nil)

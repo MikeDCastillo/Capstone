@@ -19,7 +19,10 @@ class ICloudViewController: UIViewController {
     fileprivate var isLoading = false {
         didSet{
             let title = isLoading ? "..." : "🔄 Try Again 🔄"
-            tryAgainButton.setTitle(title, for: .normal)
+            DispatchQueue.main.async {
+                self.tryAgainButton.setTitle(title, for: .normal)
+                
+            }
             tryAgainButton.isEnabled = !isLoading
         }
     }

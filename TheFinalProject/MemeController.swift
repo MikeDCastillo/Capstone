@@ -39,6 +39,7 @@ class MemeController: Controller {
     func getAllMemes(forDate date: Date = Date(), completion: (Meme?) -> Void) {
     }
     
+    
     func getTodaysMeme() {
         let todayString = Date().dayString
         let query = firebaseController.memesRef.queryOrdered(byChild: "date").queryEqual(toValue: todayString)

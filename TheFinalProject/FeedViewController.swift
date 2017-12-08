@@ -41,7 +41,7 @@ class FeedViewController: UIViewController {
     
     fileprivate var submissions =  [Submission]()
     fileprivate var votesUsed = 0
-    fileprivate var shouldEditUsername = false
+    var shouldEditUsername = false
     fileprivate var canVote: Bool {
         return votesUsed < maxVotes
     }

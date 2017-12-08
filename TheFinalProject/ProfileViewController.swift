@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController, Controller {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var shouldEditUsername = false
+    var shouldEditUsername = false
     fileprivate let imagePicker = UIImagePickerController()
     fileprivate var firebaseController = FirebaseController()
     fileprivate var appStoreURL: URL?
