@@ -18,6 +18,7 @@
 		733297A31EDD289500D9DD6D /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733297A21EDD289500D9DD6D /* SettingsController.swift */; };
 		733297A71EDD411000D9DD6D /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 733297A61EDD411000D9DD6D /* LemonMilk.otf */; };
 		73364C281ED6A83E0057DE6C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73364C271ED6A83E0057DE6C /* UIColorExtension.swift */; };
+		734A86191FE0D49C00142BAA /* TODO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A86181FE0D49C00142BAA /* TODO.swift */; };
 		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
 		737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737241451E4EBFD6006F6E49 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		73364C271ED6A83E0057DE6C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
 		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
+		734A86181FE0D49C00142BAA /* TODO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODO.swift; sourceTree = "<group>"; };
 		736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
 		737241421E4EBFD6006F6E49 /* TheFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +183,7 @@
 				733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */,
 				737241451E4EBFD6006F6E49 /* AppDelegate.swift */,
 				733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */,
+				734A86181FE0D49C00142BAA /* TODO.swift */,
 				73B5A1B31E6CB9DF00ED8EDB /* Model */,
 				732B3A2D1E928940002B31A9 /* Base.lproj */,
 				73B5A1B61E6CB9FF00ED8EDB /* View */,
@@ -218,6 +221,10 @@
 				733297A61EDD411000D9DD6D /* LemonMilk.otf */,
 				737241511E4EBFD6006F6E49 /* Info.plist */,
 				7372414C1E4EBFD6006F6E49 /* Assets.xcassets */,
+				738579A71EDFD116000E7442 /* MeMeMe.scnp */,
+				738579A81EDFD116000E7442 /* spark.png */,
+				738579AB1EDFD1A5000E7442 /* particleMeme.png */,
+				738579B21EDFF321000E7442 /* star.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -243,10 +250,6 @@
 		73B5A1B61E6CB9FF00ED8EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				738579A71EDFD116000E7442 /* MeMeMe.scnp */,
-				738579A81EDFD116000E7442 /* spark.png */,
-				738579AB1EDFD1A5000E7442 /* particleMeme.png */,
-				738579B21EDFF321000E7442 /* star.png */,
 				73F3AB981ED153060073456C /* NewSubmissionViewController.swift */,
 				739D87E51ED51FF50094C835 /* ProfileViewController.swift */,
 				7332979E1EDCB99400D9DD6D /* ICloudViewController.swift */,
@@ -425,6 +428,7 @@
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
 				733297A31EDD289500D9DD6D /* SettingsController.swift in Sources */,
+				734A86191FE0D49C00142BAA /* TODO.swift in Sources */,
 				73BE1B281E8A292D0088CC03 /* UserController.swift in Sources */,
 				73C2D4431EDABED40037B75B /* CircleView.swift in Sources */,
 				73BE1B2A1E8A29330088CC03 /* SubmissionController.swift in Sources */,

@@ -119,9 +119,8 @@ class NewSubmissionViewController: UIViewController {
         guard let meme = meme, let user = UserController.shared.currentUser else { return }
         let actualTopText: String? = topText.isEmpty ? nil : topText
         let actualBottomText: String? = bottomText.isEmpty ? nil : bottomText
-//        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: currentColor, creationDate: Date())
-        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: currentColor, creationDate: Date())
-        
+        let newSubmission = Submission(id: "", userId: user.id, topText: actualTopText, bottomText: actualBottomText, textColor: currentColor, creationDate: Date(), hasBeenReported: false)
+    
         submissionController.saveSubmission(newSubmission, memeId: meme.id)
         dismiss(animated: true, completion: nil)
     }

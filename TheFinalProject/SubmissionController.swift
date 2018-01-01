@@ -54,6 +54,16 @@ class SubmissionController: Controller {
                     tempSubmissionsArray.append(newSubmission)
                 })
                 self.submissions = tempSubmissionsArray.sorted(by: { $0.creationDate > $1.creationDate })
+                
+                // FIXME: - Add in submission filter based on boolean value if == hasbeenFilter == true
+                
+            
+                self.submissions.filter({ (submission) -> Bool in
+                    submission.hasBeenReported == false
+                })
+                
+                // FIXME: - End of Fix
+                
             case .failure(let error):
                 print(error)
             }

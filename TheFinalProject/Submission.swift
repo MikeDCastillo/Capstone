@@ -17,7 +17,8 @@ struct Submission: Identifiable  {
     var bottomText: String?
     var textColor: UIColor
     var creationDate: Date
-    
+    // TODO: - add in had been reported status
+    var hasBeenReported: Bool
     
     var ref: DatabaseReference {
         let meme = MemeController.shared.meme!
@@ -27,7 +28,7 @@ struct Submission: Identifiable  {
 
 extension Submission: JSONExportable {
     func json() -> JSONObject {
-    
+        
         var jsonDictionary = [String: Any]()
         jsonDictionary["id"] = id
         jsonDictionary["userId"] = userId
@@ -35,6 +36,7 @@ extension Submission: JSONExportable {
         jsonDictionary["bottomText"] = bottomText
         jsonDictionary["textColor"] = textColor.hexValue
         jsonDictionary["date"] = creationDate.timeIntervalSinceReferenceDate
+        jsonDictionary["hasBeenReported"] = hasBeenReported
         
         return jsonDictionary
     }
@@ -49,7 +51,8 @@ extension Submission: JSONInitializable {
         guard let textColorString = json["textColor"] as? String,
             let textColor2 = try? UIColor(hex: textColorString) else { throw JSONError.keyMismatch("textColor") }
         guard let creationDateNumber = json["date"] as? Double else { throw JSONError.keyMismatch("date") }
-       let creationDate = Date(timeIntervalSinceReferenceDate: creationDateNumber)
+        let creationDate = Date(timeIntervalSinceReferenceDate: creationDateNumber)
+        guard let hasBeenReported = json["hasBeenReported"] as? Bool else { throw JSONError.typeMismatch("hasBeenReported") }
         
         self.id = id
         self.userId = userId
@@ -57,6 +60,7 @@ extension Submission: JSONInitializable {
         self.creationDate = creationDate
         self.topText = json["topText"] as? String
         self.bottomText = json["bottomText"] as? String
+        self.hasBeenReported = hasBeenReported
         
     }
     
