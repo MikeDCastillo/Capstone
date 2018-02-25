@@ -15,12 +15,16 @@
  ---> not allow profanity
  
 
- 1. change the model. Submission needs to have a flag count: Int
+(X) 1. change the model. Submission needs to have a flag count: Int
  
  2. Put flag button in UI. (press the button, count is upped by 1)
     Create func that ups the Submission flagCount
  optional - alert controller for flagging button in UI
  optional - first time someone flags content, the default is hidden
+ 
+    hide the button if the user has already voted on meme
+    show the button if there is a meme and currentSubmission.flagcount <= 0
+ 
  
  3. user setting to display objectionable content (show objectionable content)
     Add cell into User setting to switch on the displayed content

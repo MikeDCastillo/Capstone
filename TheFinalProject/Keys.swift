@@ -15,6 +15,7 @@ enum Keys {
     static let avatars = "avatars"
     static let avatarURLString = "avatarURLString"
     static let creationDate = "creationDate"
+    static let flagThreshold = "flagThreshold"
     static let id = "id"
     static let jpegContentType = "image/jpeg"
     static let submissionId = "submissionId"
