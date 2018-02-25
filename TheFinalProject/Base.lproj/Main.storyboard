@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TA6-Vu-CgU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TA6-Vu-CgU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -76,16 +76,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JB-bS-24c">
-                                        <rect key="frame" x="112.5" y="98" width="150.5" height="150.5"/>
+                                        <rect key="frame" x="113" y="98" width="149.5" height="150.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="gcY-AN-FWO">
-                                                <rect key="frame" x="1" y="0.0" width="150" height="150"/>
+                                                <rect key="frame" x="0.5" y="0.0" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gcY-AN-FWO" secondAttribute="height" id="yVd-JZ-LJ8"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmw-V7-fAM">
-                                                <rect key="frame" x="107" y="106" width="44" height="44"/>
+                                                <rect key="frame" x="106.5" y="106" width="44" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Gmw-V7-fAM" secondAttribute="height" id="DoE-yW-U3d"/>
@@ -383,6 +383,13 @@
                                                     <action selector="voteButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="fPI-JU-tPg"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-S6-Vqv">
+                                                <rect key="frame" x="321" y="-6" width="22" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="flagButtonTapped:" destination="476-oA-LXZ" eventType="touchUpInside" id="B7m-4e-Wro"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -455,7 +462,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lJs-Xd-99g">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="oSz-qO-n0N" kind="presentation" modalPresentationStyle="overFullScreen" id="5gR-t0-Q9k"/>
+                                <segue destination="oSz-qO-n0N" kind="presentation" identifier="toSubmissionCreation" modalPresentationStyle="overFullScreen" id="5gR-t0-Q9k"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -465,6 +472,7 @@
                         <outlet property="collectionView" destination="o2d-sh-Mqc" id="VS7-ck-vZw"/>
                         <outlet property="dailyVotesLabel" destination="XyH-C5-AMs" id="LFi-MR-bYo"/>
                         <outlet property="dislikeButton" destination="azg-ZM-QE8" id="XqY-YE-ciG"/>
+                        <outlet property="flagButton" destination="WFg-S6-Vqv" id="s3I-FC-Sbw"/>
                         <outlet property="imageView" destination="NDa-iP-sNC" id="tKT-hc-wlO"/>
                         <outlet property="likeButton" destination="iJX-VH-vkq" id="bxV-6w-CqS"/>
                         <outlet property="nextButton" destination="YTP-Pe-bO7" id="kJp-vb-pzY"/>

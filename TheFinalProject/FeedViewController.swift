@@ -26,6 +26,7 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var dailyVotesLabel: UILabel!
     @IBOutlet var originalVoteConstraints: [NSLayoutConstraint]!
+    @IBOutlet weak var flagButton: UIButton!
     //TODO: - implement activity indicator for UX
 //    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -68,6 +69,7 @@ class FeedViewController: UIViewController {
         setUpCollectionView()
         setupUIButtons()
         memeController.getTodaysMeme()
+        SubmissionController.shared.subscribeToFlagThreshold()
         currentSortType = SortType.recent
         feedbackGenerator = UINotificationFeedbackGenerator()
         
@@ -79,6 +81,11 @@ class FeedViewController: UIViewController {
         dislikeButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         wtfButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        detectSubmissionFlagCount()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -193,6 +200,19 @@ class FeedViewController: UIViewController {
     @IBAction func arrowButtonTapped(_ sender: UIButton) {
         let previous = sender == previousButton
         moveCell(previous: previous)
+    }
+    
+    @IBAction func flagButtonTapped(_ sender: Any) {
+        guard let currentSubmission = currentSubmission() else { return }
+        let alertController = UIAlertController(title: "", message: "Are you sure you want to report this?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let reportAction = UIAlertAction(title: "Report", style: .destructive) { _ in
+            SubmissionController.shared.report(currentSubmission)
+            
+        }
+        alertController.addAction(reportAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     func memeUpdated(_ notification: NSNotification) {
@@ -365,6 +385,19 @@ extension FeedViewController {
         })
     }
     
+    fileprivate func detectSubmissionFlagCount() {
+        guard let currentSubmission = currentSubmission() else { return}
+        
+        switch flagButton.isHidden {
+        case true:
+            _ = currentSubmission.flagCount >= 1
+        case false:
+            _ = currentSubmission.flagCount < 1
+        default:
+            break
+        }
+    }
+
 }
 
 
@@ -377,6 +410,7 @@ extension FeedViewController {
     }
     
 }
+
 
 // MARK: - Data Source Methods
 

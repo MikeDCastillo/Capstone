@@ -14,6 +14,7 @@ class SubmissionController: Controller {
     
     fileprivate let userController = UserController.shared
     
+    var flagThreshold = 2
     var submissions = [Submission](){
         didSet {
             NotificationCenter.default.post(name: .submissionUpdated, object: nil)
@@ -26,8 +27,8 @@ class SubmissionController: Controller {
         firebaseController.save(at: ref, json: ["fake": true], completion: completion)
     }
     
-    func saveSubmission(_ submission: Submission, memeId: String) {
-        var ref = firebaseController.submissionsRef(memeId: memeId)
+    func save(_ submission: Submission) {
+        var ref = firebaseController.submissionsRef(memeId: submission.memeId)
         var updatedSubmission = submission
         if submission.id.isEmpty {
             ref = ref.childByAutoId()
@@ -37,6 +38,19 @@ class SubmissionController: Controller {
         }
         firebaseController.save(at: ref, json: updatedSubmission.json()) { error in
             if let error = error {
+                print(error)
+            }
+        }
+    }
+    
+    func subscribeToFlagThreshold() {
+        let ref = firebaseController.settingsRef
+        firebaseController.subscribe(toRef: ref) { result in
+            switch result {
+            case let .success(json):
+                guard let threshold = json[Keys.flagThreshold] as? Int else { return }
+                self.flagThreshold = threshold
+            case let .failure(error):
                 print(error)
             }
         }
@@ -53,17 +67,8 @@ class SubmissionController: Controller {
                     guard let newSubmission = try? Submission(json: submissionDictionary) else { return }
                     tempSubmissionsArray.append(newSubmission)
                 })
-                self.submissions = tempSubmissionsArray.sorted(by: { $0.creationDate > $1.creationDate })
-                
-                // FIXME: - Add in submission filter based on boolean value if == hasbeenFilter == true
-                
-            
-                self.submissions.filter({ (submission) -> Bool in
-                    submission.hasBeenReported == false
-                })
-                
-                // FIXME: - End of Fix
-                
+                let tempSubmissions = tempSubmissionsArray.filter { $0.flagCount < self.flagThreshold }
+                self.submissions = tempSubmissions.sorted(by: { $0.creationDate > $1.creationDate })
             case .failure(let error):
                 print(error)
             }
@@ -90,7 +95,10 @@ class SubmissionController: Controller {
         }
     }
     
-    func deleteSubmission() {}
-    
-    func reportSubmission() {}
+    func report(_ submission: Submission) {
+        var updatedSubmission = submission
+        updatedSubmission.flagCount += 1
+        save(updatedSubmission)
+    }
+
 }
