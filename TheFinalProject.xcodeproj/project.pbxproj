@@ -18,6 +18,7 @@
 		733297A31EDD289500D9DD6D /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733297A21EDD289500D9DD6D /* SettingsController.swift */; };
 		733297A71EDD411000D9DD6D /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 733297A61EDD411000D9DD6D /* LemonMilk.otf */; };
 		73364C281ED6A83E0057DE6C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73364C271ED6A83E0057DE6C /* UIColorExtension.swift */; };
+		734654A120427EDA00A444F5 /* UIAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734654A020427EDA00A444F5 /* UIAlertHelper.swift */; };
 		734A86191FE0D49C00142BAA /* TODO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734A86181FE0D49C00142BAA /* TODO.swift */; };
 		736E78B51E6CCB56007C7EA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */; };
 		736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */; };
@@ -56,6 +57,7 @@
 		73C2D4431EDABED40037B75B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D4421EDABED40037B75B /* CircleView.swift */; };
 		73EB11C01F192F8900880B1C /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB11BF1F192F8900880B1C /* TermsViewController.swift */; };
 		73EB11C31F192F9800880B1C /* TermsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73EB11C11F192F9800880B1C /* TermsViewController.storyboard */; };
+		73EDA72A2047E6E9000AE49C /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EDA7292047E6E9000AE49C /* AnimationHelper.swift */; };
 		73F132FF1ED5ED6000B102F8 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F132FE1ED5ED6000B102F8 /* ColorView.swift */; };
 		73F3AB991ED153060073456C /* NewSubmissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F3AB981ED153060073456C /* NewSubmissionViewController.swift */; };
 		73FA8CEA1EDD55A100168159 /* AnimationLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */; };
@@ -75,6 +77,7 @@
 		73364C271ED6A83E0057DE6C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		733ED1C11E8DFB5A006DBCCD /* FBLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLogin.swift; sourceTree = "<group>"; };
 		733ED1C31E8E19B8006DBCCD /* TheFinalProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheFinalProject.entitlements; sourceTree = "<group>"; };
+		734654A020427EDA00A444F5 /* UIAlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertHelper.swift; sourceTree = "<group>"; };
 		734A86181FE0D49C00142BAA /* TODO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODO.swift; sourceTree = "<group>"; };
 		736E78B41E6CCB56007C7EA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		736E78B61E6CCB94007C7EA8 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseController.swift; path = ../FirebaseController.swift; sourceTree = "<group>"; };
@@ -115,6 +118,7 @@
 		73C2D4421EDABED40037B75B /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		73EB11BF1F192F8900880B1C /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		73EB11C21F192F9800880B1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = TermsViewController.storyboard; sourceTree = "<group>"; };
+		73EDA7292047E6E9000AE49C /* AnimationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		73F132FE1ED5ED6000B102F8 /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		73F3AB981ED153060073456C /* NewSubmissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSubmissionViewController.swift; sourceTree = "<group>"; };
 		73FA8CE91EDD55A100168159 /* AnimationLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationLaunchViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				73BDFCD71E9365C70019CB57 /* NSNotification+Meme.swift */,
 				73A6C7251E862B3300751051 /* DateHelper.swift */,
 				7332979C1EDBE18A00D9DD6D /* Keys.swift */,
+				734654A020427EDA00A444F5 /* UIAlertHelper.swift */,
+				73EDA7292047E6E9000AE49C /* AnimationHelper.swift */,
 				733297A61EDD411000D9DD6D /* LemonMilk.otf */,
 				737241511E4EBFD6006F6E49 /* Info.plist */,
 				7372414C1E4EBFD6006F6E49 /* Assets.xcassets */,
@@ -426,6 +432,7 @@
 				7384B4871EBADF40005F4E4B /* NetworkController+Meme.swift in Sources */,
 				73FA8CEA1EDD55A100168159 /* AnimationLaunchViewController.swift in Sources */,
 				736E78B71E6CCB94007C7EA8 /* FirebaseController.swift in Sources */,
+				73EDA72A2047E6E9000AE49C /* AnimationHelper.swift in Sources */,
 				73A6C7261E862B3300751051 /* DateHelper.swift in Sources */,
 				733297A31EDD289500D9DD6D /* SettingsController.swift in Sources */,
 				734A86191FE0D49C00142BAA /* TODO.swift in Sources */,
@@ -438,6 +445,7 @@
 				737241461E4EBFD6006F6E49 /* AppDelegate.swift in Sources */,
 				73B5A1BE1E6CBB0B00ED8EDB /* Vote.swift in Sources */,
 				73364C281ED6A83E0057DE6C /* UIColorExtension.swift in Sources */,
+				734654A120427EDA00A444F5 /* UIAlertHelper.swift in Sources */,
 				733297A11EDD0B4B00D9DD6D /* SortType.swift in Sources */,
 				73BDFCDC1E9458400019CB57 /* NetworkController.swift in Sources */,
 				73F132FF1ED5ED6000B102F8 /* ColorView.swift in Sources */,
