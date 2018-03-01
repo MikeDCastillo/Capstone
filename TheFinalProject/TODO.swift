@@ -17,7 +17,7 @@
 
 (X) 1. change the model. Submission needs to have a flag count: Int
  
- 2. Put flag button in UI. (press the button, count is upped by 1)
+(X) 2. Put flag button in UI. (press the button, count is upped by 1)
     Create func that ups the Submission flagCount
  optional - alert controller for flagging button in UI
  optional - first time someone flags content, the default is hidden

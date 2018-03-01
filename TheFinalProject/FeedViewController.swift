@@ -205,14 +205,16 @@ class FeedViewController: UIViewController {
     @IBAction func flagButtonTapped(_ sender: Any) {
         guard let currentSubmission = currentSubmission() else { return }
         let alertController = UIAlertController(title: "", message: "Are you sure you want to report this?", preferredStyle: .alert)
+        let successAlert = UIAlertController(title: "Submission Reported", message: "Will be taken down within 24 hours", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let reportAction = UIAlertAction(title: "Report", style: .destructive) { _ in
             SubmissionController.shared.report(currentSubmission)
-            
+            self.present(successAlert, animated: true, completion: nil)
+            successAlert.dismissAfterDelay(on: successAlert, with: 100)
         }
         alertController.addAction(reportAction)
         alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
     
     func memeUpdated(_ notification: NSNotification) {
